@@ -78,7 +78,6 @@
 				27A15F89B28F53579E485F78 /* Pods-Kitchen Buddy.debug.xcconfig */,
 				D506B2F23D92F9F60C36AC2E /* Pods-Kitchen Buddy.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -148,6 +147,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA53173929D6267A007B6953 /* Build configuration list for PBXNativeTarget "Kitchen Buddy" */;
 			buildPhases = (
+				8B8A386529DCC41A00998907 /* SwiftLint */,
 				D1C87718A86C6D1E13287BF3 /* [CP] Check Pods Manifest.lock */,
 				EA53171E29D62677007B6953 /* Sources */,
 				EA53171F29D62677007B6953 /* Frameworks */,
@@ -209,6 +209,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		8B8A386529DCC41A00998907 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		D1C87718A86C6D1E13287BF3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
