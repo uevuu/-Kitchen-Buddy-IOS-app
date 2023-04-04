@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		483220E19606E398079478C4 /* Pods_Kitchen_Buddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92939CAB51556954A209707 /* Pods_Kitchen_Buddy.framework */; };
 		EA53172629D62677007B6953 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA53172529D62677007B6953 /* AppDelegate.swift */; };
 		EA53172829D62677007B6953 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA53172729D62677007B6953 /* SceneDelegate.swift */; };
 		EA53172A29D62677007B6953 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA53172929D62677007B6953 /* ViewController.swift */; };
@@ -27,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27A15F89B28F53579E485F78 /* Pods-Kitchen Buddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kitchen Buddy.debug.xcconfig"; path = "Target Support Files/Pods-Kitchen Buddy/Pods-Kitchen Buddy.debug.xcconfig"; sourceTree = "<group>"; };
+		A92939CAB51556954A209707 /* Pods_Kitchen_Buddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kitchen_Buddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D506B2F23D92F9F60C36AC2E /* Pods-Kitchen Buddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kitchen Buddy.release.xcconfig"; path = "Target Support Files/Pods-Kitchen Buddy/Pods-Kitchen Buddy.release.xcconfig"; sourceTree = "<group>"; };
 		EA53172229D62677007B6953 /* Kitchen Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kitchen Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA53172529D62677007B6953 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA53172729D62677007B6953 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,17 +57,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				483220E19606E398079478C4 /* Pods_Kitchen_Buddy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		97594CE8A6075D286FD53F7A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A92939CAB51556954A209707 /* Pods_Kitchen_Buddy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC56DAEB262E5DAC9A4C0586 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				27A15F89B28F53579E485F78 /* Pods-Kitchen Buddy.debug.xcconfig */,
+				D506B2F23D92F9F60C36AC2E /* Pods-Kitchen Buddy.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		EA53171929D62677007B6953 = {
 			isa = PBXGroup;
 			children = (
 				EA53172429D62677007B6953 /* Kitchen Buddy */,
 				EA53172329D62677007B6953 /* Products */,
+				BC56DAEB262E5DAC9A4C0586 /* Pods */,
+				97594CE8A6075D286FD53F7A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,9 +148,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA53173929D6267A007B6953 /* Build configuration list for PBXNativeTarget "Kitchen Buddy" */;
 			buildPhases = (
+				D1C87718A86C6D1E13287BF3 /* [CP] Check Pods Manifest.lock */,
 				EA53171E29D62677007B6953 /* Sources */,
 				EA53171F29D62677007B6953 /* Frameworks */,
 				EA53172029D62677007B6953 /* Resources */,
+				F914C7572DC8B25B50178E4D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,6 +207,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D1C87718A86C6D1E13287BF3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Kitchen Buddy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F914C7572DC8B25B50178E4D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kitchen Buddy/Pods-Kitchen Buddy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Kitchen Buddy/Pods-Kitchen Buddy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Kitchen Buddy/Pods-Kitchen Buddy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EA53171E29D62677007B6953 /* Sources */ = {
@@ -334,6 +403,7 @@
 		};
 		EA53173A29D6267A007B6953 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27A15F89B28F53579E485F78 /* Pods-Kitchen Buddy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -360,6 +430,7 @@
 		};
 		EA53173B29D6267A007B6953 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D506B2F23D92F9F60C36AC2E /* Pods-Kitchen Buddy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
