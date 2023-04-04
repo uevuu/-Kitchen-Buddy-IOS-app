@@ -147,8 +147,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA53173929D6267A007B6953 /* Build configuration list for PBXNativeTarget "Kitchen Buddy" */;
 			buildPhases = (
-				D1C87718A86C6D1E13287BF3 /* [CP] Check Pods Manifest.lock */,
 				8B8A386529DCC41A00998907 /* SwiftLint */,
+				D1C87718A86C6D1E13287BF3 /* [CP] Check Pods Manifest.lock */,
 				EA53171E29D62677007B6953 /* Sources */,
 				EA53171F29D62677007B6953 /* Frameworks */,
 				EA53172029D62677007B6953 /* Resources */,
