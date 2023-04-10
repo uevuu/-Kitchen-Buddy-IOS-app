@@ -88,3 +88,8 @@ private_over_fileprivate:
 
 vertical_whitespace:
   max_empty_lines: 1
+
+function_parameter_count:
+  warning: 17
+  error: 20
+

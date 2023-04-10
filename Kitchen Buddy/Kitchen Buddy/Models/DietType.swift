@@ -1,14 +1,14 @@
 enum DietType: String {
-    case NotDiet = ""
-    case GlutenFree = "Gluten Free"
-    case Ketogenic
-    case Vegetarian
-    case LactoVegetarian = "Lacto-Vegetarian"
-    case OvoVegetarian = "Ovo-Vegetarian"
-    case Vegan
-    case Pescetarian
-    case Paleo
-    case Primal
-    case LowFODMAP = "Low FODMAP"
-    case Whole30
+    case notDiet = ""
+    case glutenFree = "Gluten Free"
+    case ketogenic = "Ketogenic"
+    case vegetarian = "Vegetarian"
+    case lactoVegetarian = "Lacto-Vegetarian"
+    case ovoVegetarian = "Ovo-Vegetarian"
+    case vegan = "Vegan"
+    case pescetarian = "Pescetarian"
+    case paleo = "Paleo"
+    case primal = "Primal"
+    case lowFODMAP = "Low FODMAP"
+    case whole30 = "Whole30"
 }

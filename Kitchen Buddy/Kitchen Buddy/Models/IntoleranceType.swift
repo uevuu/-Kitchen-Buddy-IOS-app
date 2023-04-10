@@ -1,15 +1,15 @@
 enum IntoleranceType: String {
-    case NotIntolerance = ""
-    case Dairy
-    case Egg
-    case Gluten
-    case Grain
-    case Peanut
-    case Seafood
-    case Sesame
-    case Shellfish
-    case Soy
-    case Sulfite
-    case TreeNut = "Tree nut"
-    case Wheat
+    case notIntolerance = ""
+    case dairy = "Dairy"
+    case egg = "Egg"
+    case gluten = "Gluten"
+    case grain = "Grain"
+    case peanut = "Peanut"
+    case seafood = "Seafood"
+    case sesame = "Sesame"
+    case shellfish = "Shellfish"
+    case soy = "Soy"
+    case sulfite = "Sulfite"
+    case treeNut = "Tree nut"
+    case wheat = "Wheat"
 }

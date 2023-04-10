@@ -34,4 +34,3 @@ struct Equipment: Codable {
     let name: String
     let image: String
 }
-

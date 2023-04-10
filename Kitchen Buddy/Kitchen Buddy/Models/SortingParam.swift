@@ -1,9 +1,6 @@
 enum SortingParam: String {
-    case None = ""
-    case Price = "price"
-    case Popularity = "popularity"
-    case Time = "time"
+    case none = ""
+    case price = "price"
+    case popularity = "popularity"
+    case time = "time"
 }
-
-
-
