@@ -4,8 +4,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .brown
+        
+        let service = NetworkService()
                 
-        NetworkService.shared.createRequest(
+        service.createRequest(
             target: .getIngredients(
                 letters: "ban",
                 offset: 12
@@ -18,7 +20,7 @@ class ViewController: UIViewController {
             }
         }
 
-        NetworkService.shared.createRequest(target: .getRandomRecipes) { (result: Result<RandomRecipes, Error>) in
+        service.createRequest(target: .getRandomRecipes) { (result: Result<RandomRecipes, Error>) in
             switch result {
             case let .success(ingredients):
                 print(ingredients)
@@ -27,7 +29,7 @@ class ViewController: UIViewController {
             }
         }
 
-        NetworkService.shared.createRequest(target: .getRecipeInformation(recipeId: 6543)) { (result: Result<Recipe, Error>) in
+        service.createRequest(target: .getRecipeInformation(recipeId: 6543)) { (result: Result<Recipe, Error>) in
             switch result {
             case let .success(ingredients):
                 print(ingredients)
@@ -36,7 +38,7 @@ class ViewController: UIViewController {
             }
         }
 
-        NetworkService.shared.createRequest(target: .getWines(sortName: "merlot")) { (result: Result<Wines, Error>) in
+        service.createRequest(target: .getWines(sortName: "merlot")) { (result: Result<Wines, Error>) in
             switch result {
             case let .success(ingredients):
                 print(ingredients)
@@ -45,7 +47,7 @@ class ViewController: UIViewController {
             }
         }
 
-        NetworkService.shared.createRequest(
+        service.createRequest(
             target: .getRecipes(
                 query: "Af",
                 includeIngredients: ["water, carrot"],
