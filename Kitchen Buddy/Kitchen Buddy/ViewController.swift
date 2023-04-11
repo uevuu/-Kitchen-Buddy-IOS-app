@@ -5,7 +5,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .brown
                 
-        NetworkService.shared.getIngredients(letters: "ap", offset: 14) { result in
+        NetworkService.shared.createRequest(
+            target: .getIngredients(
+                letters: "ban",
+                offset: 12
+        )) { (result: Result<FoundIngredients, Error>) in
             switch result {
             case let .success(ingredients):
                 print(ingredients)
@@ -14,7 +18,7 @@ class ViewController: UIViewController {
             }
         }
 
-        NetworkService.shared.getRandomRecipes { result in
+        NetworkService.shared.createRequest(target: .getRandomRecipes) { (result: Result<RandomRecipes, Error>) in
             switch result {
             case let .success(ingredients):
                 print(ingredients)
@@ -23,7 +27,7 @@ class ViewController: UIViewController {
             }
         }
 
-        NetworkService.shared.getRecipeInformation(recipeId: 6543) { result in
+        NetworkService.shared.createRequest(target: .getRecipeInformation(recipeId: 6543)) { (result: Result<Recipe, Error>) in
             switch result {
             case let .success(ingredients):
                 print(ingredients)
@@ -32,7 +36,7 @@ class ViewController: UIViewController {
             }
         }
 
-        NetworkService.shared.getWines(sortName: "merlot") { result in
+        NetworkService.shared.createRequest(target: .getWines(sortName: "merlot")) { (result: Result<Wines, Error>) in
             switch result {
             case let .success(ingredients):
                 print(ingredients)
@@ -41,23 +45,25 @@ class ViewController: UIViewController {
             }
         }
 
-        NetworkService.shared.getRecipes(
-            query: "Af",
-            includeIngredients: ["water, carrot"],
-            sortBy: .none,
-            cusines: [],
-            diet: .notDiet,
-            minCalories: 0,
-            maxCalories: 800,
-            minFat: 0,
-            maxFat: 800,
-            minCarbohydrates: 0,
-            maxCarbohydrates: 800,
-            minProtein: 0,
-            maxProtein: 800,
-            time: 50,
-            intolerances: [.gluten]
-        ) { result in
+        NetworkService.shared.createRequest(
+            target: .getRecipes(
+                query: "Af",
+                includeIngredients: ["water, carrot"],
+                sortBy: .none,
+                cusines: [],
+                diet: .notDiet,
+                minCalories: 0,
+                maxCalories: 800,
+                minFat: 0,
+                maxFat: 800,
+                minCarbohydrates: 0,
+                maxCarbohydrates: 800,
+                minProtein: 0,
+                maxProtein: 800,
+                time: 50,
+                intolerances: [.gluten]
+            )
+        ) { (result: Result<SearchRecipes, Error>) in
             switch result {
             case let .success(ingredients):
                 print(ingredients)
