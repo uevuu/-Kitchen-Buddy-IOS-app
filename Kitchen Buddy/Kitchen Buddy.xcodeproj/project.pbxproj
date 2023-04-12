@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		483220E19606E398079478C4 /* Pods_Kitchen_Buddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92939CAB51556954A209707 /* Pods_Kitchen_Buddy.framework */; };
+		8B32FE7029E76415009E9B26 /* RecipesRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B32FE6F29E76415009E9B26 /* RecipesRequestModel.swift */; };
 		8BD4685B29E2C10F0008F642 /* MoyaAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD4685A29E2C10F0008F642 /* MoyaAPIService.swift */; };
 		EA53172629D62677007B6953 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA53172529D62677007B6953 /* AppDelegate.swift */; };
 		EA53172829D62677007B6953 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA53172729D62677007B6953 /* SceneDelegate.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		27A15F89B28F53579E485F78 /* Pods-Kitchen Buddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kitchen Buddy.debug.xcconfig"; path = "Target Support Files/Pods-Kitchen Buddy/Pods-Kitchen Buddy.debug.xcconfig"; sourceTree = "<group>"; };
+		8B32FE6F29E76415009E9B26 /* RecipesRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesRequestModel.swift; sourceTree = "<group>"; };
 		8BD4685A29E2C10F0008F642 /* MoyaAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaAPIService.swift; sourceTree = "<group>"; };
 		A92939CAB51556954A209707 /* Pods_Kitchen_Buddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kitchen_Buddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D506B2F23D92F9F60C36AC2E /* Pods-Kitchen Buddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kitchen Buddy.release.xcconfig"; path = "Target Support Files/Pods-Kitchen Buddy/Pods-Kitchen Buddy.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				EAD6AFED29D77D5D00BD7464 /* DietType.swift */,
 				EAD6AFEB29D77BD900BD7464 /* SortingParam.swift */,
 				EAD6AFEF29D781D000BD7464 /* MealTypes.swift */,
+				8B32FE6F29E76415009E9B26 /* RecipesRequestModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				EA53172629D62677007B6953 /* AppDelegate.swift in Sources */,
 				EA53172829D62677007B6953 /* SceneDelegate.swift in Sources */,
 				EAD6AFE929D77B6700BD7464 /* IntoleranceType.swift in Sources */,
+				8B32FE7029E76415009E9B26 /* RecipesRequestModel.swift in Sources */,
 				EAD6AFE329D729F600BD7464 /* FoundIngredients.swift in Sources */,
 				EA53174129D63187007B6953 /* NetworkService.swift in Sources */,
 				EAD6AFE729D778A700BD7464 /* CuisineType.swift in Sources */,

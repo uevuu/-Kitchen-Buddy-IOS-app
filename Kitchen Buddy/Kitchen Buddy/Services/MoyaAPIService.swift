@@ -12,60 +12,7 @@ enum MoyaAPIService {
     case getWines(sortName: String)
     case getIngredients(letters: String, offset: Int)
     case getRecipeInformation(recipeId: Int)
-    case getRecipes(
-        query: String?,
-        includeIngredients: [String],
-        sortBy: SortingParam,
-        cusines: [CuisineType],
-        diet: DietType,
-        minCalories: Int,
-        maxCalories: Int,
-        minFat: Int,
-        maxFat: Int,
-        minCarbohydrates: Int,
-        maxCarbohydrates: Int,
-        minProtein: Int,
-        maxProtein: Int,
-        time: Int,
-        intolerances: [IntoleranceType]
-    )
-    
-    private func complexSearchParameters(
-        includeIngredients: [String],
-        sortBy: SortingParam,
-        cusines: [CuisineType],
-        diet: DietType,
-        minCalories: Int,
-        maxCalories: Int,
-        minFat: Int,
-        maxFat: Int,
-        minCarbohydrates: Int,
-        maxCarbohydrates: Int,
-        minProtein: Int,
-        maxProtein: Int,
-        time: Int,
-        intolerances: [IntoleranceType]
-    ) -> [String: Any] {
-        let cusinesString = cusines.map { $0.rawValue } .joined(separator: ",")
-        let intolerancesString = intolerances.map { $0.rawValue } .joined(separator: ",")
-        let includeIngredientsString = includeIngredients.joined(separator: ",")
-        return [
-            "includeIngredients": includeIngredientsString,
-            "sort": sortBy,
-            "cuisine": cusinesString,
-            "diet": diet,
-            "intolerances": intolerancesString,
-            "maxReadyTime": time,
-            "minCarbs": minCarbohydrates,
-            "maxCarbs": maxCarbohydrates,
-            "minProtein": minProtein,
-            "maxProtein": maxProtein,
-            "minCalories": minCalories,
-            "maxCalories": maxCalories,
-            "minFat": minFat,
-            "maxFat": maxFat
-        ]
-    }
+    case getRecipes(recipesRequestModel: RecipesRequestModel)
 }
 
 extension MoyaAPIService: TargetType {
@@ -98,43 +45,27 @@ extension MoyaAPIService: TargetType {
     
     var task: Task {
         switch self {
-        case .getRecipes(
-            let query,
-            let includeIngredients,
-            let sortBy,
-            let cusines,
-            let diet,
-            let minCalories,
-            let maxCalories,
-            let minFat,
-            let maxFat,
-            let minCarbohydrates,
-            let maxCarbohydrates,
-            let minProtein,
-            let maxProtein,
-            let time,
-            let intolerances
-        ):
-            let cusinesString = cusines.map { $0.rawValue } .joined(separator: ",")
-            let intolerancesString = intolerances.map { $0.rawValue } .joined(separator: ",")
-            let includeIngredientsString = includeIngredients.joined(separator: ",")
+        case .getRecipes( let recipesRequestModel):
+            let cusinesString = recipesRequestModel.cusines.map { $0.rawValue } .joined(separator: ",")
+            let intolerancesString = recipesRequestModel.intolerances.map { $0.rawValue } .joined(separator: ",")
+            let includeIngredientsString = recipesRequestModel.includeIngredients.joined(separator: ",")
             return .requestParameters(
                 parameters: [
-                    "query": query ?? "",
+                    "query": recipesRequestModel.query ?? "",
                     "includeIngredients": includeIngredientsString,
-                    "sort": sortBy,
+                    "sort": recipesRequestModel.sortBy,
                     "cuisine": cusinesString,
-                    "diet": diet,
+                    "diet": recipesRequestModel.diet,
                     "intolerances": intolerancesString,
-                    "maxReadyTime": time,
-                    "minCarbs": minCarbohydrates,
-                    "maxCarbs": maxCarbohydrates,
-                    "minProtein": minProtein,
-                    "maxProtein": maxProtein,
-                    "minCalories": minCalories,
-                    "maxCalories": maxCalories,
-                    "minFat": minFat,
-                    "maxFat": maxFat
+                    "maxReadyTime": recipesRequestModel.time,
+                    "minCarbs": recipesRequestModel.minCarbohydrates,
+                    "maxCarbs": recipesRequestModel.maxCarbohydrates,
+                    "minProtein": recipesRequestModel.minProtein,
+                    "maxProtein": recipesRequestModel.maxProtein,
+                    "minCalories": recipesRequestModel.minCalories,
+                    "maxCalories": recipesRequestModel.maxCalories,
+                    "minFat": recipesRequestModel.minFat,
+                    "maxFat": recipesRequestModel.maxFat
                 ],
                 encoding: URLEncoding.queryString)
         case .getRecipeInformation:
