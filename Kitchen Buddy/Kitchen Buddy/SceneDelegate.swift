@@ -2,7 +2,9 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-
+    var appCoordinator: RootCoordinator?
+    var serviceLocator: ServiceLocator?
+    
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
@@ -10,9 +12,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let scene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene)
-        window.rootViewController = ViewController()
-        window.makeKeyAndVisible()
+        let serviceLocator = ServiceLocator()
         self.window = window
+        self.serviceLocator = serviceLocator
+        self.appCoordinator = RootCoordinator(window: window, serviceLocator: serviceLocator)
+        appCoordinator?.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
