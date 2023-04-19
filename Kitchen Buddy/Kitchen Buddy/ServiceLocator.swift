@@ -8,13 +8,12 @@
 import Swinject
 
 protocol ServiceLocatorProtocol {
-    var container: Container { get set }
-    var assembler: Assembler { get set }
+    func getResolver() -> Resolver
 }
 
 final class ServiceLocator: ServiceLocatorProtocol {
-    var container: Container
-    var assembler: Assembler
+    private var container: Container
+    private var assembler: Assembler
     
     init() {
         self.container = Container()
@@ -24,5 +23,9 @@ final class ServiceLocator: ServiceLocatorProtocol {
             ],
             container: container
         )
+    }
+    
+    func getResolver() -> Resolver {
+        return assembler.resolver
     }
 }

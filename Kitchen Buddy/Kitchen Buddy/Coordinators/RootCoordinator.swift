@@ -6,28 +6,24 @@
 //
 
 import UIKit
+import Swinject
 
 // MARK: - AppCoordinatorProtocol
-protocol AppCoordinatorProtocol: Coordinator {
-    init(window: UIWindow, serviceLocator: ServiceLocator)
+protocol AppCoordinatorProtocol: FlowCoordinatorProtocol {
+    init(window: UIWindow, resolver: Resolver)
     func showLoginFlow()
     func showMainFlow()
 }
 
 // MARK: - AppCoordinator
 final class RootCoordinator: AppCoordinatorProtocol {
-    var window: UIWindow
-    var serviceLocator: ServiceLocator
-    var childCoordinators: [Coordinator] = []
+    private var window: UIWindow
+    private var resolver: Resolver
+    private var childCoordinators: [FlowCoordinatorProtocol] = []
     
-    init(window: UIWindow, serviceLocator: ServiceLocator) {
+    init(window: UIWindow, resolver: Resolver) {
         self.window = window
-        self.serviceLocator = serviceLocator
-    }
-    
-    func start() {
-        window.makeKeyAndVisible()
-        showMainFlow()
+        self.resolver = resolver
     }
     
     func showLoginFlow() {
@@ -35,8 +31,20 @@ final class RootCoordinator: AppCoordinatorProtocol {
     }
     
     func showMainFlow() {
-        let tabBarCoordinator = TabBarCoordinator(window: window, serviceLocator: serviceLocator)
-        tabBarCoordinator.start()
+        let tabBarCoordinator = TabBarCoordinator(window: window, resolver: resolver)
+        tabBarCoordinator.start(animated: false)
         childCoordinators.append(tabBarCoordinator)
+    }
+    
+    func start(animated: Bool) {
+        window.makeKeyAndVisible()
+        showMainFlow()
+    }
+    
+    func finish(animated: Bool) {
+        childCoordinators.forEach { coordinator in
+            coordinator.finish(animated: false)
+        }
+        childCoordinators.removeAll()
     }
 }

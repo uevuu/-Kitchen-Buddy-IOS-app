@@ -8,23 +8,16 @@
 import UIKit
 import Swinject
 
-// MARK: - MainBuilderProtocol
-protocol MainBuilderProtocol {
-    var serviceLocator: ServiceLocator { get set }
-    init(_ serviceLocator: ServiceLocator)
-    func build() -> MainViewController
-}
-
 // MARK: - MainBuilder
-final class MainBuilder: MainBuilderProtocol {
-    var serviceLocator: ServiceLocator
+final class MainBuilder: ModuleBuilderProtocol {    
+    private var resolver: Resolver
     
-    init(_ serviceLocator: ServiceLocator) {
-        self.serviceLocator = serviceLocator
+    init(_ resolver: Resolver) {
+        self.resolver = resolver
     }
     
-    func build() -> MainViewController {
-        let networkService = serviceLocator.container.resolve(NetworkService.self)
+    func build() -> UIViewController {
+        let networkService = resolver.resolve(NetworkService.self)
         let mainViewModel = MainViewModel(networkService: networkService ?? NetworkService())
         return MainViewController(viewModel: mainViewModel)
     }

@@ -2,8 +2,8 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    var appCoordinator: RootCoordinator?
-    var serviceLocator: ServiceLocator?
+    private var appCoordinator: RootCoordinator?
+    private var serviceLocator: ServiceLocator?
     
     func scene(
         _ scene: UIScene,
@@ -15,8 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let serviceLocator = ServiceLocator()
         self.window = window
         self.serviceLocator = serviceLocator
-        self.appCoordinator = RootCoordinator(window: window, serviceLocator: serviceLocator)
-        appCoordinator?.start()
+        self.appCoordinator = RootCoordinator(window: window, resolver: serviceLocator.getResolver())
+        appCoordinator?.start(animated: true)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -9,33 +9,39 @@ import UIKit
 import Swinject
 
 // MARK: - TabBarCoordinatorProtocol
-protocol TabBarCoordinatorProtocol: Coordinator {
-    var tabBarController: UITabBarController { get set }
-    init(window: UIWindow, serviceLocator: ServiceLocator)
+protocol TabBarCoordinatorProtocol: FlowCoordinatorProtocol {
+    init(window: UIWindow, resolver: Resolver)
 }
 
 // MARK: - TabBarCoordinator
 final class TabBarCoordinator: TabBarCoordinatorProtocol {
-    var serviceLocator: ServiceLocator
-    var tabBarController: UITabBarController
-    var childCoordinators: [Coordinator] = []
+    private var tabBarController = UITabBarController()
+    private var window: UIWindow
+    private var resolver: Resolver
+    private var childCoordinators: [FlowCoordinatorProtocol] = []
     
-    init(window: UIWindow, serviceLocator: ServiceLocator) {
-        let tabBarController = UITabBarController()
-        window.rootViewController = tabBarController
-        self.tabBarController = tabBarController
-        self.serviceLocator = serviceLocator
+    init(window: UIWindow, resolver: Resolver) {
+        self.window = window
+        self.resolver = resolver
     }
     
-    func start() {
-        let mainCoordinator = MainCoordinator(tabBarController, serviceLocator)
-        let searchCoordinator = SearchCoordinator(tabBarController, serviceLocator)
-        let favouriteCoordinator = FavouriteCoordinator(tabBarController, serviceLocator)
-        mainCoordinator.start()
-        searchCoordinator.start()
-        favouriteCoordinator.start()
+    func start(animated: Bool) {
+        window.rootViewController = tabBarController
+        let mainCoordinator = MainCoordinator(tabBarController: tabBarController, resolver: resolver)
+        let searchCoordinator = SearchCoordinator(tabBarController: tabBarController, resolver: resolver)
+        let favouriteCoordinator = FavouriteCoordinator(tabBarController: tabBarController, resolver: resolver)
+        mainCoordinator.start(animated: false)
+        searchCoordinator.start(animated: false)
+        favouriteCoordinator.start(animated: false)
         childCoordinators.append(mainCoordinator)
         childCoordinators.append(searchCoordinator)
         childCoordinators.append(favouriteCoordinator)
+    }
+    
+    func finish(animated: Bool) {
+        childCoordinators.forEach { coordinator in
+            coordinator.finish(animated: false)
+        }
+        childCoordinators.removeAll()
     }
 }

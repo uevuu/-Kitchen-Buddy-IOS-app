@@ -10,13 +10,14 @@
 		483220E19606E398079478C4 /* Pods_Kitchen_Buddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92939CAB51556954A209707 /* Pods_Kitchen_Buddy.framework */; };
 		8B2E7CF429EE90170091E129 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E7CF329EE90170091E129 /* ServiceLocator.swift */; };
 		8B2E7CF729EE917B0091E129 /* NetworkAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E7CF629EE917B0091E129 /* NetworkAssembly.swift */; };
+		8B2E7CFD29EFFA360091E129 /* ModuleBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E7CFC29EFFA350091E129 /* ModuleBuilderProtocol.swift */; };
 		8B32FE7029E76415009E9B26 /* RecipesRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B32FE6F29E76415009E9B26 /* RecipesRequestModel.swift */; };
 		8BD1983329EBF6E500A8F8CE /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1983229EBF6E500A8F8CE /* MainBuilder.swift */; };
 		8BD1983B29ECA3D700A8F8CE /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1983A29ECA3D700A8F8CE /* MainViewModel.swift */; };
 		8BD1983D29ECA40B00A8F8CE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1983C29ECA40B00A8F8CE /* MainViewController.swift */; };
 		8BD4685B29E2C10F0008F642 /* MoyaAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD4685A29E2C10F0008F642 /* MoyaAPIService.swift */; };
 		8BF901B129E97FCB00488B17 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF901B029E97FCB00488B17 /* RootCoordinator.swift */; };
-		8BF901B329E9A4F200488B17 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF901B229E9A4F200488B17 /* Coordinator.swift */; };
+		8BF901B329E9A4F200488B17 /* FlowCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF901B229E9A4F200488B17 /* FlowCoordinatorProtocol.swift */; };
 		8BF901B529E9A85C00488B17 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF901B429E9A85C00488B17 /* TabBarCoordinator.swift */; };
 		8BF901B729E9E1D100488B17 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF901B629E9E1D100488B17 /* MainCoordinator.swift */; };
 		8BF901B929E9E53600488B17 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF901B829E9E53600488B17 /* SearchCoordinator.swift */; };
@@ -43,13 +44,14 @@
 		27A15F89B28F53579E485F78 /* Pods-Kitchen Buddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kitchen Buddy.debug.xcconfig"; path = "Target Support Files/Pods-Kitchen Buddy/Pods-Kitchen Buddy.debug.xcconfig"; sourceTree = "<group>"; };
 		8B2E7CF329EE90170091E129 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		8B2E7CF629EE917B0091E129 /* NetworkAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAssembly.swift; sourceTree = "<group>"; };
+		8B2E7CFC29EFFA350091E129 /* ModuleBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilderProtocol.swift; sourceTree = "<group>"; };
 		8B32FE6F29E76415009E9B26 /* RecipesRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesRequestModel.swift; sourceTree = "<group>"; };
 		8BD1983229EBF6E500A8F8CE /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
 		8BD1983A29ECA3D700A8F8CE /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		8BD1983C29ECA40B00A8F8CE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8BD4685A29E2C10F0008F642 /* MoyaAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaAPIService.swift; sourceTree = "<group>"; };
 		8BF901B029E97FCB00488B17 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
-		8BF901B229E9A4F200488B17 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		8BF901B229E9A4F200488B17 /* FlowCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		8BF901B429E9A85C00488B17 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		8BF901B629E9E1D100488B17 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		8BF901B829E9E53600488B17 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		8BD1983129EBF6C500A8F8CE /* Builders */ = {
 			isa = PBXGroup;
 			children = (
+				8B2E7CFC29EFFA350091E129 /* ModuleBuilderProtocol.swift */,
 				8BD1983229EBF6E500A8F8CE /* MainBuilder.swift */,
 			);
 			path = Builders;
@@ -124,7 +127,7 @@
 		8BF901AF29E97FB300488B17 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				8BF901B229E9A4F200488B17 /* Coordinator.swift */,
+				8BF901B229E9A4F200488B17 /* FlowCoordinatorProtocol.swift */,
 				8BF901B029E97FCB00488B17 /* RootCoordinator.swift */,
 				8BF901B429E9A85C00488B17 /* TabBarCoordinator.swift */,
 				8BF901B629E9E1D100488B17 /* MainCoordinator.swift */,
@@ -361,7 +364,7 @@
 				8BF901BB29E9E56B00488B17 /* FavouriteCoordinator.swift in Sources */,
 				EA53172A29D62677007B6953 /* ViewController.swift in Sources */,
 				EA53172629D62677007B6953 /* AppDelegate.swift in Sources */,
-				8BF901B329E9A4F200488B17 /* Coordinator.swift in Sources */,
+				8BF901B329E9A4F200488B17 /* FlowCoordinatorProtocol.swift in Sources */,
 				EA53172829D62677007B6953 /* SceneDelegate.swift in Sources */,
 				8BF901B529E9A85C00488B17 /* TabBarCoordinator.swift in Sources */,
 				EAD6AFE929D77B6700BD7464 /* IntoleranceType.swift in Sources */,
@@ -370,6 +373,7 @@
 				8BD1983329EBF6E500A8F8CE /* MainBuilder.swift in Sources */,
 				8BF901B729E9E1D100488B17 /* MainCoordinator.swift in Sources */,
 				EAD6AFE329D729F600BD7464 /* FoundIngredients.swift in Sources */,
+				8B2E7CFD29EFFA360091E129 /* ModuleBuilderProtocol.swift in Sources */,
 				8B2E7CF729EE917B0091E129 /* NetworkAssembly.swift in Sources */,
 				EA53174129D63187007B6953 /* NetworkService.swift in Sources */,
 				EAD6AFE729D778A700BD7464 /* CuisineType.swift in Sources */,

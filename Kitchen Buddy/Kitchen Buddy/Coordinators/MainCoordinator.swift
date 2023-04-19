@@ -9,7 +9,7 @@ import UIKit
 import Swinject
 
 // MARK: - MainCoordinatorProtocol
-protocol MainCoordinatorProtocol: Coordinator {
+protocol MainCoordinatorProtocol: FlowCoordinatorProtocol {
     func showAllSelectionRecipes()
     func showAllWinesSort()
     func showRecipe()
@@ -17,23 +17,30 @@ protocol MainCoordinatorProtocol: Coordinator {
 
 // MARK: - MainCoordinator
 final class MainCoordinator: MainCoordinatorProtocol {
-    var serviceLocator: ServiceLocator
-    var navigationController: UINavigationController
-    var childCoordinators: [Coordinator] = []
+    private var resolver: Resolver
+    private var parentTabBarController: UITabBarController
+    private var navigationController = UINavigationController()
+    private var childCoordinators: [FlowCoordinatorProtocol] = []
     
-    init(_ tabBarController: UITabBarController, _ serviceLocator: ServiceLocator) {
-        let mainNavigationController = UINavigationController()
-        tabBarController.viewControllers = [mainNavigationController]
-        self.navigationController = mainNavigationController
-        self.serviceLocator = serviceLocator
+    init(tabBarController: UITabBarController, resolver: Resolver) {
+        self.parentTabBarController = tabBarController
+        self.resolver = resolver
     }
     
-    func start() {
-        let mainBuilder = MainBuilder(serviceLocator)
+    func start(animated: Bool) {
+        parentTabBarController.viewControllers = [navigationController]
+        let mainBuilder = MainBuilder(resolver)
         let viewController = mainBuilder.build()
         navigationController.tabBarItem.title = "Main"
         navigationController.tabBarItem.image = UIImage(systemName: "house")
         navigationController.setViewControllers([viewController], animated: false)
+    }
+    
+    func finish(animated: Bool) {
+        childCoordinators.forEach { coordinator in
+            coordinator.finish(animated: false)
+        }
+        childCoordinators.removeAll()
     }
     
     func showAllSelectionRecipes() {
