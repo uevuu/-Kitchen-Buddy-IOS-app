@@ -10,10 +10,10 @@ import Swinject
 
 // MARK: - TabBarCoordinator
 final class TabBarCoordinator: FlowCoordinatorProtocol {
-    private var tabBarController = UITabBarController()
     private var window: UIWindow
     private var resolver: Resolver
-    private var childCoordinators: [FlowCoordinatorProtocol]?
+    private var tabBarController = UITabBarController()
+    private var childCoordinators: [FlowCoordinatorProtocol] = []
     
     init(window: UIWindow, resolver: Resolver) {
         self.window = window
@@ -21,7 +21,6 @@ final class TabBarCoordinator: FlowCoordinatorProtocol {
     }
     
     func start(animated: Bool) {
-        childCoordinators = []
         window.rootViewController = tabBarController
         let mainCoordinator = MainFlowCoordinator(tabBarController: tabBarController, resolver: resolver)
         let searchCoordinator = SearchFlowCoordinator(tabBarController: tabBarController, resolver: resolver)
@@ -29,15 +28,15 @@ final class TabBarCoordinator: FlowCoordinatorProtocol {
         mainCoordinator.start(animated: false)
         searchCoordinator.start(animated: false)
         favouriteCoordinator.start(animated: false)
-        childCoordinators?.append(mainCoordinator)
-        childCoordinators?.append(searchCoordinator)
-        childCoordinators?.append(favouriteCoordinator)
+        childCoordinators.append(mainCoordinator)
+        childCoordinators.append(searchCoordinator)
+        childCoordinators.append(favouriteCoordinator)
     }
     
     func finish(animated: Bool) {
-        childCoordinators?.forEach { coordinator in
+        childCoordinators.forEach { coordinator in
             coordinator.finish(animated: false)
         }
-        childCoordinators?.removeAll()
+        childCoordinators.removeAll()
     }
 }

@@ -12,7 +12,7 @@ import Swinject
 final class RootCoordinator: FlowCoordinatorProtocol {
     private var window: UIWindow
     private var resolver: Resolver
-    private var childCoordinators: [FlowCoordinatorProtocol]?
+    private var childCoordinators: [FlowCoordinatorProtocol] = []
     
     init(window: UIWindow, resolver: Resolver) {
         self.window = window
@@ -24,10 +24,9 @@ final class RootCoordinator: FlowCoordinatorProtocol {
     }
     
     private func showMainFlow() {
-        childCoordinators = []
         let tabBarCoordinator = TabBarCoordinator(window: window, resolver: resolver)
         tabBarCoordinator.start(animated: false)
-        childCoordinators?.append(tabBarCoordinator)
+        childCoordinators.append(tabBarCoordinator)
     }
     
     func start(animated: Bool) {
@@ -36,9 +35,9 @@ final class RootCoordinator: FlowCoordinatorProtocol {
     }
     
     func finish(animated: Bool) {
-        childCoordinators?.forEach { coordinator in
+        childCoordinators.forEach { coordinator in
             coordinator.finish(animated: false)
         }
-        childCoordinators?.removeAll()
+        childCoordinators.removeAll()
     }
 }
