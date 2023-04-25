@@ -9,7 +9,7 @@ import UIKit
 import Swinject
 
 // MARK: - MainCoordinator
-final class SearchCoordinator: FlowCoordinatorProtocol {
+final class SearchFlowCoordinator: FlowCoordinatorProtocol {
     private var resolver: Resolver
     private weak var parentTabBarController: UITabBarController?
     private var navigationController = UINavigationController()

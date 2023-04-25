@@ -23,9 +23,9 @@ final class TabBarCoordinator: FlowCoordinatorProtocol {
     func start(animated: Bool) {
         childCoordinators = []
         window.rootViewController = tabBarController
-        let mainCoordinator = MainCoordinator(tabBarController: tabBarController, resolver: resolver)
-        let searchCoordinator = SearchCoordinator(tabBarController: tabBarController, resolver: resolver)
-        let favouriteCoordinator = FavouriteCoordinator(tabBarController: tabBarController, resolver: resolver)
+        let mainCoordinator = MainFlowCoordinator(tabBarController: tabBarController, resolver: resolver)
+        let searchCoordinator = SearchFlowCoordinator(tabBarController: tabBarController, resolver: resolver)
+        let favouriteCoordinator = FavouriteFlowCoordinator(tabBarController: tabBarController, resolver: resolver)
         mainCoordinator.start(animated: false)
         searchCoordinator.start(animated: false)
         favouriteCoordinator.start(animated: false)
