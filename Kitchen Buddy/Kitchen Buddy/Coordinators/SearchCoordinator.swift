@@ -8,17 +8,12 @@
 import UIKit
 import Swinject
 
-// MARK: - MainCoordinatorProtocol
-protocol SearchCoordinatorProtocol: FlowCoordinatorProtocol {
-    func showFilter()
-}
-
 // MARK: - MainCoordinator
-final class SearchCoordinator: SearchCoordinatorProtocol {
+final class SearchCoordinator: FlowCoordinatorProtocol {
     private var resolver: Resolver
-    private var parentTabBarController: UITabBarController
+    private weak var parentTabBarController: UITabBarController?
     private var navigationController = UINavigationController()
-    private var childCoordinators: [FlowCoordinatorProtocol] = []
+    private var childCoordinators: [FlowCoordinatorProtocol]?
     
     init(tabBarController: UITabBarController, resolver: Resolver) {
         self.parentTabBarController = tabBarController
@@ -26,17 +21,18 @@ final class SearchCoordinator: SearchCoordinatorProtocol {
     }
     
     func start(animated: Bool) {
-        parentTabBarController.viewControllers?.append(navigationController)
+        childCoordinators = []
+        parentTabBarController?.viewControllers?.append(navigationController)
         navigationController.tabBarItem.title = "Search"
         navigationController.tabBarItem.image = UIImage(systemName: "house")
         navigationController.setViewControllers([ViewController()], animated: false)
     }
     
     func finish(animated: Bool) {
-        childCoordinators.forEach { coordinator in
+        childCoordinators?.forEach { coordinator in
             coordinator.finish(animated: false)
         }
-        childCoordinators.removeAll()
+        childCoordinators?.removeAll()
     }
     
     func showFilter() {

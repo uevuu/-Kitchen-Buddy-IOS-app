@@ -8,32 +8,26 @@
 import UIKit
 import Swinject
 
-// MARK: - AppCoordinatorProtocol
-protocol AppCoordinatorProtocol: FlowCoordinatorProtocol {
-    init(window: UIWindow, resolver: Resolver)
-    func showLoginFlow()
-    func showMainFlow()
-}
-
 // MARK: - AppCoordinator
-final class RootCoordinator: AppCoordinatorProtocol {
+final class RootCoordinator: FlowCoordinatorProtocol {
     private var window: UIWindow
     private var resolver: Resolver
-    private var childCoordinators: [FlowCoordinatorProtocol] = []
+    private var childCoordinators: [FlowCoordinatorProtocol]?
     
     init(window: UIWindow, resolver: Resolver) {
         self.window = window
         self.resolver = resolver
     }
     
-    func showLoginFlow() {
+    private func showLoginFlow() {
 //        Авторизация будет позже
     }
     
-    func showMainFlow() {
+    private func showMainFlow() {
+        childCoordinators = []
         let tabBarCoordinator = TabBarCoordinator(window: window, resolver: resolver)
         tabBarCoordinator.start(animated: false)
-        childCoordinators.append(tabBarCoordinator)
+        childCoordinators?.append(tabBarCoordinator)
     }
     
     func start(animated: Bool) {
@@ -42,9 +36,9 @@ final class RootCoordinator: AppCoordinatorProtocol {
     }
     
     func finish(animated: Bool) {
-        childCoordinators.forEach { coordinator in
+        childCoordinators?.forEach { coordinator in
             coordinator.finish(animated: false)
         }
-        childCoordinators.removeAll()
+        childCoordinators?.removeAll()
     }
 }

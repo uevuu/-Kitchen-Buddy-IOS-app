@@ -8,19 +8,12 @@
 import UIKit
 import Swinject
 
-// MARK: - MainCoordinatorProtocol
-protocol MainCoordinatorProtocol: FlowCoordinatorProtocol {
-    func showAllSelectionRecipes()
-    func showAllWinesSort()
-    func showRecipe()
-}
-
 // MARK: - MainCoordinator
-final class MainCoordinator: MainCoordinatorProtocol {
+final class MainCoordinator: FlowCoordinatorProtocol {
     private var resolver: Resolver
-    private var parentTabBarController: UITabBarController
+    private weak var parentTabBarController: UITabBarController?
     private var navigationController = UINavigationController()
-    private var childCoordinators: [FlowCoordinatorProtocol] = []
+    private var childCoordinators: [FlowCoordinatorProtocol]?
     
     init(tabBarController: UITabBarController, resolver: Resolver) {
         self.parentTabBarController = tabBarController
@@ -28,7 +21,8 @@ final class MainCoordinator: MainCoordinatorProtocol {
     }
     
     func start(animated: Bool) {
-        parentTabBarController.viewControllers = [navigationController]
+        childCoordinators = []
+        parentTabBarController?.viewControllers = [navigationController]
         let mainBuilder = MainBuilder(resolver)
         let viewController = mainBuilder.build()
         navigationController.tabBarItem.title = "Main"
@@ -37,10 +31,10 @@ final class MainCoordinator: MainCoordinatorProtocol {
     }
     
     func finish(animated: Bool) {
-        childCoordinators.forEach { coordinator in
+        childCoordinators?.forEach { coordinator in
             coordinator.finish(animated: false)
         }
-        childCoordinators.removeAll()
+        childCoordinators?.removeAll()
     }
     
     func showAllSelectionRecipes() {

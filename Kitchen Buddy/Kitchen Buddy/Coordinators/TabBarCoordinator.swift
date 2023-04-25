@@ -8,17 +8,12 @@
 import UIKit
 import Swinject
 
-// MARK: - TabBarCoordinatorProtocol
-protocol TabBarCoordinatorProtocol: FlowCoordinatorProtocol {
-    init(window: UIWindow, resolver: Resolver)
-}
-
 // MARK: - TabBarCoordinator
-final class TabBarCoordinator: TabBarCoordinatorProtocol {
+final class TabBarCoordinator: FlowCoordinatorProtocol {
     private var tabBarController = UITabBarController()
     private var window: UIWindow
     private var resolver: Resolver
-    private var childCoordinators: [FlowCoordinatorProtocol] = []
+    private var childCoordinators: [FlowCoordinatorProtocol]?
     
     init(window: UIWindow, resolver: Resolver) {
         self.window = window
@@ -26,6 +21,7 @@ final class TabBarCoordinator: TabBarCoordinatorProtocol {
     }
     
     func start(animated: Bool) {
+        childCoordinators = []
         window.rootViewController = tabBarController
         let mainCoordinator = MainCoordinator(tabBarController: tabBarController, resolver: resolver)
         let searchCoordinator = SearchCoordinator(tabBarController: tabBarController, resolver: resolver)
@@ -33,15 +29,15 @@ final class TabBarCoordinator: TabBarCoordinatorProtocol {
         mainCoordinator.start(animated: false)
         searchCoordinator.start(animated: false)
         favouriteCoordinator.start(animated: false)
-        childCoordinators.append(mainCoordinator)
-        childCoordinators.append(searchCoordinator)
-        childCoordinators.append(favouriteCoordinator)
+        childCoordinators?.append(mainCoordinator)
+        childCoordinators?.append(searchCoordinator)
+        childCoordinators?.append(favouriteCoordinator)
     }
     
     func finish(animated: Bool) {
-        childCoordinators.forEach { coordinator in
+        childCoordinators?.forEach { coordinator in
             coordinator.finish(animated: false)
         }
-        childCoordinators.removeAll()
+        childCoordinators?.removeAll()
     }
 }
