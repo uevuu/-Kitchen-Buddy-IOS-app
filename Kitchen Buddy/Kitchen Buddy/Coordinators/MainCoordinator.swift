@@ -21,14 +21,19 @@ final class MainFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func start(animated: Bool) {
-        let navigationController = UINavigationController()
-        self.navigationController = navigationController
-        parentTabBarController?.viewControllers = [navigationController]
+        showMain()
+    }
+    
+    func showMain() {
         let mainBuilder = MainBuilder(resolver)
         let viewController = mainBuilder.build()
-        navigationController.tabBarItem.title = "Main"
-        navigationController.tabBarItem.image = UIImage(systemName: "house")
-        navigationController.setViewControllers([viewController], animated: false)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        self.navigationController = navigationController
+        parentTabBarController?.addViewController(
+            viewController: navigationController,
+            title: "Main",
+            image: UIImage(systemName: "house")
+        )
     }
     
     func finish(animated: Bool) {

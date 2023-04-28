@@ -21,12 +21,18 @@ final class FavouriteFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func start(animated: Bool) {
-        let navigationController = UINavigationController()
+        showFavourite()
+    }
+    
+    func showFavourite() {
+        let viewController = ViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
         self.navigationController = navigationController
-        parentTabBarController?.viewControllers?.append(navigationController)
-        navigationController.tabBarItem.title = "Favourite"
-        navigationController.tabBarItem.image = UIImage(systemName: "star")
-        navigationController.setViewControllers([ViewController()], animated: false)
+        parentTabBarController?.addViewController(
+            viewController: viewController,
+            title: "Favourite",
+            image: UIImage(systemName: "star")
+        )
     }
     
     func finish(animated: Bool) {

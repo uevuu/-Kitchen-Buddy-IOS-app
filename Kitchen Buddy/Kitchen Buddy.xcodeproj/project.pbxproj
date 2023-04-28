@@ -12,6 +12,7 @@
 		8B2E7CF729EE917B0091E129 /* NetworkAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E7CF629EE917B0091E129 /* NetworkAssembly.swift */; };
 		8B2E7CFD29EFFA360091E129 /* ModuleBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E7CFC29EFFA350091E129 /* ModuleBuilderProtocol.swift */; };
 		8B32FE7029E76415009E9B26 /* RecipesRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B32FE6F29E76415009E9B26 /* RecipesRequestModel.swift */; };
+		8B8A384C29FBDB09008416CE /* UITabBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A384B29FBDB09008416CE /* UITabBarController+Extensions.swift */; };
 		8BD1983329EBF6E500A8F8CE /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1983229EBF6E500A8F8CE /* MainBuilder.swift */; };
 		8BD1983B29ECA3D700A8F8CE /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1983A29ECA3D700A8F8CE /* MainViewModel.swift */; };
 		8BD1983D29ECA40B00A8F8CE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1983C29ECA40B00A8F8CE /* MainViewController.swift */; };
@@ -46,6 +47,7 @@
 		8B2E7CF629EE917B0091E129 /* NetworkAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAssembly.swift; sourceTree = "<group>"; };
 		8B2E7CFC29EFFA350091E129 /* ModuleBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilderProtocol.swift; sourceTree = "<group>"; };
 		8B32FE6F29E76415009E9B26 /* RecipesRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesRequestModel.swift; sourceTree = "<group>"; };
+		8B8A384B29FBDB09008416CE /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
 		8BD1983229EBF6E500A8F8CE /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
 		8BD1983A29ECA3D700A8F8CE /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		8BD1983C29ECA40B00A8F8CE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -98,11 +100,44 @@
 			path = DependencyAssemblers;
 			sourceTree = "<group>";
 		};
+		8B8A384A29FBDABE008416CE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8B8A384B29FBDB09008416CE /* UITabBarController+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8B8A384D29FBDF26008416CE /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				8B8A385C29FC2B36008416CE /* MainModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		8B8A385C29FC2B36008416CE /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				8B8A385D29FC2B88008416CE /* View */,
+				8BD1983229EBF6E500A8F8CE /* MainBuilder.swift */,
+				8BD1983A29ECA3D700A8F8CE /* MainViewModel.swift */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		8B8A385D29FC2B88008416CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8BD1983C29ECA40B00A8F8CE /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8BD1983129EBF6C500A8F8CE /* Builders */ = {
 			isa = PBXGroup;
 			children = (
 				8B2E7CFC29EFFA350091E129 /* ModuleBuilderProtocol.swift */,
-				8BD1983229EBF6E500A8F8CE /* MainBuilder.swift */,
 			);
 			path = Builders;
 			sourceTree = "<group>";
@@ -110,18 +145,9 @@
 		8BD1983829ECA3AB00A8F8CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8BD1983C29ECA40B00A8F8CE /* MainViewController.swift */,
 				EA53172929D62677007B6953 /* ViewController.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		8BD1983929ECA3C300A8F8CE /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				8BD1983A29ECA3D700A8F8CE /* MainViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		8BF901AF29E97FB300488B17 /* Coordinators */ = {
@@ -175,8 +201,9 @@
 		EA53172429D62677007B6953 /* Kitchen Buddy */ = {
 			isa = PBXGroup;
 			children = (
+				8B8A384D29FBDF26008416CE /* Modules */,
+				8B8A384A29FBDABE008416CE /* Extensions */,
 				8B2E7CF529EE91300091E129 /* DependencyAssemblers */,
-				8BD1983929ECA3C300A8F8CE /* ViewModels */,
 				8BD1983829ECA3AB00A8F8CE /* Views */,
 				8BD1983129EBF6C500A8F8CE /* Builders */,
 				8BF901AF29E97FB300488B17 /* Coordinators */,
@@ -362,6 +389,7 @@
 				EA53173D29D62BE1007B6953 /* RandomRecipes.swift in Sources */,
 				EAD6AFEE29D77D5D00BD7464 /* DietType.swift in Sources */,
 				8BF901BB29E9E56B00488B17 /* FavouriteCoordinator.swift in Sources */,
+				8B8A384C29FBDB09008416CE /* UITabBarController+Extensions.swift in Sources */,
 				EA53172A29D62677007B6953 /* ViewController.swift in Sources */,
 				EA53172629D62677007B6953 /* AppDelegate.swift in Sources */,
 				8BF901B329E9A4F200488B17 /* FlowCoordinatorProtocol.swift in Sources */,

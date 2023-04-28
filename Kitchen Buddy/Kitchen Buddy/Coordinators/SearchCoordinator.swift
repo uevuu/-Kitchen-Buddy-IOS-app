@@ -21,12 +21,18 @@ final class SearchFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func start(animated: Bool) {
-        let navigationController = UINavigationController()
+        showSearch()
+    }
+    
+    func showSearch() {
+        let viewController = ViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
         self.navigationController = navigationController
-        parentTabBarController?.viewControllers?.append(navigationController)
-        navigationController.tabBarItem.title = "Search"
-        navigationController.tabBarItem.image = UIImage(systemName: "magnifyingglass")
-        navigationController.setViewControllers([ViewController()], animated: false)
+        parentTabBarController?.addViewController(
+            viewController: viewController,
+            title: "Search",
+            image: UIImage(systemName: "magnifyingglass")
+        )
     }
     
     func finish(animated: Bool) {
