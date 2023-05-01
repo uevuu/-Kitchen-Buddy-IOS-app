@@ -1,5 +1,5 @@
 //
-//  MainCoordinator.swift
+//  FavouriteFlowCoordinator.swift
 //  Kitchen Buddy
 //
 //  Created by Nikita Marin on 14.04.2023.
@@ -8,8 +8,8 @@
 import UIKit
 import Swinject
 
-// MARK: - MainCoordinator
-final class MainFlowCoordinator: FlowCoordinatorProtocol {
+// MARK: - FavouriteFlowCoordinator
+final class FavouriteFlowCoordinator: FlowCoordinatorProtocol {
     private var resolver: Resolver
     private var childCoordinators: [FlowCoordinatorProtocol] = []
     private weak var parentTabBarController: UITabBarController?
@@ -21,19 +21,24 @@ final class MainFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func start(animated: Bool) {
-        showMain()
+        showFavourite()
     }
     
-    func showMain() {
-        let mainBuilder = MainBuilder(resolver)
-        let viewController = mainBuilder.build()
+    func showFavourite() {
+        let viewController = ViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         self.navigationController = navigationController
         parentTabBarController?.addViewController(
-            viewController: navigationController,
-            title: "Main",
-            image: UIImage(systemName: "house")
+            viewController: viewController,
+            title: "Favourite",
+            image: UIImage(systemName: "star")
         )
+    }
+    
+    func showRecipe() {
+    }
+    
+    func showUserInfo() {
     }
     
     func finish(animated: Bool) {
@@ -41,14 +46,5 @@ final class MainFlowCoordinator: FlowCoordinatorProtocol {
             coordinator.finish(animated: false)
         }
         childCoordinators.removeAll()
-    }
-    
-    func showAllSelectionRecipes() {
-    }
-    
-    func showAllWinesSort() {
-    }
-    
-    func showRecipe() {
     }
 }

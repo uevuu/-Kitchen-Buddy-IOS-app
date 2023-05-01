@@ -10,13 +10,13 @@ import UIKit
 final class MainViewController: UIViewController {
     private var viewModel: MainViewModel
             
-    private var recipeButton: UIButton {
+    private var winesButton: UIButton {
         let button = UIButton()
-        button.frame = CGRect(x: 60, y: 120, width: 100, height: 50)
-        button.setTitle("Recipe", for: .normal)
+        button.frame = CGRect(x: 60, y: 120, width: 200, height: 50)
+        button.setTitle("Go to Wines collection", for: .normal)
         button.backgroundColor = .green
         button.setTitleColor(.blue, for: .normal)
-        button.addTarget(self, action: #selector(recipeTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(winesButtonTapped), for: .touchUpInside)
         return button
     }
     
@@ -32,10 +32,10 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        view.addSubview(recipeButton)
+        view.addSubview(winesButton)
     }
         
-    @objc func recipeTapped(sender: UIButton!) {
-        viewModel.seeRecipeInfo()
+    @objc func winesButtonTapped() {
+        viewModel.showAllWinesThisSort()
     }
 }

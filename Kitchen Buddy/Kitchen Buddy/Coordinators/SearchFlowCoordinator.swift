@@ -1,5 +1,5 @@
 //
-//  SearchCoordinator.swift
+//  SearchFlowCoordinator.swift
 //  Kitchen Buddy
 //
 //  Created by Nikita Marin on 14.04.2023.
@@ -8,7 +8,7 @@
 import UIKit
 import Swinject
 
-// MARK: - MainCoordinator
+// MARK: - SearchFlowCoordinator
 final class SearchFlowCoordinator: FlowCoordinatorProtocol {
     private var resolver: Resolver
     private var childCoordinators: [FlowCoordinatorProtocol] = []
