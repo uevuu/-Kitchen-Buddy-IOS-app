@@ -42,20 +42,6 @@ final class MainFlowCoordinator: FlowCoordinatorProtocol {
         }
         childCoordinators.removeAll()
     }
-    
-    func showSettings() {
-        // Будет let viewController = someBuilder.build()
-        
-    }
-    
-    func showAllSelectionRecipes() {
-    }
-    
-    func showRecipe() {
-        // Будет let viewController = someBuilder.build()
-        let viewController = ViewController()
-        navigationController?.pushViewController(viewController, animated: true)
-    }
 }
 
 extension MainFlowCoordinator: MainModuleOutput {
@@ -66,5 +52,22 @@ extension MainFlowCoordinator: MainModuleOutput {
         )
         winesFlowCoordinator.start(animated: true)
         childCoordinators.append(winesFlowCoordinator)
+    }
+    
+    func showRecipeInfo() {
+        let recipeFlowCoordinator = RecipeFlowCoordinator(
+            navigationController: navigationController,
+            resolver: resolver
+        )
+        recipeFlowCoordinator.start(animated: true)
+        childCoordinators.append(recipeFlowCoordinator)
+    }
+    
+    func showAllSelectionRecipes() {
+        print(childCoordinators.count)
+    }
+    
+    func showSettings() {
+        print("show setting")
     }
 }

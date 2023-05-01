@@ -21,4 +21,16 @@ extension MainViewModel: MainModuleOutput {
     func showAllWinesThisSort() {
         output.showAllWinesThisSort()
     }
+    
+    func showAllSelectionRecipes() {
+        output.showAllSelectionRecipes()
+    }
+    
+    func showRecipeInfo() {
+        output.showRecipeInfo()
+    }
+    
+    func showSettings() {
+        output.showSettings()
+    }
 }

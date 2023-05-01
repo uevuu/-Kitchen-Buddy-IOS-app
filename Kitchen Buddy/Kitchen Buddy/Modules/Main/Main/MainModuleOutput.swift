@@ -7,4 +7,7 @@
 
 protocol MainModuleOutput: AnyObject {
     func showAllWinesThisSort()
+    func showRecipeInfo()
+    func showAllSelectionRecipes()
+    func showSettings()
 }

@@ -14,19 +14,13 @@ final class RecipeFlowCoordinator: FlowCoordinatorProtocol {
     private var childCoordinators: [FlowCoordinatorProtocol] = []
     private weak var navigationController: UINavigationController?
     
-    init(navigationController: UINavigationController, resolver: Resolver) {
+    init(navigationController: UINavigationController?, resolver: Resolver) {
         self.navigationController = navigationController
         self.resolver = resolver
     }
     
     func start(animated: Bool) {
-        showRecipe()
-    }
-    
-    func showRecipe() {
-        // Будет let viewController = someBuilder.build()
-        let viewController = ViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+        showRecipeInfo()
     }
     
     func finish(animated: Bool) {
@@ -34,5 +28,13 @@ final class RecipeFlowCoordinator: FlowCoordinatorProtocol {
             coordinator.finish(animated: false)
         }
         childCoordinators.removeAll()
+    }
+}
+
+extension RecipeFlowCoordinator: RecipeInfoModuleOutput {
+    func showRecipeInfo() {
+        let recipeInfoBuilder = RecipeInfoBuilder(resolver, self)
+        let viewController = recipeInfoBuilder.build()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

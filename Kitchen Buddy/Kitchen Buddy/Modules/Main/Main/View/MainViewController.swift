@@ -20,6 +20,26 @@ final class MainViewController: UIViewController {
         return button
     }
     
+    private var recipeInfoButton: UIButton {
+        let button = UIButton()
+        button.frame = CGRect(x: 60, y: 180, width: 200, height: 50)
+        button.setTitle("Go to recipe info", for: .normal)
+        button.backgroundColor = .green
+        button.setTitleColor(.blue, for: .normal)
+        button.addTarget(self, action: #selector(recipeInfoButtonTapped), for: .touchUpInside)
+        return button
+    }
+    
+    private var allRecipesButton: UIButton {
+        let button = UIButton()
+        button.frame = CGRect(x: 60, y: 240, width: 200, height: 50)
+        button.setTitle("Go to all recipes", for: .normal)
+        button.backgroundColor = .green
+        button.setTitleColor(.blue, for: .normal)
+        button.addTarget(self, action: #selector(allRecipesButtonTapped), for: .touchUpInside)
+        return button
+    }
+    
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -33,9 +53,19 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(winesButton)
+        view.addSubview(recipeInfoButton)
+        view.addSubview(allRecipesButton)
     }
         
-    @objc func winesButtonTapped() {
+    @objc private func winesButtonTapped() {
         viewModel.showAllWinesThisSort()
+    }
+    
+    @objc private func recipeInfoButtonTapped() {
+        viewModel.showRecipeInfo()
+    }
+    
+    @objc private func allRecipesButtonTapped() {
+        viewModel.showAllSelectionRecipes()
     }
 }
