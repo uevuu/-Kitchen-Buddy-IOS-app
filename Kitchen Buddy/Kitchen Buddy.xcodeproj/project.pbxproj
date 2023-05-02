@@ -12,7 +12,7 @@
 		8B1B95F829FE69BA0030A21D /* recipeInfoResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B1B95F729FE69BA0030A21D /* recipeInfoResponse.json */; };
 		8B1B95FA29FE69BF0030A21D /* winesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B1B95F929FE69BF0030A21D /* winesResponse.json */; };
 		8B1B95FC29FE69C30030A21D /* randomRecipesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B1B95FB29FE69C30030A21D /* randomRecipesResponse.json */; };
-		8B1B95FF29FE830B0030A21D /* AllSelectionRecipesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B95FE29FE830B0030A21D /* AllSelectionRecipesCoordinator.swift */; };
+		8B1B95FF29FE830B0030A21D /* AllSelectionRecipesFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B95FE29FE830B0030A21D /* AllSelectionRecipesFlowCoordinator.swift */; };
 		8B1B960129FFCC7E0030A21D /* MainModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B960029FFCC7E0030A21D /* MainModuleOutput.swift */; };
 		8B1B960829FFD2D90030A21D /* WinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B960729FFD2D90030A21D /* WinesViewController.swift */; };
 		8B1B960A29FFD3200030A21D /* WinesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B960929FFD31F0030A21D /* WinesBuilder.swift */; };
@@ -27,6 +27,10 @@
 		8B2E7CFD29EFFA360091E129 /* ModuleBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E7CFC29EFFA350091E129 /* ModuleBuilderProtocol.swift */; };
 		8B32FE7029E76415009E9B26 /* RecipesRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B32FE6F29E76415009E9B26 /* RecipesRequestModel.swift */; };
 		8B8A384C29FBDB09008416CE /* UITabBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A384B29FBDB09008416CE /* UITabBarController+Extensions.swift */; };
+		8B9639872A016B290031AD7B /* AllSelectionRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9639862A016B290031AD7B /* AllSelectionRecipesViewController.swift */; };
+		8B9639892A016BC20031AD7B /* AllSelectionRecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9639882A016BC20031AD7B /* AllSelectionRecipesViewModel.swift */; };
+		8B96398B2A016D340031AD7B /* AllSelectionRecipesModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B96398A2A016D340031AD7B /* AllSelectionRecipesModuleOutput.swift */; };
+		8B96398D2A016DBF0031AD7B /* AllSelectionRecipesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B96398C2A016DBF0031AD7B /* AllSelectionRecipesBuilder.swift */; };
 		8BCB036A29FD0254008A1DC1 /* RecipeFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCB036929FD0254008A1DC1 /* RecipeFlowCoordinator.swift */; };
 		8BCB036C29FD069F008A1DC1 /* WinesFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCB036B29FD069F008A1DC1 /* WinesFlowCoordinator.swift */; };
 		8BD1983329EBF6E500A8F8CE /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1983229EBF6E500A8F8CE /* MainBuilder.swift */; };
@@ -63,7 +67,7 @@
 		8B1B95F729FE69BA0030A21D /* recipeInfoResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = recipeInfoResponse.json; path = ../../../../../.Trash/MockResponse/recipeInfoResponse.json; sourceTree = "<group>"; };
 		8B1B95F929FE69BF0030A21D /* winesResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = winesResponse.json; path = ../../../../../.Trash/MockResponse/winesResponse.json; sourceTree = "<group>"; };
 		8B1B95FB29FE69C30030A21D /* randomRecipesResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = randomRecipesResponse.json; path = ../../../../../.Trash/MockResponse/randomRecipesResponse.json; sourceTree = "<group>"; };
-		8B1B95FE29FE830B0030A21D /* AllSelectionRecipesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSelectionRecipesCoordinator.swift; sourceTree = "<group>"; };
+		8B1B95FE29FE830B0030A21D /* AllSelectionRecipesFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSelectionRecipesFlowCoordinator.swift; sourceTree = "<group>"; };
 		8B1B960029FFCC7E0030A21D /* MainModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleOutput.swift; sourceTree = "<group>"; };
 		8B1B960729FFD2D90030A21D /* WinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WinesViewController.swift; path = "Kitchen Buddy/Modules/WinesViewController.swift"; sourceTree = SOURCE_ROOT; };
 		8B1B960929FFD31F0030A21D /* WinesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinesBuilder.swift; sourceTree = "<group>"; };
@@ -78,6 +82,10 @@
 		8B2E7CFC29EFFA350091E129 /* ModuleBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilderProtocol.swift; sourceTree = "<group>"; };
 		8B32FE6F29E76415009E9B26 /* RecipesRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesRequestModel.swift; sourceTree = "<group>"; };
 		8B8A384B29FBDB09008416CE /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
+		8B9639862A016B290031AD7B /* AllSelectionRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSelectionRecipesViewController.swift; sourceTree = "<group>"; };
+		8B9639882A016BC20031AD7B /* AllSelectionRecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSelectionRecipesViewModel.swift; sourceTree = "<group>"; };
+		8B96398A2A016D340031AD7B /* AllSelectionRecipesModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSelectionRecipesModuleOutput.swift; sourceTree = "<group>"; };
+		8B96398C2A016DBF0031AD7B /* AllSelectionRecipesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSelectionRecipesBuilder.swift; sourceTree = "<group>"; };
 		8BCB036929FD0254008A1DC1 /* RecipeFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFlowCoordinator.swift; sourceTree = "<group>"; };
 		8BCB036B29FD069F008A1DC1 /* WinesFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinesFlowCoordinator.swift; sourceTree = "<group>"; };
 		8BD1983229EBF6E500A8F8CE /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
@@ -138,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				8B8A385C29FC2B36008416CE /* Main */,
+				8B9639842A016AE20031AD7B /* AllSelectionRecipes */,
 				8B1B960529FFD29E0030A21D /* Wines */,
 			);
 			path = Main;
@@ -229,6 +238,26 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8B9639842A016AE20031AD7B /* AllSelectionRecipes */ = {
+			isa = PBXGroup;
+			children = (
+				8B9639852A016B120031AD7B /* View */,
+				8B9639882A016BC20031AD7B /* AllSelectionRecipesViewModel.swift */,
+				8B1B95FE29FE830B0030A21D /* AllSelectionRecipesFlowCoordinator.swift */,
+				8B96398A2A016D340031AD7B /* AllSelectionRecipesModuleOutput.swift */,
+				8B96398C2A016DBF0031AD7B /* AllSelectionRecipesBuilder.swift */,
+			);
+			path = AllSelectionRecipes;
+			sourceTree = "<group>";
+		};
+		8B9639852A016B120031AD7B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B9639862A016B290031AD7B /* AllSelectionRecipesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8BD1983129EBF6C500A8F8CE /* Builders */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,7 +282,6 @@
 				8BF901B429E9A85C00488B17 /* TabBarCoordinator.swift */,
 				8BF901B829E9E53600488B17 /* SearchFlowCoordinator.swift */,
 				8BF901BA29E9E56B00488B17 /* FavouriteFlowCoordinator.swift */,
-				8B1B95FE29FE830B0030A21D /* AllSelectionRecipesCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -480,7 +508,7 @@
 			files = (
 				8B1B961629FFF2830030A21D /* RecipeInfoViewModel.swift in Sources */,
 				8B1B960C29FFD3750030A21D /* WinesModuleOutput.swift in Sources */,
-				8B1B95FF29FE830B0030A21D /* AllSelectionRecipesCoordinator.swift in Sources */,
+				8B1B95FF29FE830B0030A21D /* AllSelectionRecipesFlowCoordinator.swift in Sources */,
 				8B2E7CF429EE90170091E129 /* ServiceLocator.swift in Sources */,
 				8B1B960E29FFD6CD0030A21D /* WinesViewModel.swift in Sources */,
 				EAD6AFE529D7774D00BD7464 /* SearchRecipes.swift in Sources */,
@@ -498,6 +526,7 @@
 				8B8A384C29FBDB09008416CE /* UITabBarController+Extensions.swift in Sources */,
 				8B1B961229FFF0070030A21D /* RecipeInfoViewController.swift in Sources */,
 				8B1B961429FFF1FF0030A21D /* RecipeInfoModuleOutput.swift in Sources */,
+				8B96398D2A016DBF0031AD7B /* AllSelectionRecipesBuilder.swift in Sources */,
 				8B1B960829FFD2D90030A21D /* WinesViewController.swift in Sources */,
 				EA53172A29D62677007B6953 /* ViewController.swift in Sources */,
 				EA53172629D62677007B6953 /* AppDelegate.swift in Sources */,
@@ -505,6 +534,9 @@
 				EA53172829D62677007B6953 /* SceneDelegate.swift in Sources */,
 				8BF901B529E9A85C00488B17 /* TabBarCoordinator.swift in Sources */,
 				EAD6AFE929D77B6700BD7464 /* IntoleranceType.swift in Sources */,
+				8B9639892A016BC20031AD7B /* AllSelectionRecipesViewModel.swift in Sources */,
+				8B9639872A016B290031AD7B /* AllSelectionRecipesViewController.swift in Sources */,
+				8B96398B2A016D340031AD7B /* AllSelectionRecipesModuleOutput.swift in Sources */,
 				8B32FE7029E76415009E9B26 /* RecipesRequestModel.swift in Sources */,
 				8BF901B929E9E53600488B17 /* SearchFlowCoordinator.swift in Sources */,
 				8BCB036C29FD069F008A1DC1 /* WinesFlowCoordinator.swift in Sources */,

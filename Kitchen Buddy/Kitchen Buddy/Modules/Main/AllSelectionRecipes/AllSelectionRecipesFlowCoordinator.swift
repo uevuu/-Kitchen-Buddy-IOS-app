@@ -1,5 +1,5 @@
 //
-//  AllSelectionRecipesCoordinator.swift
+//  AllSelectionRecipesFlowCoordinator.swift
 //  Kitchen Buddy
 //
 //  Created by Nikita Marin on 30.04.2023.
@@ -8,7 +8,8 @@
 import UIKit
 import Swinject
 
-final class AllSelectionRecipesCoordinator: FlowCoordinatorProtocol {
+// MARK: - AllSelectionRecipesFlowCoordinator
+final class AllSelectionRecipesFlowCoordinator: FlowCoordinatorProtocol {
     private var resolver: Resolver
     private var childCoordinators: [FlowCoordinatorProtocol] = []
     private weak var navigationController: UINavigationController?
@@ -23,21 +24,26 @@ final class AllSelectionRecipesCoordinator: FlowCoordinatorProtocol {
     }
     
     func showRecipesFromSelection() {
-        // Будет let viewController = someBuilder.build()
-        let viewController = ViewController()
+        let allSelectionRecipesBuilder = AllSelectionRecipesBuilder(resolver, self)
+        let viewController = allSelectionRecipesBuilder.build()
         navigationController?.pushViewController(viewController, animated: true)
     }
-    
-    func showRecipe() {
-        // Будет let viewController = someBuilder.build()
-        let viewController = ViewController()
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-    
+        
     func finish(animated: Bool) {
         childCoordinators.forEach { coordinator in
             coordinator.finish(animated: false)
         }
         childCoordinators.removeAll()
+    }
+}
+
+extension AllSelectionRecipesFlowCoordinator: AllSelectionRecipesModuleOutput {
+    func showRecipeInfo() {
+        let recipeFlowCoordinator = RecipeFlowCoordinator(
+            navigationController: navigationController,
+            resolver: resolver
+        )
+        recipeFlowCoordinator.start(animated: true)
+        childCoordinators.append(recipeFlowCoordinator)
     }
 }

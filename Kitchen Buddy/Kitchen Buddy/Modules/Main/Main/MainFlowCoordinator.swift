@@ -64,7 +64,12 @@ extension MainFlowCoordinator: MainModuleOutput {
     }
     
     func showAllSelectionRecipes() {
-        print(childCoordinators.count)
+        let allSelectionRecipesFlowCoordinator = AllSelectionRecipesFlowCoordinator(
+            navigationController: navigationController,
+            resolver: resolver
+        )
+        allSelectionRecipesFlowCoordinator.start(animated: true)
+        childCoordinators.append(allSelectionRecipesFlowCoordinator)
     }
     
     func showSettings() {
