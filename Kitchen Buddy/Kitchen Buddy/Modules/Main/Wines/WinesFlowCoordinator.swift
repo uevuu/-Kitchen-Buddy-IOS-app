@@ -9,6 +9,7 @@ import UIKit
 import Swinject
 
 final class WinesFlowCoordinator: FlowCoordinatorProtocol {
+    var onFinish: (() -> Void)?
     private var resolver: Resolver
     private var childCoordinators: [FlowCoordinatorProtocol] = []
     private weak var navigationController: UINavigationController?
@@ -36,6 +37,7 @@ final class WinesFlowCoordinator: FlowCoordinatorProtocol {
             coordinator.finish(animated: false)
         }
         childCoordinators.removeAll()
+        onFinish?()
     }
 }
 
