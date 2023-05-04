@@ -25,7 +25,10 @@ final class MainFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func showMain() {
-        let mainBuilder = MainBuilder(resolver, self)
+        let mainBuilder = MainBuilder(
+            resolver: resolver,
+            moduleOutput: self
+        )
         let viewController = mainBuilder.build()
         let navigationController = UINavigationController(rootViewController: viewController)
         self.navigationController = navigationController

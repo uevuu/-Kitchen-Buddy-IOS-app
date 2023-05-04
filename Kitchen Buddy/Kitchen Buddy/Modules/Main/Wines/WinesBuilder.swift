@@ -11,18 +11,17 @@ import Swinject
 // MARK: - WinesBuilder
 final class WinesBuilder: ModuleBuilderProtocol {
     private var resolver: Resolver
-    private var coordinator: WinesFlowCoordinator
+    private var moduleOutput: WinesModuleOutput?
     
-    init(_ resolver: Resolver, _ coordinator: WinesFlowCoordinator) {
+    init(resolver: Resolver, moduleOutput: WinesModuleOutput?) {
         self.resolver = resolver
-        self.coordinator = coordinator
+        self.moduleOutput = moduleOutput
     }
     
     func build() -> UIViewController {
-        let networkService = resolver.resolve(NetworkService.self)
         let winesViewModel = WinesViewModel(
-            networkService: networkService ?? NetworkService(),
-            output: coordinator
+            networkService: resolver.resolve(),
+            output: moduleOutput
         )
         return WinesViewController(viewModel: winesViewModel)
     }

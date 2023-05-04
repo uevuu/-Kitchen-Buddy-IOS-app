@@ -33,7 +33,10 @@ final class RecipeFlowCoordinator: FlowCoordinatorProtocol {
 
 extension RecipeFlowCoordinator: RecipeInfoModuleOutput {
     func showRecipeInfo() {
-        let recipeInfoBuilder = RecipeInfoBuilder(resolver, self)
+        let recipeInfoBuilder = RecipeInfoBuilder(
+            resolver: resolver,
+            moduleOutput: self
+        )
         let viewController = recipeInfoBuilder.build()
         navigationController?.pushViewController(viewController, animated: true)
     }

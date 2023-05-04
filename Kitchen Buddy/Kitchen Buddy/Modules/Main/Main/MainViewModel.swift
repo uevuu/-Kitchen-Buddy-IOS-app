@@ -8,10 +8,10 @@
 import Swinject
 
 class MainViewModel {
-    private let output: MainModuleOutput
+    private let output: MainModuleOutput?
     private let networkService: NetworkService
     
-    init(networkService: NetworkService, output: MainModuleOutput) {
+    init(networkService: NetworkService, output: MainModuleOutput?) {
         self.networkService = networkService
         self.output = output
     }
@@ -19,18 +19,18 @@ class MainViewModel {
 
 extension MainViewModel: MainModuleOutput {
     func showAllWinesThisSort() {
-        output.showAllWinesThisSort()
+        output?.showAllWinesThisSort()
     }
     
     func showAllSelectionRecipes() {
-        output.showAllSelectionRecipes()
+        output?.showAllSelectionRecipes()
     }
     
     func showRecipeInfo() {
-        output.showRecipeInfo()
+        output?.showRecipeInfo()
     }
     
     func showSettings() {
-        output.showSettings()
+        output?.showSettings()
     }
 }

@@ -24,7 +24,10 @@ final class AllSelectionRecipesFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func showRecipesFromSelection() {
-        let allSelectionRecipesBuilder = AllSelectionRecipesBuilder(resolver, self)
+        let allSelectionRecipesBuilder = AllSelectionRecipesBuilder(
+            resolver: resolver,
+            moduleOutput: self
+        )
         let viewController = allSelectionRecipesBuilder.build()
         navigationController?.pushViewController(viewController, animated: true)
     }

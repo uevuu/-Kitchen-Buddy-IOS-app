@@ -8,10 +8,10 @@
 import Swinject
 
 class AllSelectionRecipesViewModel {
-    private let output: AllSelectionRecipesModuleOutput
+    private let output: AllSelectionRecipesModuleOutput?
     private let networkService: NetworkService
     
-    init(networkService: NetworkService, output: AllSelectionRecipesModuleOutput) {
+    init(networkService: NetworkService, output: AllSelectionRecipesModuleOutput?) {
         self.networkService = networkService
         self.output = output
     }
@@ -19,6 +19,6 @@ class AllSelectionRecipesViewModel {
 
 extension AllSelectionRecipesViewModel: AllSelectionRecipesModuleOutput {
     func showRecipeInfo() {
-        output.showRecipeInfo()
+        output?.showRecipeInfo()
     }
 }

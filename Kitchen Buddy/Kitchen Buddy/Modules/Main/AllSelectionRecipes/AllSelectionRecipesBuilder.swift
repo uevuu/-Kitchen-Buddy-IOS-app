@@ -11,18 +11,17 @@ import Swinject
 // MARK: - AllSelectionRecipesBuilder
 final class AllSelectionRecipesBuilder: ModuleBuilderProtocol {
     private var resolver: Resolver
-    private var coordinator: AllSelectionRecipesFlowCoordinator
+    private var moduleOutput: AllSelectionRecipesModuleOutput?
     
-    init(_ resolver: Resolver, _ coordinator: AllSelectionRecipesFlowCoordinator) {
+    init(resolver: Resolver, moduleOutput: AllSelectionRecipesModuleOutput?) {
         self.resolver = resolver
-        self.coordinator = coordinator
+        self.moduleOutput = moduleOutput
     }
     
     func build() -> UIViewController {
-        let networkService = resolver.resolve(NetworkService.self)
         let allSelectionRecipesViewModel = AllSelectionRecipesViewModel(
-            networkService: networkService ?? NetworkService(),
-            output: coordinator
+            networkService: resolver.resolve(),
+            output: moduleOutput
         )
         return AllSelectionRecipesViewController(viewModel: allSelectionRecipesViewModel)
     }

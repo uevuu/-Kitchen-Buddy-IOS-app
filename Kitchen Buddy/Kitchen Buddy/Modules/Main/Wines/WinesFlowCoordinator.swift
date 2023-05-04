@@ -23,7 +23,10 @@ final class WinesFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func showWines() {
-        let winesBuilder = WinesBuilder(resolver, self)
+        let winesBuilder = WinesBuilder(
+            resolver: resolver,
+            moduleOutput: self
+        )
         let viewController = winesBuilder.build()
         navigationController?.pushViewController(viewController, animated: true)
     }

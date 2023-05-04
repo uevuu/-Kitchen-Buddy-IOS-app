@@ -11,18 +11,17 @@ import Swinject
 // MARK: - RecipeInfoBuilder
 final class RecipeInfoBuilder: ModuleBuilderProtocol {
     private var resolver: Resolver
-    private var coordinator: RecipeFlowCoordinator
+    private var moduleOutput: RecipeInfoModuleOutput?
     
-    init(_ resolver: Resolver, _ coordinator: RecipeFlowCoordinator) {
+    init(resolver: Resolver, moduleOutput: RecipeInfoModuleOutput?) {
         self.resolver = resolver
-        self.coordinator = coordinator
+        self.moduleOutput = moduleOutput
     }
     
     func build() -> UIViewController {
-        let networkService = resolver.resolve(NetworkService.self)
         let recipeInfoViewModel = RecipeInfoViewModel(
-            networkService: networkService ?? NetworkService(),
-            output: coordinator
+            networkService: resolver.resolve(),
+            output: moduleOutput
         )
         return RecipeInfoViewController(viewModel: recipeInfoViewModel)
     }

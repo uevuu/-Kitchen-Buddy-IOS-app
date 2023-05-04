@@ -11,18 +11,17 @@ import Swinject
 // MARK: - MainBuilder
 final class MainBuilder: ModuleBuilderProtocol {    
     private var resolver: Resolver
-    private var coordinator: MainFlowCoordinator
+    private var moduleOutput: MainModuleOutput?
     
-    init(_ resolver: Resolver, _ coordinator: MainFlowCoordinator) {
+    init(resolver: Resolver, moduleOutput: MainModuleOutput) {
         self.resolver = resolver
-        self.coordinator = coordinator
+        self.moduleOutput = moduleOutput
     }
     
     func build() -> UIViewController {
-        let networkService = resolver.resolve(NetworkService.self)
         let mainViewModel = MainViewModel(
-            networkService: networkService ?? NetworkService(),
-            output: coordinator
+            networkService: resolver.resolve(),
+            output: moduleOutput
         )
         return MainViewController(viewModel: mainViewModel)
     }

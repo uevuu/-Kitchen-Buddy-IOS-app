@@ -8,10 +8,10 @@
 import Swinject
 
 class WinesViewModel {
-    private let output: WinesModuleOutput
+    private let output: WinesModuleOutput?
     private let networkService: NetworkService
     
-    init(networkService: NetworkService, output: WinesModuleOutput) {
+    init(networkService: NetworkService, output: WinesModuleOutput?) {
         self.networkService = networkService
         self.output = output
     }
@@ -19,6 +19,6 @@ class WinesViewModel {
 
 extension WinesViewModel: WinesModuleOutput {
     func showWineInfo() {
-        output.showWineInfo()
+        output?.showWineInfo()
     }
 }
