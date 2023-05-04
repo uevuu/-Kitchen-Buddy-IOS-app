@@ -18,6 +18,10 @@ class RecipeInfoViewModel {
 }
 
 extension RecipeInfoViewModel: RecipeInfoModuleOutput {
+    func goToPreviousModule() {
+        output?.goToPreviousModule()
+    }
+    
     func showRecipeInfo() {
         output?.showRecipeInfo()
     }

@@ -7,4 +7,5 @@
 
 protocol RecipeInfoModuleOutput: AnyObject {
     func showRecipeInfo()
+    func goToPreviousModule()
 }

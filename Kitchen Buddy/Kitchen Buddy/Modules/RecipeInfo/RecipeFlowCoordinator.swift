@@ -34,6 +34,10 @@ final class RecipeFlowCoordinator: FlowCoordinatorProtocol {
 }
 
 extension RecipeFlowCoordinator: RecipeInfoModuleOutput {
+    func goToPreviousModule() {
+        finish(animated: false)
+    }
+    
     func showRecipeInfo() {
         let recipeInfoBuilder = RecipeInfoBuilder(
             resolver: resolver,

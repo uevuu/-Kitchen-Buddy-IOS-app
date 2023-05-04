@@ -13,7 +13,6 @@ final class AllSelectionRecipesFlowCoordinator: FlowCoordinatorProtocol {
     private var resolver: Resolver
     private var childCoordinators: [FlowCoordinatorProtocol] = []
     private weak var navigationController: UINavigationController?
-    var onFinish: (() -> Void)?
     
     init(navigationController: UINavigationController?, resolver: Resolver) {
         self.navigationController = navigationController
@@ -38,7 +37,6 @@ final class AllSelectionRecipesFlowCoordinator: FlowCoordinatorProtocol {
             coordinator.finish(animated: false)
         }
         childCoordinators.removeAll()
-        onFinish?()
     }
 }
 

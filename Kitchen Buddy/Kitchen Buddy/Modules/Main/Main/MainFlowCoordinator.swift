@@ -10,7 +10,6 @@ import Swinject
 
 // MARK: - MainFlowCoordinator
 final class MainFlowCoordinator: FlowCoordinatorProtocol {
-    var onFinish: (() -> Void)?
     private var resolver: Resolver
     private var childCoordinators: [FlowCoordinatorProtocol] = []
     private weak var parentTabBarController: UITabBarController?
@@ -41,7 +40,6 @@ final class MainFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func finish(animated: Bool) {
-        onFinish?()
         childCoordinators.forEach { coordinator in
             coordinator.finish(animated: false)
         }
@@ -62,10 +60,8 @@ extension MainFlowCoordinator: MainModuleOutput {
             navigationController: navigationController,
             resolver: resolver
         )
-        winesFlowCoordinator.onFinish = { [weak self] in
-            self?.childCoordinatorDidFinish(winesFlowCoordinator)
-        }
         winesFlowCoordinator.start(animated: true)
+        print(childCoordinators.count)
         childCoordinators.append(winesFlowCoordinator)
     }
     
