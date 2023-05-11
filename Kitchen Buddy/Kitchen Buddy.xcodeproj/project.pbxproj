@@ -37,7 +37,7 @@
 		8BD1983329EBF6E500A8F8CE /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1983229EBF6E500A8F8CE /* MainBuilder.swift */; };
 		8BD1983B29ECA3D700A8F8CE /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1983A29ECA3D700A8F8CE /* MainViewModel.swift */; };
 		8BD1983D29ECA40B00A8F8CE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1983C29ECA40B00A8F8CE /* MainViewController.swift */; };
-		8BD4685B29E2C10F0008F642 /* MoyaAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD4685A29E2C10F0008F642 /* MoyaAPIService.swift */; };
+		8BD4685B29E2C10F0008F642 /* RecipesAPITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD4685A29E2C10F0008F642 /* RecipesAPITarget.swift */; };
 		8BF901B129E97FCB00488B17 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF901B029E97FCB00488B17 /* RootCoordinator.swift */; };
 		8BF901B329E9A4F200488B17 /* FlowCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF901B229E9A4F200488B17 /* FlowCoordinatorProtocol.swift */; };
 		8BF901B529E9A85C00488B17 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF901B429E9A85C00488B17 /* TabBarCoordinator.swift */; };
@@ -93,7 +93,7 @@
 		8BD1983229EBF6E500A8F8CE /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
 		8BD1983A29ECA3D700A8F8CE /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		8BD1983C29ECA40B00A8F8CE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		8BD4685A29E2C10F0008F642 /* MoyaAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaAPIService.swift; sourceTree = "<group>"; };
+		8BD4685A29E2C10F0008F642 /* RecipesAPITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesAPITarget.swift; sourceTree = "<group>"; };
 		8BF901B029E97FCB00488B17 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		8BF901B229E9A4F200488B17 /* FlowCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		8BF901B429E9A85C00488B17 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -368,7 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				EA53174029D63187007B6953 /* NetworkService.swift */,
-				8BD4685A29E2C10F0008F642 /* MoyaAPIService.swift */,
+				8BD4685A29E2C10F0008F642 /* RecipesAPITarget.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -517,7 +517,7 @@
 				EAD6AFE529D7774D00BD7464 /* SearchRecipes.swift in Sources */,
 				EAD6AFF029D781D000BD7464 /* MealTypes.swift in Sources */,
 				8BF901B129E97FCB00488B17 /* RootCoordinator.swift in Sources */,
-				8BD4685B29E2C10F0008F642 /* MoyaAPIService.swift in Sources */,
+				8BD4685B29E2C10F0008F642 /* RecipesAPITarget.swift in Sources */,
 				8BD1983B29ECA3D700A8F8CE /* MainViewModel.swift in Sources */,
 				8BD1983D29ECA40B00A8F8CE /* MainViewController.swift in Sources */,
 				EA53173D29D62BE1007B6953 /* RandomRecipes.swift in Sources */,

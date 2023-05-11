@@ -41,10 +41,7 @@ final class FavouriteFlowCoordinator: FlowCoordinatorProtocol {
     func showUserInfo() {
     }
     
-    func finish(animated: Bool) {
-        childCoordinators.forEach { coordinator in
-            coordinator.finish(animated: false)
-        }
-        childCoordinators.removeAll()
+    func finish(animated: Bool, completion: (() -> Void)?) {
+        print("Finish favourite module")
     }
 }

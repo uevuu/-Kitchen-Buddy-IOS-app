@@ -39,11 +39,7 @@ final class MainFlowCoordinator: FlowCoordinatorProtocol {
         )
     }
     
-    func finish(animated: Bool) {
-        childCoordinators.forEach { coordinator in
-            coordinator.finish(animated: false)
-        }
-        childCoordinators.removeAll()
+    func finish(animated: Bool, completion: (() -> Void)?) {
     }
     
     func childCoordinatorDidFinish(_ coordinator: FlowCoordinatorProtocol) {
@@ -59,19 +55,20 @@ extension MainFlowCoordinator: MainModuleOutput {
         let winesFlowCoordinator = WinesFlowCoordinator(
             navigationController: navigationController,
             resolver: resolver
-        )
+        ) { [weak self] in
+            self?.childCoordinators.removeFlowCoordinator(ofType: WinesFlowCoordinator.self)
+        }
         winesFlowCoordinator.start(animated: true)
         print(childCoordinators.count)
         childCoordinators.append(winesFlowCoordinator)
     }
     
-    func showRecipeInfo() {
+    func showRecipeInfo() {        
         let recipeFlowCoordinator = RecipeFlowCoordinator(
             navigationController: navigationController,
             resolver: resolver
-        )
-        recipeFlowCoordinator.onFinish = { [weak self] in
-            self?.childCoordinatorDidFinish(recipeFlowCoordinator)
+        ) { [weak self] in
+            self?.childCoordinators.removeFlowCoordinator(ofType: RecipeFlowCoordinator.self)
         }
         recipeFlowCoordinator.start(animated: true)
         childCoordinators.append(recipeFlowCoordinator)
@@ -81,12 +78,14 @@ extension MainFlowCoordinator: MainModuleOutput {
         let allSelectionRecipesFlowCoordinator = AllSelectionRecipesFlowCoordinator(
             navigationController: navigationController,
             resolver: resolver
-        )
+        ) { [weak self] in
+            self?.childCoordinators.removeFlowCoordinator(ofType: AllSelectionRecipesFlowCoordinator.self)
+        }
         allSelectionRecipesFlowCoordinator.start(animated: true)
         childCoordinators.append(allSelectionRecipesFlowCoordinator)
     }
     
     func showSettings() {
-        print("show setting")
+        print(childCoordinators.count)
     }
 }

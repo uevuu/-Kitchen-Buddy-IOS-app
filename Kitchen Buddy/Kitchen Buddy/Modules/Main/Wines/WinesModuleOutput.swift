@@ -7,4 +7,6 @@
 
 protocol WinesModuleOutput: AnyObject {
     func showWineInfo()
+    func goToPreviousModule(animated: Bool, completion: (() -> Void)?)
+    func moduleDidUnload()
 }

@@ -11,12 +11,14 @@ import Swinject
 // MARK: - AllSelectionRecipesFlowCoordinator
 final class AllSelectionRecipesFlowCoordinator: FlowCoordinatorProtocol {
     private var resolver: Resolver
-    private var childCoordinators: [FlowCoordinatorProtocol] = []
     private weak var navigationController: UINavigationController?
+    private var childCoordinators: [FlowCoordinatorProtocol] = []
+    private var finishHandlers: [(() -> Void)] = []
     
-    init(navigationController: UINavigationController?, resolver: Resolver) {
+    init(navigationController: UINavigationController?, resolver: Resolver, finishHandler: @escaping (() -> Void)) {
         self.navigationController = navigationController
         self.resolver = resolver
+        finishHandlers.append(finishHandler)
     }
     
     func start(animated: Bool) {
@@ -32,11 +34,11 @@ final class AllSelectionRecipesFlowCoordinator: FlowCoordinatorProtocol {
         navigationController?.pushViewController(viewController, animated: true)
     }
         
-    func finish(animated: Bool) {
-        childCoordinators.forEach { coordinator in
-            coordinator.finish(animated: false)
-        }
-        childCoordinators.removeAll()
+    func finish(animated: Bool, completion: (() -> Void)?) {
+        guard let finishHandler = completion else { return }
+        finishHandlers.append(finishHandler)
+        
+        childCoordinators.finishAll(animated: animated, completion: completion)
     }
 }
 
@@ -45,8 +47,18 @@ extension AllSelectionRecipesFlowCoordinator: AllSelectionRecipesModuleOutput {
         let recipeFlowCoordinator = RecipeFlowCoordinator(
             navigationController: navigationController,
             resolver: resolver
-        )
+        ) { [weak self] in
+            self?.childCoordinators.removeFlowCoordinator(ofType: RecipeFlowCoordinator.self)
+        }
         recipeFlowCoordinator.start(animated: true)
         childCoordinators.append(recipeFlowCoordinator)
+    }
+    
+    func goToPreviousModule(animated: Bool, completion: (() -> Void)?) {
+        finish(animated: animated, completion: completion)
+    }
+    
+    func moduleDidUnload() {
+        finishHandlers.forEach { $0() }
     }
 }

@@ -1,14 +1,14 @@
 import Moya
 
 protocol NetworkServiceProtocol {
-    func sendRequest<T: Decodable>(target: MoyaAPIService, completion: @escaping (Result<T, Error>) -> Void)
+    func sendRequest<T: Decodable>(target: RecipesAPITarget, completion: @escaping (Result<T, Error>) -> Void)
 }
 
 class NetworkService: NetworkServiceProtocol {
-    var provider = MoyaProvider<MoyaAPIService>()
+    var provider = MoyaProvider<RecipesAPITarget>()
         
     func sendRequest<T: Decodable>(
-        target: MoyaAPIService,
+        target: RecipesAPITarget,
         completion: @escaping (Result<T, Error>) -> Void
     ) {
         provider.request(target) { result in

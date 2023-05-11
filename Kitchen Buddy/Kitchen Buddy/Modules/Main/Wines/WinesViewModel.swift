@@ -15,10 +15,16 @@ class WinesViewModel {
         self.networkService = networkService
         self.output = output
     }
-}
-
-extension WinesViewModel: WinesModuleOutput {
+    
     func showWineInfo() {
         output?.showWineInfo()
+    }
+    
+    func tapOnBackButton() {
+        output?.goToPreviousModule(animated: true, completion: nil)
+    }
+    
+    func controllerWasDeinit() {
+        output?.moduleDidUnload()
     }
 }

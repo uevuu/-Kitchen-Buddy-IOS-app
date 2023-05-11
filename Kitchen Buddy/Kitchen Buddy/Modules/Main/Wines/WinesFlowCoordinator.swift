@@ -10,12 +10,14 @@ import Swinject
 
 final class WinesFlowCoordinator: FlowCoordinatorProtocol {
     private var resolver: Resolver
-    private var childCoordinators: [FlowCoordinatorProtocol] = []
     private weak var navigationController: UINavigationController?
+    private var childCoordinators: [FlowCoordinatorProtocol] = []
+    private var finishHandlers: [(() -> Void)] = []
     
-    init(navigationController: UINavigationController?, resolver: Resolver) {
+    init(navigationController: UINavigationController?, resolver: Resolver, finishHandler: @escaping (() -> Void)) {
         self.navigationController = navigationController
         self.resolver = resolver
+        finishHandlers.append(finishHandler)
     }
     
     func start(animated: Bool) {
@@ -31,11 +33,11 @@ final class WinesFlowCoordinator: FlowCoordinatorProtocol {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    func finish(animated: Bool) {
-        childCoordinators.forEach { coordinator in
-            coordinator.finish(animated: false)
-        }
-        childCoordinators.removeAll()
+    func finish(animated: Bool, completion: (() -> Void)?) {
+        guard let finishHandler = completion else { return }
+        finishHandlers.append(finishHandler)
+        
+        childCoordinators.finishAll(animated: animated, completion: completion)
     }
 }
 
@@ -44,5 +46,13 @@ extension WinesFlowCoordinator: WinesModuleOutput {
         // Будет let viewController = someBuilder.build()
         let viewController = ViewController()
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func goToPreviousModule(animated: Bool, completion: (() -> Void)?) {
+        finish(animated: false, completion: completion)
+    }
+    
+    func moduleDidUnload() {
+        finishHandlers.forEach { $0() }
     }
 }

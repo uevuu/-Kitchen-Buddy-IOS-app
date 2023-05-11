@@ -34,6 +34,17 @@ final class WinesViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(wineButton)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if self.isMovingFromParent {
+            viewModel.tapOnBackButton()
+        }
+    }
+    
+    deinit {
+        viewModel.controllerWasDeinit()
+    }
         
     @objc func wineButtonTapped() {
         viewModel.showWineInfo()

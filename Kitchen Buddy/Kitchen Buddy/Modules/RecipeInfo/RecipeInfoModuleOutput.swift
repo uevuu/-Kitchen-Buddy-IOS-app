@@ -7,5 +7,6 @@
 
 protocol RecipeInfoModuleOutput: AnyObject {
     func showRecipeInfo()
-    func goToPreviousModule()
+    func goToPreviousModule(animated: Bool, completion: (() -> Void)?)
+    func moduleDidUnload()
 }

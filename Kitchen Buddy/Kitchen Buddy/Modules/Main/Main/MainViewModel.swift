@@ -15,9 +15,7 @@ class MainViewModel {
         self.networkService = networkService
         self.output = output
     }
-}
-
-extension MainViewModel: MainModuleOutput {
+    
     func showAllWinesThisSort() {
         output?.showAllWinesThisSort()
     }

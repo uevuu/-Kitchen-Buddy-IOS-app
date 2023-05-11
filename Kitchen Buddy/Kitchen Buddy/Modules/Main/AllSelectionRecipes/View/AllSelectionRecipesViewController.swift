@@ -36,6 +36,17 @@ class AllSelectionRecipesViewController: UIViewController {
         view.addSubview(recipeInfoButton)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if self.isMovingFromParent {
+            viewModel.tapOnBackButton()
+        }
+    }
+    
+    deinit {
+        viewModel.controllerWasDeinit()
+    }
+    
     @objc private func recipeInfoButtonTapped() {
         viewModel.showRecipeInfo()
     }

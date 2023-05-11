@@ -15,10 +15,16 @@ class AllSelectionRecipesViewModel {
         self.networkService = networkService
         self.output = output
     }
-}
-
-extension AllSelectionRecipesViewModel: AllSelectionRecipesModuleOutput {
+    
     func showRecipeInfo() {
         output?.showRecipeInfo()
+    }
+    
+    func tapOnBackButton() {
+        output?.goToPreviousModule(animated: true, completion: nil)
+    }
+    
+    func controllerWasDeinit() {
+        output?.moduleDidUnload()
     }
 }

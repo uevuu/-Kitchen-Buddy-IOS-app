@@ -33,10 +33,7 @@ final class TabBarCoordinator: FlowCoordinatorProtocol {
         childCoordinators.append(favouriteCoordinator)
     }
     
-    func finish(animated: Bool) {
-        childCoordinators.forEach { coordinator in
-            coordinator.finish(animated: false)
-        }
-        childCoordinators.removeAll()
+    func finish(animated: Bool, completion: (() -> Void)?) {
+        print("finisj TabBar module")
     }
 }

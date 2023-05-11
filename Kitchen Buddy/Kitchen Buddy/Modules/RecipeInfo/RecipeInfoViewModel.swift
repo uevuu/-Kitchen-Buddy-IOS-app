@@ -15,14 +15,16 @@ class RecipeInfoViewModel {
         self.networkService = networkService
         self.output = output
     }
-}
-
-extension RecipeInfoViewModel: RecipeInfoModuleOutput {
-    func goToPreviousModule() {
-        output?.goToPreviousModule()
+    
+    func tapOnBackButton() {
+        output?.goToPreviousModule(animated: true, completion: nil)
     }
     
-    func showRecipeInfo() {
+    func tapOnRecipe() {
         output?.showRecipeInfo()
+    }
+    
+    func controllerWasDeinit() {
+        output?.moduleDidUnload()
     }
 }

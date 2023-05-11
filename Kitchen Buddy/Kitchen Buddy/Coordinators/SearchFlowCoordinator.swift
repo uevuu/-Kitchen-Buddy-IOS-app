@@ -35,11 +35,8 @@ final class SearchFlowCoordinator: FlowCoordinatorProtocol {
         )
     }
     
-    func finish(animated: Bool) {
-        childCoordinators.forEach { coordinator in
-            coordinator.finish(animated: false)
-        }
-        childCoordinators.removeAll()
+    func finish(animated: Bool, completion: (() -> Void)?) {
+        print("finish Search Coordinator")
     }
     
     func showFilter() {

@@ -38,10 +38,15 @@ class RecipeInfoViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         if self.isMovingFromParent {
-            viewModel.goToPreviousModule()
+            viewModel.tapOnBackButton()
         }
     }
+    
+    deinit {
+        viewModel.controllerWasDeinit()
+    }
+    
     @objc private func recipeInfoButtonTapped() {
-        viewModel.showRecipeInfo()
+        viewModel.tapOnRecipe()
     }
 }

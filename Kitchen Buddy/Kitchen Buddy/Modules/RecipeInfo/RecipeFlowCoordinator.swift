@@ -13,31 +13,33 @@ final class RecipeFlowCoordinator: FlowCoordinatorProtocol {
     private var resolver: Resolver
     private var childCoordinators: [FlowCoordinatorProtocol] = []
     private weak var navigationController: UINavigationController?
-    var onFinish: (() -> Void)?
+    private var finishHandlers: [(() -> Void)] = []
     
-    init(navigationController: UINavigationController?, resolver: Resolver) {
+    init(navigationController: UINavigationController?, resolver: Resolver, finishHandler: @escaping (() -> Void)) {
         self.navigationController = navigationController
         self.resolver = resolver
+        finishHandlers.append(finishHandler)
     }
     
     func start(animated: Bool) {
         showRecipeInfo()
     }
     
-    func finish(animated: Bool) {
-        childCoordinators.forEach { coordinator in
-            coordinator.finish(animated: false)
+    func finish(animated: Bool, completion: (() -> Void)?) {
+        guard let finishHandler = completion else { return }
+        finishHandlers.append(finishHandler)
+        
+        childCoordinators.finishAll(animated: animated, completion: completion)
+    }
+    
+    func closeModule() {
+        for handler in finishHandlers {
+            handler()
         }
-        childCoordinators.removeAll()
-        onFinish?()
     }
 }
 
 extension RecipeFlowCoordinator: RecipeInfoModuleOutput {
-    func goToPreviousModule() {
-        finish(animated: false)
-    }
-    
     func showRecipeInfo() {
         let recipeInfoBuilder = RecipeInfoBuilder(
             resolver: resolver,
@@ -45,5 +47,13 @@ extension RecipeFlowCoordinator: RecipeInfoModuleOutput {
         )
         let viewController = recipeInfoBuilder.build()
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func moduleDidUnload() {
+        finishHandlers.forEach { $0() }
+    }
+    
+    func goToPreviousModule(animated: Bool, completion: (() -> Void)?) {
+        finish(animated: false, completion: completion)
     }
 }

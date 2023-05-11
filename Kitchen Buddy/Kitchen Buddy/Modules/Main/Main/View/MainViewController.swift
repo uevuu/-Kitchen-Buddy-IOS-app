@@ -40,6 +40,16 @@ final class MainViewController: UIViewController {
         return button
     }
     
+    private var settingsButton: UIButton {
+        let button = UIButton()
+        button.frame = CGRect(x: 60, y: 300, width: 200, height: 50)
+        button.setTitle("Setting", for: .normal)
+        button.backgroundColor = .red
+        button.setTitleColor(.blue, for: .normal)
+        button.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
+        return button
+    }
+    
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -55,6 +65,7 @@ final class MainViewController: UIViewController {
         view.addSubview(winesButton)
         view.addSubview(recipeInfoButton)
         view.addSubview(allRecipesButton)
+        view.addSubview(settingsButton)
     }
         
     @objc private func winesButtonTapped() {
@@ -67,5 +78,9 @@ final class MainViewController: UIViewController {
     
     @objc private func allRecipesButtonTapped() {
         viewModel.showAllSelectionRecipes()
+    }
+    
+    @objc private func settingsButtonTapped() {
+        viewModel.showSettings()
     }
 }
