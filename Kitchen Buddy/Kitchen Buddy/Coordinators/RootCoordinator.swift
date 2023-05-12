@@ -24,7 +24,9 @@ final class RootCoordinator: FlowCoordinatorProtocol {
     }
     
     private func showMainFlow() {
-        let tabBarCoordinator = TabBarCoordinator(window: window, resolver: resolver)
+        let tabBarCoordinator = TabBarCoordinator(window: window, resolver: resolver) { [weak self] in
+            self?.childCoordinators.removeFlowCoordinator(ofType: TabBarCoordinator.self)
+        }
         tabBarCoordinator.start(animated: false)
         childCoordinators.append(tabBarCoordinator)
     }

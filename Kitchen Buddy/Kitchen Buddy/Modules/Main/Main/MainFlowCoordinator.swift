@@ -11,13 +11,15 @@ import Swinject
 // MARK: - MainFlowCoordinator
 final class MainFlowCoordinator: FlowCoordinatorProtocol {
     private var resolver: Resolver
-    private var childCoordinators: [FlowCoordinatorProtocol] = []
     private weak var parentTabBarController: UITabBarController?
     private weak var navigationController: UINavigationController?
+    private var childCoordinators: [FlowCoordinatorProtocol] = []
+    private var finishHandlers: [(() -> Void)] = []
     
-    init(tabBarController: UITabBarController, resolver: Resolver) {
+    init(tabBarController: UITabBarController, resolver: Resolver, finishHandler: @escaping (() -> Void)) {
         self.parentTabBarController = tabBarController
         self.resolver = resolver
+        finishHandlers.append(finishHandler)
     }
     
     func start(animated: Bool) {
@@ -40,12 +42,9 @@ final class MainFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func finish(animated: Bool, completion: (() -> Void)?) {
-    }
-    
-    func childCoordinatorDidFinish(_ coordinator: FlowCoordinatorProtocol) {
-        if let index = childCoordinators.firstIndex(where: { $0 === coordinator }) {
-            childCoordinators.remove(at: index)
-        }
+        guard let finishHandler = completion else { return }
+        finishHandlers.append(finishHandler)
+        childCoordinators.finishAll(animated: animated, completion: completion)
     }
 }
 
