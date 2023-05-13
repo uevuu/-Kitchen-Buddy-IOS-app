@@ -17,7 +17,6 @@ extension Array where Element == FlowCoordinatorProtocol {
     func flowCoordinator<T: FlowCoordinatorProtocol>(ofType type: T.Type) -> T? {
         guard let firstCoordinator = first(where: { $0 is T }) as? T else { return nil }
         return firstCoordinator
-//        first(where: { $0 is T }) as? T
     }
     
     mutating func removeFlowCoordinator<T: FlowCoordinatorProtocol>(ofType type: T.Type) {
@@ -36,7 +35,7 @@ extension Array where Element == FlowCoordinatorProtocol {
         coordinator.finish(animated: animated) {
             var arr = self
             arr.removeFirst()
-            finishAll(animated: animated, completion: completion)
+            arr.finishAll(animated: animated, completion: completion)
         }
     }
 }

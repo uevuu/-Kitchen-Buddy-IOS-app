@@ -37,7 +37,7 @@ final class WinesFlowCoordinator: FlowCoordinatorProtocol {
         guard let finishHandler = completion else { return }
         finishHandlers.append(finishHandler)
         
-        childCoordinators.finishAll(animated: animated, completion: completion)
+        childCoordinators.finishAll(animated: animated, completion: nil)
     }
 }
 

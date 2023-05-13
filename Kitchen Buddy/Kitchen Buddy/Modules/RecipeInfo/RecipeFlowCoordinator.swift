@@ -29,7 +29,7 @@ final class RecipeFlowCoordinator: FlowCoordinatorProtocol {
         guard let finishHandler = completion else { return }
         finishHandlers.append(finishHandler)
         
-        childCoordinators.finishAll(animated: animated, completion: completion)
+        childCoordinators.finishAll(animated: animated, completion: nil)
     }
     
     func closeModule() {
