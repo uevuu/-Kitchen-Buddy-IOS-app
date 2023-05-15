@@ -7,7 +7,7 @@
 
 import Moya
 
-enum MoyaAPIService {
+enum RecipesAPITarget {
     case getRandomRecipes
     case getWines(sortName: String)
     case getIngredients(letters: String, offset: Int)
@@ -15,7 +15,7 @@ enum MoyaAPIService {
     case getRecipes(recipesRequestModel: RecipesRequestModel)
 }
 
-extension MoyaAPIService: TargetType {
+extension RecipesAPITarget: TargetType {
     var baseURL: URL {
         URL(string: "https://api.spoonacular.com/")!
     }
