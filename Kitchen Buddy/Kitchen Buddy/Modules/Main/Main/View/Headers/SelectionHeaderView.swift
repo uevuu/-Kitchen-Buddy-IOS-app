@@ -12,7 +12,6 @@ final class SelectionHeaderView: UICollectionReusableView {
 
     private let headerLabel: UILabel = {
         let label = UILabel()
-        label.text = "header"
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textColor = UIColor(named: "AppMainFontColor")
@@ -43,7 +42,6 @@ final class SelectionHeaderView: UICollectionReusableView {
     }
     
     func setupView() {
-        backgroundColor = .white
         addSubview(headerLabel)
         addSubview(allButton)
     }

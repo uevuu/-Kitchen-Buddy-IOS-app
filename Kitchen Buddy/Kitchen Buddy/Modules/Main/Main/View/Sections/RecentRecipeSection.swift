@@ -49,4 +49,8 @@ struct RecentRecipeSection: Section {
         )
         return cell
     }
+    
+    func getItemCount() -> Int {
+        return numberOfItems
+    }
 }

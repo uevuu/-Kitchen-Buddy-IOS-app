@@ -14,9 +14,9 @@ final class MainViewController: UIViewController {
     private lazy var sections: [Section] = [
         RecentRecipeSection(),
         SelectionRecipeSection(),
-        WineSortSection(),
-        WineSortSection(),
-        WineSortSection()
+        WineSortSection(type: .whiteWines),
+        WineSortSection(type: .redWines),
+        WineSortSection(type: .otherWines)
     ]
     
     // MARK: - Properties
@@ -160,7 +160,7 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sections[section].numberOfItems
+        return sections[section].getItemCount()
     }
     
     func collectionView(

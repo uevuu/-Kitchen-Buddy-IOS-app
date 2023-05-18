@@ -36,7 +36,6 @@ final class HeaderView: UICollectionReusableView {
     }
     
     func setupView() {
-        backgroundColor = .white
         addSubview(headerLabel)
     }
     

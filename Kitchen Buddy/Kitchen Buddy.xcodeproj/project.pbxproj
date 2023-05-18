@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		483220E19606E398079478C4 /* Pods_Kitchen_Buddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92939CAB51556954A209707 /* Pods_Kitchen_Buddy.framework */; };
 		8B1B95F329FE68E80030A21D /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B95F229FE68E80030A21D /* Bundle+Extensions.swift */; };
-		8B1B95F829FE69BA0030A21D /* recipeInfoResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B1B95F729FE69BA0030A21D /* recipeInfoResponse.json */; };
-		8B1B95FA29FE69BF0030A21D /* winesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B1B95F929FE69BF0030A21D /* winesResponse.json */; };
-		8B1B95FC29FE69C30030A21D /* randomRecipesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B1B95FB29FE69C30030A21D /* randomRecipesResponse.json */; };
 		8B1B95FF29FE830B0030A21D /* AllSelectionRecipesFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B95FE29FE830B0030A21D /* AllSelectionRecipesFlowCoordinator.swift */; };
 		8B1B960129FFCC7E0030A21D /* MainModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B960029FFCC7E0030A21D /* MainModuleOutput.swift */; };
 		8B1B960829FFD2D90030A21D /* WinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B960729FFD2D90030A21D /* WinesViewController.swift */; };
@@ -74,9 +71,6 @@
 /* Begin PBXFileReference section */
 		27A15F89B28F53579E485F78 /* Pods-Kitchen Buddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kitchen Buddy.debug.xcconfig"; path = "Target Support Files/Pods-Kitchen Buddy/Pods-Kitchen Buddy.debug.xcconfig"; sourceTree = "<group>"; };
 		8B1B95F229FE68E80030A21D /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
-		8B1B95F729FE69BA0030A21D /* recipeInfoResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = recipeInfoResponse.json; path = ../../../../../.Trash/MockResponse/recipeInfoResponse.json; sourceTree = "<group>"; };
-		8B1B95F929FE69BF0030A21D /* winesResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = winesResponse.json; path = ../../../../../.Trash/MockResponse/winesResponse.json; sourceTree = "<group>"; };
-		8B1B95FB29FE69C30030A21D /* randomRecipesResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = randomRecipesResponse.json; path = ../../../../../.Trash/MockResponse/randomRecipesResponse.json; sourceTree = "<group>"; };
 		8B1B95FE29FE830B0030A21D /* AllSelectionRecipesFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSelectionRecipesFlowCoordinator.swift; sourceTree = "<group>"; };
 		8B1B960029FFCC7E0030A21D /* MainModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleOutput.swift; sourceTree = "<group>"; };
 		8B1B960729FFD2D90030A21D /* WinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WinesViewController.swift; path = "Kitchen Buddy/Modules/WinesViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -152,16 +146,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8B1B95F629FE69AE0030A21D /* MockResponse */ = {
-			isa = PBXGroup;
-			children = (
-				8B1B95FB29FE69C30030A21D /* randomRecipesResponse.json */,
-				8B1B95F929FE69BF0030A21D /* winesResponse.json */,
-				8B1B95F729FE69BA0030A21D /* recipeInfoResponse.json */,
-			);
-			path = MockResponse;
-			sourceTree = "<group>";
-		};
 		8B1B960429FFD2720030A21D /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,7 +362,6 @@
 		EA53172429D62677007B6953 /* Kitchen Buddy */ = {
 			isa = PBXGroup;
 			children = (
-				8B1B95F629FE69AE0030A21D /* MockResponse */,
 				8B8A384D29FBDF26008416CE /* Modules */,
 				8B8A384A29FBDABE008416CE /* Extensions */,
 				8B2E7CF529EE91300091E129 /* DependencyAssemblers */,
@@ -485,11 +468,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B1B95FC29FE69C30030A21D /* randomRecipesResponse.json in Resources */,
-				8B1B95F829FE69BA0030A21D /* recipeInfoResponse.json in Resources */,
 				EA53173529D6267A007B6953 /* LaunchScreen.storyboard in Resources */,
 				EA53173229D6267A007B6953 /* Assets.xcassets in Resources */,
-				8B1B95FA29FE69BF0030A21D /* winesResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

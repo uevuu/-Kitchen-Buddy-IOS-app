@@ -16,6 +16,10 @@ class MainViewModel {
         self.output = output
     }
     
+    func viewDidLoad() {
+        print("siu")
+    }
+    
     func showAllWinesThisSort() {
         output?.showAllWinesThisSort()
     }
