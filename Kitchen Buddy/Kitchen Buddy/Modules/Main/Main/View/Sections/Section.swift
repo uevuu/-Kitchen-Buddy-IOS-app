@@ -9,6 +9,4 @@ import UIKit
 
 protocol Section {
     func layoutSection() -> NSCollectionLayoutSection
-    func configureCell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell
-    func getItemCount() -> Int
 }

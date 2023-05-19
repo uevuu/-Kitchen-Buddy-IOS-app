@@ -7,9 +7,7 @@
 
 import UIKit
 
-struct RecentRecipeSection: Section {
-    let numberOfItems = 4
-    
+struct RecentRecipeSection: Section {    
     func layoutSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.5),
@@ -23,12 +21,10 @@ struct RecentRecipeSection: Section {
             heightDimension: .fractionalHeight(0.12)
         )
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 2)
-
-        let section = NSCollectionLayoutSection(group: group)
         
         let headerSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .estimated(44) 
+            heightDimension: .estimated(44)
         )
         let header = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
@@ -36,21 +32,9 @@ struct RecentRecipeSection: Section {
             alignment: .top
         )
         
+        let section = NSCollectionLayoutSection(group: group)
         section.boundarySupplementaryItems = [header]
-        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 20, trailing: 10)
-
+        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 10, trailing: 10)
         return section
-    }
-    
-    func configureCell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: RecentRecipeCell.reuseIdentifier,
-            for: indexPath
-        )
-        return cell
-    }
-    
-    func getItemCount() -> Int {
-        return numberOfItems
     }
 }

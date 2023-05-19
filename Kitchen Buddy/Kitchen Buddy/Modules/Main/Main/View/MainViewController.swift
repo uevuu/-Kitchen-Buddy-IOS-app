@@ -11,13 +11,6 @@ import SnapKit
 final class MainViewController: UIViewController {
     // MARK: - Dependencies
     private var viewModel: MainViewModel
-    private lazy var sections: [Section] = [
-        RecentRecipeSection(),
-        SelectionRecipeSection(),
-        WineSortSection(type: .whiteWines),
-        WineSortSection(type: .redWines),
-        WineSortSection(type: .otherWines)
-    ]
     
     // MARK: - Properties
     private lazy var collectionView = {
@@ -56,7 +49,7 @@ final class MainViewController: UIViewController {
     }()
     
     lazy var collectionViewLayout: UICollectionViewLayout = {
-        var sections = self.sections
+        var sections = viewModel.getSections()
         let layout = UICollectionViewCompositionalLayout { sectionIndex, _ -> NSCollectionLayoutSection? in
             return sections[sectionIndex].layoutSection()
         }
@@ -122,8 +115,12 @@ final class MainViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.viewDidLoad()
-        setupViews()
+        viewModel.viewDidLoad { [weak self] in
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+                self?.setupViews()
+            }
+        }
     }
         
     // MARK: - Setups
@@ -154,18 +151,78 @@ final class MainViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension MainViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sections.count
+        return viewModel.getNumberOfSections()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sections[section].getItemCount()
+        return viewModel.getCountOfItemsInSection(sectionNumber: section)
     }
     
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        return sections[indexPath.section].configureCell(collectionView: collectionView, indexPath: indexPath)
+        switch indexPath.section {
+        case 0:
+            let recipe = viewModel.getOneOfLastRecipes(itemNumber: indexPath.item)
+            return configureRecentRecipeCell(collectionView: collectionView, indexPath: indexPath, recipe: recipe)
+        case 1:
+            let recipe = viewModel.getOneOfSelectionRecipes(itemNumber: indexPath.item)
+            return configureSelectionRecipeCell(collectionView: collectionView, indexPath: indexPath, recipe: recipe)
+        case 2, 3, 4:
+            let wineSort = viewModel.getWineSort(indexPath: indexPath)
+            return configureWineSortCell(collectionView: collectionView, indexPath: indexPath, wineSort: wineSort)
+        default:
+            return UICollectionViewCell()
+        }
+    }
+}
+
+// MARK: - configureCell
+extension MainViewController {
+    private func configureRecentRecipeCell(
+        collectionView: UICollectionView,
+        indexPath: IndexPath,
+        recipe: Recipe
+    ) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: RecentRecipeCell.reuseIdentifier,
+            for: indexPath
+        ) as? RecentRecipeCell else {
+            fatalError("error")
+        }
+        cell.configureCell(title: recipe.title, imageUrlString: recipe.image)
+        return cell
+    }
+    
+    func configureSelectionRecipeCell(
+        collectionView: UICollectionView,
+        indexPath: IndexPath,
+        recipe: Recipe
+    ) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: SelectionRecipeCell.reuseIdentifier,
+            for: indexPath
+        ) as? SelectionRecipeCell else {
+            fatalError("error")
+        }
+        cell.configureCell(title: recipe.title, imageUrlString: recipe.image)
+        return cell
+    }
+    
+    private func configureWineSortCell(
+        collectionView: UICollectionView,
+        indexPath: IndexPath,
+        wineSort: WineSort
+    ) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: WineSortCell.reuseIdentifier,
+            for: indexPath
+        ) as? WineSortCell else {
+            fatalError("error")
+        }
+        cell.configureCell(title: wineSort.title, description: wineSort.description)
+        return cell
     }
 }
 

@@ -11,4 +11,5 @@ target 'Kitchen Buddy' do
 	pod 'Alamofire'
 	pod 'Moya', '~> 15.0'
 	pod 'Swinject'
+	pod 'Kingfisher', '~> 7.0'
 end

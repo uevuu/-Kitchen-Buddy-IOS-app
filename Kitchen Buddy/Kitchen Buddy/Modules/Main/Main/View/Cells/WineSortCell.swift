@@ -40,7 +40,7 @@ final class WineSortCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
+        setupViews()
         setConstraints()
     }
     
@@ -48,7 +48,7 @@ final class WineSortCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupView() {
+    private func setupViews() {
         addSubview(roundedView)
         addSubview(titleLabel)
         addSubview(descriptionLabel)
