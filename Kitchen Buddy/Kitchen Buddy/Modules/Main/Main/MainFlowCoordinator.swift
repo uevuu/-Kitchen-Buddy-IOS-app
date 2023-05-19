@@ -33,6 +33,7 @@ final class MainFlowCoordinator: FlowCoordinatorProtocol {
         )
         let viewController = mainBuilder.build()
         let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.navigationBar.barTintColor = UIColor(named: "AppBackgroundColor")
         self.navigationController = navigationController
         parentTabBarController?.addViewController(
             viewController: navigationController,

@@ -122,6 +122,7 @@ final class MainViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.viewDidLoad()
         setupViews()
     }
         
@@ -129,10 +130,7 @@ final class MainViewController: UIViewController {
     private func setupViews() {
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.leading.equalToSuperview()
+            make.top.trailing.bottom.leading.equalToSuperview()
         }
     }
     

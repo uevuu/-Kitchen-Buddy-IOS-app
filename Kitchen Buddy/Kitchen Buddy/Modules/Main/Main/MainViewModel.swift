@@ -17,7 +17,8 @@ class MainViewModel {
     }
     
     func viewDidLoad() {
-        print("siu")
+        let lastRecipes: RandomRecipes = Bundle.main.decode(file: "LastRecipes.json")
+        print(lastRecipes)
     }
     
     func showAllWinesThisSort() {

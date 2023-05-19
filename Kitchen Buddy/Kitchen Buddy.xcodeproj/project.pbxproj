@@ -92,6 +92,7 @@
 		8B54CA9F2A12DB5E009B76D2 /* SelectionRecipeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRecipeSection.swift; sourceTree = "<group>"; };
 		8B54CAA12A12DB6F009B76D2 /* WineSortSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineSortSection.swift; sourceTree = "<group>"; };
 		8B54CAA32A12DEB3009B76D2 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		8B802DA52A1770450062AC1B /* LastRecipes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = LastRecipes.json; path = ../../../../../.Trash/LastRecipes.json; sourceTree = "<group>"; };
 		8B8A384B29FBDB09008416CE /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
 		8B8FD9D62A0305A400404B9D /* Resolver+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Extensions.swift"; sourceTree = "<group>"; };
 		8B9639862A016B290031AD7B /* AllSelectionRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSelectionRecipesViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +224,14 @@
 				8B54CAA32A12DEB3009B76D2 /* Section.swift */,
 			);
 			path = Sections;
+			sourceTree = "<group>";
+		};
+		8B802DA42A1770030062AC1B /* JsonResponses */ = {
+			isa = PBXGroup;
+			children = (
+				8B802DA52A1770450062AC1B /* LastRecipes.json */,
+			);
+			path = JsonResponses;
 			sourceTree = "<group>";
 		};
 		8B8A384A29FBDABE008416CE /* Extensions */ = {
@@ -362,6 +371,7 @@
 		EA53172429D62677007B6953 /* Kitchen Buddy */ = {
 			isa = PBXGroup;
 			children = (
+				8B802DA42A1770030062AC1B /* JsonResponses */,
 				8B8A384D29FBDF26008416CE /* Modules */,
 				8B8A384A29FBDABE008416CE /* Extensions */,
 				8B2E7CF529EE91300091E129 /* DependencyAssemblers */,
