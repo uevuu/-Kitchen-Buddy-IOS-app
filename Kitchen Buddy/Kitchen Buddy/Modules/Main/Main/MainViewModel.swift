@@ -10,6 +10,7 @@ import Swinject
 class MainViewModel {
     private let output: MainModuleOutput?
     private let networkService: NetworkService
+    private let userDefaultsService: UserDefaultsService
     private var lastRecipes: [Recipe] = []
     private var allSelectionRecipes: [Recipe] = []
     private var selectionRecipes: [Recipe] = []
@@ -142,14 +143,17 @@ class MainViewModel {
     // swiftlint:enable line_length
     
     // MARK: - Init
-    init(networkService: NetworkService, output: MainModuleOutput?) {
+    init(networkService: NetworkService, userDefaultsService: UserDefaultsService, output: MainModuleOutput?) {
         self.networkService = networkService
+        self.userDefaultsService = userDefaultsService
         self.output = output
     }
-    
+        
     func viewDidLoad(completion: @escaping () -> Void) {
-        // это с UserDefaults берется()
-        lastRecipes = Bundle.main.decode(file: "LastRecipes.json")
+        let recipes = userDefaultsService.getLastRecipes()
+        if let recipes = recipes {
+            lastRecipes = recipes
+        }
         networkService.sendRequest(target: .getRandomRecipes) { [weak self] (result: Result<RandomRecipes, Error>) in
             switch  result {
             case .success(let recipes):
@@ -170,7 +174,14 @@ class MainViewModel {
         output?.showAllSelectionRecipes()
     }
     
-    func showRecipeInfo() {
+    func showRecipeInfo(recipe: Recipe) {
+        if let existingIndex = lastRecipes.firstIndex(where: { $0.id == recipe.id }) {
+            lastRecipes.remove(at: existingIndex)
+        } else if lastRecipes.count == 4 {
+            lastRecipes.removeFirst()
+        }
+        lastRecipes.append(recipe)
+        userDefaultsService.saveLastRecipes(recipes: lastRecipes)
         output?.showRecipeInfo()
     }
     

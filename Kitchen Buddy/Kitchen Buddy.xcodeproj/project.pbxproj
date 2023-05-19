@@ -31,6 +31,8 @@
 		8B54CAA22A12DB6F009B76D2 /* WineSortSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B54CAA12A12DB6F009B76D2 /* WineSortSection.swift */; };
 		8B54CAA42A12DEB3009B76D2 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B54CAA32A12DEB3009B76D2 /* Section.swift */; };
 		8B802DA72A1774400062AC1B /* LastRecipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B802DA62A17743F0062AC1B /* LastRecipes.json */; };
+		8B802DA92A17F49B0062AC1B /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B802DA82A17F49B0062AC1B /* UserDefaultsService.swift */; };
+		8B802DAB2A17F6FF0062AC1B /* UserDefaultsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B802DAA2A17F6FF0062AC1B /* UserDefaultsAssembly.swift */; };
 		8B8A384C29FBDB09008416CE /* UITabBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A384B29FBDB09008416CE /* UITabBarController+Extensions.swift */; };
 		8B8FD9D72A0305A400404B9D /* Resolver+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FD9D62A0305A400404B9D /* Resolver+Extensions.swift */; };
 		8B9639872A016B290031AD7B /* AllSelectionRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9639862A016B290031AD7B /* AllSelectionRecipesViewController.swift */; };
@@ -94,6 +96,8 @@
 		8B54CAA12A12DB6F009B76D2 /* WineSortSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineSortSection.swift; sourceTree = "<group>"; };
 		8B54CAA32A12DEB3009B76D2 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		8B802DA62A17743F0062AC1B /* LastRecipes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LastRecipes.json; path = ../../../../../.Trash/LastRecipes.json; sourceTree = "<group>"; };
+		8B802DA82A17F49B0062AC1B /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		8B802DAA2A17F6FF0062AC1B /* UserDefaultsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAssembly.swift; sourceTree = "<group>"; };
 		8B8A384B29FBDB09008416CE /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
 		8B8FD9D62A0305A400404B9D /* Resolver+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Extensions.swift"; sourceTree = "<group>"; };
 		8B9639862A016B290031AD7B /* AllSelectionRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSelectionRecipesViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				8B2E7CF629EE917B0091E129 /* NetworkAssembly.swift */,
+				8B802DAA2A17F6FF0062AC1B /* UserDefaultsAssembly.swift */,
 			);
 			path = DependencyAssemblers;
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 			children = (
 				EA53174029D63187007B6953 /* NetworkService.swift */,
 				8BD4685A29E2C10F0008F642 /* RecipesAPITarget.swift */,
+				8B802DA82A17F49B0062AC1B /* UserDefaultsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -552,6 +558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B802DAB2A17F6FF0062AC1B /* UserDefaultsAssembly.swift in Sources */,
 				8B1B961629FFF2830030A21D /* RecipeInfoViewModel.swift in Sources */,
 				8B1B960C29FFD3750030A21D /* WinesModuleOutput.swift in Sources */,
 				8B54CA992A12C36A009B76D2 /* SelectionRecipeCell.swift in Sources */,
@@ -606,6 +613,7 @@
 				EAD6AFE729D778A700BD7464 /* CuisineType.swift in Sources */,
 				EAD6AFEC29D77BD900BD7464 /* SortingParam.swift in Sources */,
 				8B1B961829FFF4D00030A21D /* RecipeInfoBuilder.swift in Sources */,
+				8B802DA92A17F49B0062AC1B /* UserDefaultsService.swift in Sources */,
 				EA53173029D62677007B6953 /* Kitchen_Buddy.xcdatamodeld in Sources */,
 				EAD6AFDF29D7254400BD7464 /* Wines.swift in Sources */,
 			);

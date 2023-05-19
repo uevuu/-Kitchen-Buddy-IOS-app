@@ -19,7 +19,8 @@ final class ServiceLocator: ServiceLocatorProtocol {
         self.container = Container()
         self.assembler = Assembler(
             [
-                NetworkAssembly()
+                NetworkAssembly(),
+                UserDefaultsAssembly()
             ],
             container: container
         )

@@ -130,15 +130,7 @@ final class MainViewController: UIViewController {
             make.top.trailing.bottom.leading.equalToSuperview()
         }
     }
-    
-    @objc private func winesButtonTapped() {
-        viewModel.showAllWinesThisSort()
-    }
-    
-    @objc private func recipeInfoButtonTapped() {
-        viewModel.showRecipeInfo()
-    }
-    
+        
     @objc private func allRecipesButtonTapped() {
         viewModel.showAllSelectionRecipes()
     }
@@ -228,4 +220,19 @@ extension MainViewController {
 
 // MARK: - UICollectionViewDelegate
 extension MainViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            let recipe = viewModel.getOneOfLastRecipes(itemNumber: indexPath.item)
+            viewModel.showRecipeInfo(recipe: recipe)
+        case 1:
+            let recipe = viewModel.getOneOfSelectionRecipes(itemNumber: indexPath.item)
+            viewModel.showRecipeInfo(recipe: recipe)
+        case 2, 3, 4:
+            let wineSort = viewModel.getWineSort(indexPath: indexPath)
+            viewModel.showAllWinesThisSort()
+        default:
+            break
+        }
+    }
 }
