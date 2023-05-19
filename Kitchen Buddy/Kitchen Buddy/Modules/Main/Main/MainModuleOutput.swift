@@ -10,6 +10,6 @@ protocol MainModuleOutput: AnyObject {
     func showRecipeInfo()
     func showAllSelectionRecipes()
     func showSettings()
-//    func goToPreviousModule(animated: Bool, completion: (() -> Void)?)
+//    func viewDidPop(animated: Bool, completion: (() -> Void)?)
 //    func moduleDidUnload()
 }

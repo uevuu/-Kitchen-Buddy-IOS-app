@@ -48,7 +48,7 @@ extension WinesFlowCoordinator: WinesModuleOutput {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    func goToPreviousModule(animated: Bool, completion: (() -> Void)?) {
+    func viewDidPop(animated: Bool, completion: (() -> Void)?) {
         finish(animated: false, completion: completion)
     }
     

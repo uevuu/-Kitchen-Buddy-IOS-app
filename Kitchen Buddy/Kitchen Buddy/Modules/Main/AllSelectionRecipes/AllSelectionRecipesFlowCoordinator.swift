@@ -54,7 +54,7 @@ extension AllSelectionRecipesFlowCoordinator: AllSelectionRecipesModuleOutput {
         childCoordinators.append(recipeFlowCoordinator)
     }
     
-    func goToPreviousModule(animated: Bool, completion: (() -> Void)?) {
+    func viewDidPop(animated: Bool, completion: (() -> Void)?) {
         finish(animated: animated, completion: completion)
     }
     

@@ -17,7 +17,7 @@ class RecipeInfoViewModel {
     }
     
     func tapOnBackButton() {
-        output?.goToPreviousModule(animated: true, completion: nil)
+        output?.viewDidPop(animated: true, completion: nil)
     }
     
     func tapOnRecipe() {
