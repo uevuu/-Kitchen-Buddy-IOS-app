@@ -70,7 +70,11 @@ final class RecentRecipeCell: UICollectionViewCell {
     
     func configureCell(title: String, imageUrlString: String? ) {
         titleLabel.text = title
-        let url = URL(string: imageUrlString ?? "12")
+        guard let imageUrlString else {
+            recipeImageView.image = UIImage(named: "NoImageAvailable")
+            return
+        }
+        let url = URL(string: imageUrlString)
         recipeImageView.kf.setImage(with: url)
     }
 }
