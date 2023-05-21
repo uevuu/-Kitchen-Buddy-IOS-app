@@ -8,9 +8,9 @@
 import Swinject
 
 class MainViewModel {
-    private let output: MainModuleOutput?
+    private weak var output: MainModuleOutput?
     private let networkService: NetworkService
-    private let userDefaultsService: UserDefaultsService
+    private let lastRecipesService: LastRecipesService
     private var lastRecipes: [Recipe] = []
     private var allSelectionRecipes: [Recipe] = []
     private var selectionRecipes: [Recipe] = []
@@ -143,26 +143,23 @@ class MainViewModel {
     // swiftlint:enable line_length
     
     // MARK: - Init
-    init(networkService: NetworkService, userDefaultsService: UserDefaultsService, output: MainModuleOutput?) {
+    init(networkService: NetworkService, lastRecipesService: LastRecipesService, output: MainModuleOutput?) {
         self.networkService = networkService
-        self.userDefaultsService = userDefaultsService
+        self.lastRecipesService = lastRecipesService
         self.output = output
     }
         
-    func viewDidLoad(completion: @escaping () -> Void) {
-        let recipes = userDefaultsService.getLastRecipes()
-        if let recipes = recipes {
-            lastRecipes = recipes
-        }
+    func viewDidLoadEvent(completion: @escaping () -> Void) {
+        lastRecipes = lastRecipesService.getRecipes()
         networkService.sendRequest(target: .getRandomRecipes) { [weak self] (result: Result<RandomRecipes, Error>) in
             switch  result {
             case .success(let recipes):
                 self?.selectionRecipes = Array(recipes.recipes.prefix(20))
                 self?.allSelectionRecipes = recipes.recipes
-                completion()
             case .failure(let error):
                 print(String(describing: error))
             }
+            completion()
         }
     }
     
@@ -175,13 +172,8 @@ class MainViewModel {
     }
     
     func showRecipeInfo(recipe: Recipe) {
-        if let existingIndex = lastRecipes.firstIndex(where: { $0.id == recipe.id }) {
-            lastRecipes.remove(at: existingIndex)
-        } else if lastRecipes.count == 4 {
-            lastRecipes.removeFirst()
-        }
-        lastRecipes.append(recipe)
-        userDefaultsService.saveLastRecipes(recipes: lastRecipes)
+        lastRecipesService.saveRecipe(recipe: recipe)
+        lastRecipes = lastRecipesService.getRecipes()
         output?.showRecipeInfo()
     }
     

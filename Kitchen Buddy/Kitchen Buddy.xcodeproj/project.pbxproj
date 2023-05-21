@@ -41,6 +41,8 @@
 		8B96398D2A016DBF0031AD7B /* AllSelectionRecipesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B96398C2A016DBF0031AD7B /* AllSelectionRecipesBuilder.swift */; };
 		8B9733E22A13728E008D39CE /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9733E12A13728E008D39CE /* HeaderView.swift */; };
 		8B9733E52A13D1B5008D39CE /* SelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9733E42A13D1B5008D39CE /* SelectionHeaderView.swift */; };
+		8BA52EE12A1A9F4900550A12 /* LastRecipesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA52EE02A1A9F4900550A12 /* LastRecipesService.swift */; };
+		8BA52EE32A1AA1F500550A12 /* LastRecipesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA52EE22A1AA1F500550A12 /* LastRecipesAssembly.swift */; };
 		8BCB036A29FD0254008A1DC1 /* RecipeFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCB036929FD0254008A1DC1 /* RecipeFlowCoordinator.swift */; };
 		8BCB036C29FD069F008A1DC1 /* WinesFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCB036B29FD069F008A1DC1 /* WinesFlowCoordinator.swift */; };
 		8BD1983329EBF6E500A8F8CE /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1983229EBF6E500A8F8CE /* MainBuilder.swift */; };
@@ -106,6 +108,8 @@
 		8B96398C2A016DBF0031AD7B /* AllSelectionRecipesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSelectionRecipesBuilder.swift; sourceTree = "<group>"; };
 		8B9733E12A13728E008D39CE /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		8B9733E42A13D1B5008D39CE /* SelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionHeaderView.swift; sourceTree = "<group>"; };
+		8BA52EE02A1A9F4900550A12 /* LastRecipesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastRecipesService.swift; sourceTree = "<group>"; };
+		8BA52EE22A1AA1F500550A12 /* LastRecipesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastRecipesAssembly.swift; sourceTree = "<group>"; };
 		8BCB036929FD0254008A1DC1 /* RecipeFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFlowCoordinator.swift; sourceTree = "<group>"; };
 		8BCB036B29FD069F008A1DC1 /* WinesFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinesFlowCoordinator.swift; sourceTree = "<group>"; };
 		8BD1983229EBF6E500A8F8CE /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 			children = (
 				8B2E7CF629EE917B0091E129 /* NetworkAssembly.swift */,
 				8B802DAA2A17F6FF0062AC1B /* UserDefaultsAssembly.swift */,
+				8BA52EE22A1AA1F500550A12 /* LastRecipesAssembly.swift */,
 			);
 			path = DependencyAssemblers;
 			sourceTree = "<group>";
@@ -420,6 +425,7 @@
 				EA53174029D63187007B6953 /* NetworkService.swift */,
 				8BD4685A29E2C10F0008F642 /* RecipesAPITarget.swift */,
 				8B802DA82A17F49B0062AC1B /* UserDefaultsService.swift */,
+				8BA52EE02A1A9F4900550A12 /* LastRecipesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -561,9 +567,11 @@
 				8B802DAB2A17F6FF0062AC1B /* UserDefaultsAssembly.swift in Sources */,
 				8B1B961629FFF2830030A21D /* RecipeInfoViewModel.swift in Sources */,
 				8B1B960C29FFD3750030A21D /* WinesModuleOutput.swift in Sources */,
+				8BA52EE12A1A9F4900550A12 /* LastRecipesService.swift in Sources */,
 				8B54CA992A12C36A009B76D2 /* SelectionRecipeCell.swift in Sources */,
 				8B1B95FF29FE830B0030A21D /* AllSelectionRecipesFlowCoordinator.swift in Sources */,
 				8B2E7CF429EE90170091E129 /* ServiceLocator.swift in Sources */,
+				8BA52EE32A1AA1F500550A12 /* LastRecipesAssembly.swift in Sources */,
 				8B1B960E29FFD6CD0030A21D /* WinesViewModel.swift in Sources */,
 				8B54CA9E2A12DB50009B76D2 /* RecentRecipeSection.swift in Sources */,
 				EAD6AFE529D7774D00BD7464 /* SearchRecipes.swift in Sources */,

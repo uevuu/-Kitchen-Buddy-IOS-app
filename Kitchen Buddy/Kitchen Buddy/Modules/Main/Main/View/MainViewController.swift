@@ -115,12 +115,16 @@ final class MainViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.viewDidLoad { [weak self] in
+        viewModel.viewDidLoadEvent { [weak self] in
             DispatchQueue.main.async {
-                self?.collectionView.reloadData()
-                self?.setupViews()
+                self?.updateViews()
             }
         }
+    }
+    
+    private func updateViews() {
+        collectionView.reloadData()
+        setupViews()
     }
         
     // MARK: - Setups

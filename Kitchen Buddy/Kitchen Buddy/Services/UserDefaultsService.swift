@@ -11,13 +11,12 @@ import Foundation
 final class UserDefaultsService {
     private let userDefaults = UserDefaults.standard
     
-    
     func saveLastRecipes(recipes: [Recipe]) {
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(recipes), forKey:"MostRecentlyViewedRecipes")
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(recipes), forKey: "MostRecentlyViewedRecipes")
     }
     
     func getLastRecipes() -> [Recipe]? {
-        guard let data = UserDefaults.standard.value(forKey:"MostRecentlyViewedRecipes") as? Data else {
+        guard let data = UserDefaults.standard.value(forKey: "MostRecentlyViewedRecipes") as? Data else {
             return nil
         }
         let recipes = try? PropertyListDecoder().decode([Recipe].self, from: data)
