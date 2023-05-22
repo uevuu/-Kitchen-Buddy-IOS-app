@@ -23,7 +23,7 @@ struct WineSortSection: Section {
         item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
 
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.92),
+            widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(0.4)
         )
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 4)
@@ -40,7 +40,7 @@ struct WineSortSection: Section {
         
         let section = NSCollectionLayoutSection(group: group)
         section.boundarySupplementaryItems = [header]
-        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 10, trailing: 10)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 10, trailing: 0)
         section.orthogonalScrollingBehavior = .groupPagingCentered
         return section
     }
