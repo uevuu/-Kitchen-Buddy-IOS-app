@@ -14,7 +14,6 @@ class MainViewModel {
     private var lastRecipes: [Recipe] = []
     private var allSelectionRecipes: [Recipe] = []
     private var selectionRecipes: [Recipe] = []
-    private var wines: [[WineSort]] = [[]]
     
     private var sections: [Section] = [
         RecentRecipeSection(),
@@ -24,6 +23,9 @@ class MainViewModel {
         WineSortSection()
     ]
     
+
+    private var wines: [[WineSort]] = [[]]
+    
     // MARK: - Init
     init(networkService: NetworkService, lastRecipesService: LastRecipesService, output: MainModuleOutput?) {
         self.networkService = networkService
@@ -32,8 +34,8 @@ class MainViewModel {
     }
         
     func viewDidLoadEvent(completion: @escaping () -> Void) {
-        lastRecipes = lastRecipesService.getRecipes()
         wines = Bundle.main.decode(file: "WinesSort.json")
+        lastRecipes = lastRecipesService.getRecipes()
         networkService.sendRequest(target: .getRandomRecipes) { [weak self] (result: Result<RandomRecipes, Error>) in
             switch  result {
             case .success(let recipes):
