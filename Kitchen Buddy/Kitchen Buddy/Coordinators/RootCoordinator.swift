@@ -37,6 +37,5 @@ final class RootCoordinator: FlowCoordinatorProtocol {
     }
     
     func finish(animated: Bool, completion: (() -> Void)?) {
-        print("GG")
     }
 }

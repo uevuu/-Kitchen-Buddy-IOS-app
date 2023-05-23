@@ -21,7 +21,7 @@ class WinesViewModel {
     }
     
     func tapOnBackButton() {
-        output?.goToPreviousModule(animated: true, completion: nil)
+        output?.viewDidPop(animated: true, completion: nil)
     }
     
     func controllerWasDeinit() {

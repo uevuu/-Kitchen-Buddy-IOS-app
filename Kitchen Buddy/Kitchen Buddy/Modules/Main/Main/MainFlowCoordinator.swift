@@ -33,6 +33,7 @@ final class MainFlowCoordinator: FlowCoordinatorProtocol {
         )
         let viewController = mainBuilder.build()
         let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.navigationBar.barTintColor = UIColor(named: "AppBackgroundColor")
         self.navigationController = navigationController
         parentTabBarController?.addViewController(
             viewController: navigationController,
@@ -58,7 +59,6 @@ extension MainFlowCoordinator: MainModuleOutput {
             self?.childCoordinators.removeFlowCoordinator(ofType: WinesFlowCoordinator.self)
         }
         winesFlowCoordinator.start(animated: true)
-        print(childCoordinators.count)
         childCoordinators.append(winesFlowCoordinator)
     }
     
@@ -85,6 +85,5 @@ extension MainFlowCoordinator: MainModuleOutput {
     }
     
     func showSettings() {
-        print(childCoordinators.count)
     }
 }

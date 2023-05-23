@@ -21,6 +21,7 @@ final class MainBuilder: ModuleBuilderProtocol {
     func build() -> UIViewController {
         let mainViewModel = MainViewModel(
             networkService: resolver.resolve(),
+            lastRecipesService: resolver.resolve(),
             output: moduleOutput
         )
         return MainViewController(viewModel: mainViewModel)

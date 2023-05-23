@@ -8,12 +8,44 @@
 import Swinject
 
 class MainViewModel {
-    private let output: MainModuleOutput?
+    private weak var output: MainModuleOutput?
     private let networkService: NetworkService
+    private let lastRecipesService: LastRecipesService
+    private var lastRecipes: [Recipe] = []
+    private var allSelectionRecipes: [Recipe] = []
+    private var selectionRecipes: [Recipe] = []
     
-    init(networkService: NetworkService, output: MainModuleOutput?) {
+    private var sections: [Section] = [
+        RecentRecipeSection(),
+        SelectionRecipeSection(),
+        WineSortSection(),
+        WineSortSection(),
+        WineSortSection()
+    ]
+    
+
+    private var wines: [[WineSort]] = [[]]
+    
+    // MARK: - Init
+    init(networkService: NetworkService, lastRecipesService: LastRecipesService, output: MainModuleOutput?) {
         self.networkService = networkService
+        self.lastRecipesService = lastRecipesService
         self.output = output
+    }
+        
+    func viewDidLoadEvent(completion: @escaping () -> Void) {
+        wines = Bundle.main.decode(file: "WinesSort.json")
+        lastRecipes = lastRecipesService.getRecipes()
+        networkService.sendRequest(target: .getRandomRecipes) { [weak self] (result: Result<RandomRecipes, Error>) in
+            switch  result {
+            case .success(let recipes):
+                self?.selectionRecipes = Array(recipes.recipes.prefix(20))
+                self?.allSelectionRecipes = recipes.recipes
+            case .failure(let error):
+                print(String(describing: error))
+            }
+            completion()
+        }
     }
     
     func showAllWinesThisSort() {
@@ -24,11 +56,45 @@ class MainViewModel {
         output?.showAllSelectionRecipes()
     }
     
-    func showRecipeInfo() {
+    func showRecipeInfo(recipe: Recipe) {
         output?.showRecipeInfo()
     }
     
     func showSettings() {
         output?.showSettings()
+    }
+    
+    func getSections() -> [Section] {
+        return sections
+    }
+    
+    func getNumberOfSections() -> Int {
+        return sections.count
+    }
+    
+    func getCountOfItemsInSection(sectionNumber: Int) -> Int {
+        if sectionNumber == 0 {
+            return lastRecipes.count
+        } else if sectionNumber == 1 {
+            return selectionRecipes.count
+        } else {
+            return wines[sectionNumber - 2].count
+        }
+    }
+    
+    func getSection(indexPath: IndexPath) -> Section {
+        return sections[indexPath.section]
+    }
+    
+    func getOneOfLastRecipes(itemNumber: Int) -> Recipe {
+        return lastRecipes[itemNumber]
+    }
+    
+    func getOneOfSelectionRecipes(itemNumber: Int) -> Recipe {
+        return selectionRecipes[itemNumber]
+    }
+    
+    func getWineSort(indexPath: IndexPath) -> WineSort {
+        return wines[indexPath.section - 2][indexPath.item]
     }
 }

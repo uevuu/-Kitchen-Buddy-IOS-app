@@ -53,7 +53,7 @@ extension RecipeFlowCoordinator: RecipeInfoModuleOutput {
         finishHandlers.forEach { $0() }
     }
     
-    func goToPreviousModule(animated: Bool, completion: (() -> Void)?) {
+    func viewDidPop(animated: Bool, completion: (() -> Void)?) {
         if navigationController?.viewControllers.count == 2 {
             finish(animated: false, completion: completion)
         } 

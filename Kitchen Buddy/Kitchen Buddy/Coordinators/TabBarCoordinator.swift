@@ -12,7 +12,12 @@ import Swinject
 final class TabBarCoordinator: FlowCoordinatorProtocol {
     private var window: UIWindow
     private var resolver: Resolver
-    private var tabBarController = UITabBarController()
+    private var tabBarController: UITabBarController = {
+        var tabBar = UITabBarController()
+        tabBar.tabBar.barTintColor = UIColor(named: "AppBackgroundColor")
+        tabBar.tabBar.tintColor = UIColor(named: "AppLinkFontColor")
+        return tabBar
+    }()
     private var childCoordinators: [FlowCoordinatorProtocol] = []
     private var finishHandlers: [(() -> Void)] = []
     
