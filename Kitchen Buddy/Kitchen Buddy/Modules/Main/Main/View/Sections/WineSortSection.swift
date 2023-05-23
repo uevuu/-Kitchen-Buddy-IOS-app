@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct WineSort {
+struct WineSort: Codable {
     let title: String
     let value: String
     let description: String

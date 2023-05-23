@@ -30,7 +30,7 @@
 		8B54CAA02A12DB5E009B76D2 /* SelectionRecipeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B54CA9F2A12DB5E009B76D2 /* SelectionRecipeSection.swift */; };
 		8B54CAA22A12DB6F009B76D2 /* WineSortSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B54CAA12A12DB6F009B76D2 /* WineSortSection.swift */; };
 		8B54CAA42A12DEB3009B76D2 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B54CAA32A12DEB3009B76D2 /* Section.swift */; };
-		8B802DA72A1774400062AC1B /* LastRecipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B802DA62A17743F0062AC1B /* LastRecipes.json */; };
+		8B802DA72A1774400062AC1B /* WinesSort.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B802DA62A17743F0062AC1B /* WinesSort.json */; };
 		8B802DA92A17F49B0062AC1B /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B802DA82A17F49B0062AC1B /* UserDefaultsService.swift */; };
 		8B802DAB2A17F6FF0062AC1B /* UserDefaultsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B802DAA2A17F6FF0062AC1B /* UserDefaultsAssembly.swift */; };
 		8B8A384C29FBDB09008416CE /* UITabBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A384B29FBDB09008416CE /* UITabBarController+Extensions.swift */; };
@@ -97,7 +97,7 @@
 		8B54CA9F2A12DB5E009B76D2 /* SelectionRecipeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRecipeSection.swift; sourceTree = "<group>"; };
 		8B54CAA12A12DB6F009B76D2 /* WineSortSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineSortSection.swift; sourceTree = "<group>"; };
 		8B54CAA32A12DEB3009B76D2 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
-		8B802DA62A17743F0062AC1B /* LastRecipes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LastRecipes.json; path = ../../../../../.Trash/LastRecipes.json; sourceTree = "<group>"; };
+		8B802DA62A17743F0062AC1B /* WinesSort.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = WinesSort.json; path = ../../../../../.Trash/WinesSort.json; sourceTree = "<group>"; };
 		8B802DA82A17F49B0062AC1B /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		8B802DAA2A17F6FF0062AC1B /* UserDefaultsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAssembly.swift; sourceTree = "<group>"; };
 		8B8A384B29FBDB09008416CE /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
@@ -240,7 +240,7 @@
 		8B802DA42A1770030062AC1B /* JsonResponses */ = {
 			isa = PBXGroup;
 			children = (
-				8B802DA62A17743F0062AC1B /* LastRecipes.json */,
+				8B802DA62A17743F0062AC1B /* WinesSort.json */,
 			);
 			path = JsonResponses;
 			sourceTree = "<group>";
@@ -493,7 +493,7 @@
 			files = (
 				EA53173529D6267A007B6953 /* LaunchScreen.storyboard in Resources */,
 				EA53173229D6267A007B6953 /* Assets.xcassets in Resources */,
-				8B802DA72A1774400062AC1B /* LastRecipes.json in Resources */,
+				8B802DA72A1774400062AC1B /* WinesSort.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
