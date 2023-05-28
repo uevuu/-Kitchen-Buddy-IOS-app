@@ -10,13 +10,61 @@ import Swinject
 class WinesViewModel {
     private let output: WinesModuleOutput?
     private let networkService: NetworkService
+    private let wineLocalDataSource: WineModuleLocalDataSource
+    private var wines = Wines(recommendedWines: [], totalFound: 0)
+    private let selectedWineSort: WineSort
     
-    init(networkService: NetworkService, output: WinesModuleOutput?) {
+    init(
+        networkService: NetworkService,
+        wineLocalDataSource: WineModuleLocalDataSource,
+        output: WinesModuleOutput?
+    ) {
         self.networkService = networkService
+        self.wineLocalDataSource = wineLocalDataSource
         self.output = output
+        guard let selectedWineSort = wineLocalDataSource.getWineSort() else {
+            fatalError("error with swithing to new model")
+        }
+        self.selectedWineSort = selectedWineSort
     }
     
-    func showWineInfo() {
+    func viewDidLoadEvent(completion: @escaping () -> Void) {
+        networkService.sendRequest(
+            target: .getWines(
+                sortName: selectedWineSort.value
+            )
+        ) { [weak self] (result: Result<Wines, Error>) in
+            switch  result {
+            case .success(let response):
+                self?.wines = response
+            case .failure(let error):
+                print(String(describing: error))
+            }
+            completion()
+        }
+    }
+    
+    func getWinesCount() -> Int {
+        return wines.totalFound
+    }
+    
+    func getWine(indexPath: IndexPath) -> Wine {
+        return wines.recommendedWines[indexPath.row]
+    }
+    
+    func getWineSortTitle() -> String {
+        return selectedWineSort.title
+    }
+    
+    func showWineInfo(_ wine: Wine) {
+        wineLocalDataSource.saveWine(wine)
+        output?.showWineInfo()
+    }
+    
+    func handleDidSelectItemAt(indexPath: IndexPath) {
+        let wine = wines.recommendedWines[indexPath.row]
+        print(wine.title)
+        wineLocalDataSource.saveWine(wine)
         output?.showWineInfo()
     }
     

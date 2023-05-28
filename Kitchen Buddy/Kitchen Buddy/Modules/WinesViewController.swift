@@ -9,16 +9,12 @@ import UIKit
 
 final class WinesViewController: UIViewController {
     private var viewModel: WinesViewModel
-            
-    private var wineButton: UIButton {
-        let button = UIButton()
-        button.frame = CGRect(x: 60, y: 120, width: 200, height: 50)
-        button.setTitle("Go to Wine Info", for: .normal)
-        button.backgroundColor = .green
-        button.setTitleColor(.blue, for: .normal)
-        button.addTarget(self, action: #selector(wineButtonTapped), for: .touchUpInside)
-        return button
-    }
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(WineTableViewCell.self, forCellReuseIdentifier: "WineTableViewCell")
+        return tableView
+    }()
     
     init(viewModel: WinesViewModel) {
         self.viewModel = viewModel
@@ -31,22 +27,80 @@ final class WinesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        view.addSubview(wineButton)
+        setupTableView()
+        configureItems()
+        title = viewModel.getWineSortTitle()
+        viewModel.viewDidLoadEvent { [weak self] in
+            DispatchQueue.main.async {
+                self?.updateTableView()
+            }
+        }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        if self.isMovingFromParent {
-            viewModel.tapOnBackButton()
-        }
+    private func setupTableView() {
+        tableView.backgroundColor = UIColor(named: "AppBackgroundColor")
+        view.addSubview(tableView)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.frame = view.bounds
+    }
+    
+    private func configureItems() {
+        navigationController?.navigationBar.tintColor = .label
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "chevron.left"),
+            style: .plain,
+            target: self,
+            action: #selector(backButtonTapped)
+        )
+    }
+    
+    private func updateTableView() {
+        tableView.reloadData()
+    }
+    
+    @objc private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+        viewModel.tapOnBackButton()
     }
     
     deinit {
         viewModel.controllerWasDeinit()
     }
-        
-    @objc func wineButtonTapped() {
-        viewModel.showWineInfo()
+}
+
+// MARK: - WinesViewController UITableViewDataSource
+extension WinesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.getWinesCount()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let wine = viewModel.getWine(indexPath: indexPath)
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "WineTableViewCell",
+            for: indexPath
+        ) as? WineTableViewCell else {
+            fatalError("error")
+        }
+        cell.configureCell(
+            title: wine.title,
+            price: wine.price,
+            imageUrlString: wine.imageUrl,
+            rating: wine.averageRating,
+            ratingCount: wine.ratingCount
+        )
+        return cell
+    }
+}
+
+// MARK: - WinesViewController UITableViewDelegate
+extension WinesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.handleDidSelectItemAt(indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
     }
 }

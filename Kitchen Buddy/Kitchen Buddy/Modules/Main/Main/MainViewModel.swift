@@ -11,7 +11,9 @@ class MainViewModel {
     private weak var output: MainModuleOutput?
     private let networkService: NetworkService
     private let lastRecipesService: LastRecipesService
+    private let wineLocalDataSource: WineModuleLocalDataSource
     private var lastRecipes: [Recipe] = []
+    private var wines: [[WineSort]] = [[]]
     private var allSelectionRecipes: [Recipe] = []
     private var selectionRecipes: [Recipe] = []
     
@@ -23,20 +25,25 @@ class MainViewModel {
         WineSortSection()
     ]
     
-
-    private var wines: [[WineSort]] = [[]]
-    
     // MARK: - Init
-    init(networkService: NetworkService, lastRecipesService: LastRecipesService, output: MainModuleOutput?) {
+    init(
+        networkService: NetworkService,
+        lastRecipesService: LastRecipesService,
+        wineLocalDataSource: WineModuleLocalDataSource,
+        output: MainModuleOutput?
+    ) {
         self.networkService = networkService
         self.lastRecipesService = lastRecipesService
+            self.wineLocalDataSource = wineLocalDataSource
         self.output = output
     }
         
     func viewDidLoadEvent(completion: @escaping () -> Void) {
         wines = Bundle.main.decode(file: "WinesSort.json")
         lastRecipes = lastRecipesService.getRecipes()
-        networkService.sendRequest(target: .getRandomRecipes) { [weak self] (result: Result<RandomRecipes, Error>) in
+        networkService.sendRequest(
+            target: .getRandomRecipes
+        ) { [weak self] (result: Result<RandomRecipes, Error>) in
             switch  result {
             case .success(let recipes):
                 self?.selectionRecipes = Array(recipes.recipes.prefix(20))
@@ -48,16 +55,8 @@ class MainViewModel {
         }
     }
     
-    func showAllWinesThisSort() {
-        output?.showAllWinesThisSort()
-    }
-    
     func showAllSelectionRecipes() {
         output?.showAllSelectionRecipes()
-    }
-    
-    func showRecipeInfo(recipe: Recipe) {
-        output?.showRecipeInfo()
     }
     
     func showSettings() {
@@ -96,5 +95,20 @@ class MainViewModel {
     
     func getWineSort(indexPath: IndexPath) -> WineSort {
         return wines[indexPath.section - 2][indexPath.item]
+    }
+    
+    func handleDidSelectItemAt(indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            output?.showRecipeInfo()
+        case 1:
+            output?.showRecipeInfo()
+        case 2, 3, 4:
+            let wineSort = wines[indexPath.section - 2][indexPath.item]
+            wineLocalDataSource.saveWineSort(wineSort)
+            output?.showAllWinesThisSort()
+        default:
+            break
+        }
     }
 }

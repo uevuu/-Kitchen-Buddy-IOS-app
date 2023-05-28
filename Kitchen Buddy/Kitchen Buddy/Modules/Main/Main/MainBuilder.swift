@@ -22,6 +22,7 @@ final class MainBuilder: ModuleBuilderProtocol {
         let mainViewModel = MainViewModel(
             networkService: resolver.resolve(),
             lastRecipesService: resolver.resolve(),
+            wineLocalDataSource: resolver.resolve(),
             output: moduleOutput
         )
         return MainViewController(viewModel: mainViewModel)

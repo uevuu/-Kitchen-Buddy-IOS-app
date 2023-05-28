@@ -21,7 +21,8 @@ final class ServiceLocator: ServiceLocatorProtocol {
             [
                 NetworkAssembly(),
                 UserDefaultsAssembly(),
-                LastRecipesAssembly()
+                LastRecipesAssembly(),
+                WineModuleLocalDataSourceAssembly()
             ],
             container: container
         )

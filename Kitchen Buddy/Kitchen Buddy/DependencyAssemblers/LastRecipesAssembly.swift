@@ -12,6 +12,6 @@ final class LastRecipesAssembly: Assembly {
         container.register(LastRecipesService.self) { _ in
             LastRecipesService()
         }
+        .inObjectScope(.container)
     }
 }
-

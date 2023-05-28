@@ -12,5 +12,6 @@ final class UserDefaultsAssembly: Assembly {
         container.register(UserDefaultsService.self) { _ in
             UserDefaultsService()
         }
+        .inObjectScope(.container)
     }
 }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		483220E19606E398079478C4 /* Pods_Kitchen_Buddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92939CAB51556954A209707 /* Pods_Kitchen_Buddy.framework */; };
+		8B01AFDF2A225F9C00A8C711 /* WineModuleLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B01AFDE2A225F9C00A8C711 /* WineModuleLocalDataSource.swift */; };
+		8B01AFE12A22602700A8C711 /* WineModuleLocalDataSourceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B01AFE02A22602700A8C711 /* WineModuleLocalDataSourceAssembly.swift */; };
+		8B01AFE32A2278E400A8C711 /* WinesData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B01AFE22A2278E300A8C711 /* WinesData.json */; };
 		8B1B95F329FE68E80030A21D /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B95F229FE68E80030A21D /* Bundle+Extensions.swift */; };
 		8B1B95FF29FE830B0030A21D /* AllSelectionRecipesFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B95FE29FE830B0030A21D /* AllSelectionRecipesFlowCoordinator.swift */; };
 		8B1B960129FFCC7E0030A21D /* MainModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B960029FFCC7E0030A21D /* MainModuleOutput.swift */; };
@@ -30,6 +33,9 @@
 		8B54CAA02A12DB5E009B76D2 /* SelectionRecipeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B54CA9F2A12DB5E009B76D2 /* SelectionRecipeSection.swift */; };
 		8B54CAA22A12DB6F009B76D2 /* WineSortSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B54CAA12A12DB6F009B76D2 /* WineSortSection.swift */; };
 		8B54CAA42A12DEB3009B76D2 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B54CAA32A12DEB3009B76D2 /* Section.swift */; };
+		8B7F591A2A234A27002996C4 /* WineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F59192A234A26002996C4 /* WineTableViewCell.swift */; };
+		8B7F591C2A237EC5002996C4 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F591B2A237EC5002996C4 /* Double+Extensions.swift */; };
+		8B7F591E2A237EF5002996C4 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F591D2A237EF5002996C4 /* String+Extensions.swift */; };
 		8B802DA92A17F49B0062AC1B /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B802DA82A17F49B0062AC1B /* UserDefaultsService.swift */; };
 		8B802DAB2A17F6FF0062AC1B /* UserDefaultsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B802DAA2A17F6FF0062AC1B /* UserDefaultsAssembly.swift */; };
 		8B852BAA2A1D5B7E007461A4 /* WinesSort.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B852BA92A1D5B7E007461A4 /* WinesSort.json */; };
@@ -75,6 +81,9 @@
 
 /* Begin PBXFileReference section */
 		27A15F89B28F53579E485F78 /* Pods-Kitchen Buddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kitchen Buddy.debug.xcconfig"; path = "Target Support Files/Pods-Kitchen Buddy/Pods-Kitchen Buddy.debug.xcconfig"; sourceTree = "<group>"; };
+		8B01AFDE2A225F9C00A8C711 /* WineModuleLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineModuleLocalDataSource.swift; sourceTree = "<group>"; };
+		8B01AFE02A22602700A8C711 /* WineModuleLocalDataSourceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineModuleLocalDataSourceAssembly.swift; sourceTree = "<group>"; };
+		8B01AFE22A2278E300A8C711 /* WinesData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WinesData.json; sourceTree = "<group>"; };
 		8B1B95F229FE68E80030A21D /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		8B1B95FE29FE830B0030A21D /* AllSelectionRecipesFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSelectionRecipesFlowCoordinator.swift; sourceTree = "<group>"; };
 		8B1B960029FFCC7E0030A21D /* MainModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleOutput.swift; sourceTree = "<group>"; };
@@ -97,6 +106,9 @@
 		8B54CA9F2A12DB5E009B76D2 /* SelectionRecipeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRecipeSection.swift; sourceTree = "<group>"; };
 		8B54CAA12A12DB6F009B76D2 /* WineSortSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineSortSection.swift; sourceTree = "<group>"; };
 		8B54CAA32A12DEB3009B76D2 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		8B7F59192A234A26002996C4 /* WineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WineTableViewCell.swift; path = "Kitchen Buddy/DependencyAssemblers/WineTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		8B7F591B2A237EC5002996C4 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		8B7F591D2A237EF5002996C4 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		8B802DA82A17F49B0062AC1B /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		8B802DAA2A17F6FF0062AC1B /* UserDefaultsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAssembly.swift; sourceTree = "<group>"; };
 		8B852BA92A1D5B7E007461A4 /* WinesSort.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WinesSort.json; sourceTree = "<group>"; };
@@ -159,6 +171,7 @@
 		8B1B960429FFD2720030A21D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8B7F591F2A23B8E2002996C4 /* WIneInfo */,
 				8B8A385C29FC2B36008416CE /* Main */,
 				8B9639842A016AE20031AD7B /* AllSelectionRecipes */,
 				8B1B960529FFD29E0030A21D /* Wines */,
@@ -182,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				8B1B960729FFD2D90030A21D /* WinesViewController.swift */,
+				8B7F59192A234A26002996C4 /* WineTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,6 +226,7 @@
 				8B2E7CF629EE917B0091E129 /* NetworkAssembly.swift */,
 				8B802DAA2A17F6FF0062AC1B /* UserDefaultsAssembly.swift */,
 				8BA52EE22A1AA1F500550A12 /* LastRecipesAssembly.swift */,
+				8B01AFE02A22602700A8C711 /* WineModuleLocalDataSourceAssembly.swift */,
 			);
 			path = DependencyAssemblers;
 			sourceTree = "<group>";
@@ -237,9 +252,17 @@
 			path = Sections;
 			sourceTree = "<group>";
 		};
+		8B7F591F2A23B8E2002996C4 /* WIneInfo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WIneInfo;
+			sourceTree = "<group>";
+		};
 		8B852BAB2A1D5B97007461A4 /* StaticData */ = {
 			isa = PBXGroup;
 			children = (
+				8B01AFE22A2278E300A8C711 /* WinesData.json */,
 				8B852BA92A1D5B7E007461A4 /* WinesSort.json */,
 			);
 			path = StaticData;
@@ -251,6 +274,8 @@
 				8B8A384B29FBDB09008416CE /* UITabBarController+Extensions.swift */,
 				8B1B95F229FE68E80030A21D /* Bundle+Extensions.swift */,
 				8B8FD9D62A0305A400404B9D /* Resolver+Extensions.swift */,
+				8B7F591B2A237EC5002996C4 /* Double+Extensions.swift */,
+				8B7F591D2A237EF5002996C4 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -426,6 +451,7 @@
 				8BD4685A29E2C10F0008F642 /* RecipesAPITarget.swift */,
 				8B802DA82A17F49B0062AC1B /* UserDefaultsService.swift */,
 				8BA52EE02A1A9F4900550A12 /* LastRecipesService.swift */,
+				8B01AFDE2A225F9C00A8C711 /* WineModuleLocalDataSource.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -491,6 +517,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B01AFE32A2278E400A8C711 /* WinesData.json in Resources */,
 				EA53173529D6267A007B6953 /* LaunchScreen.storyboard in Resources */,
 				EA53173229D6267A007B6953 /* Assets.xcassets in Resources */,
 				8B852BAA2A1D5B7E007461A4 /* WinesSort.json in Resources */,
@@ -572,6 +599,7 @@
 				8B1B95FF29FE830B0030A21D /* AllSelectionRecipesFlowCoordinator.swift in Sources */,
 				8B2E7CF429EE90170091E129 /* ServiceLocator.swift in Sources */,
 				8BA52EE32A1AA1F500550A12 /* LastRecipesAssembly.swift in Sources */,
+				8B7F591A2A234A27002996C4 /* WineTableViewCell.swift in Sources */,
 				8B1B960E29FFD6CD0030A21D /* WinesViewModel.swift in Sources */,
 				8B54CA9E2A12DB50009B76D2 /* RecentRecipeSection.swift in Sources */,
 				EAD6AFE529D7774D00BD7464 /* SearchRecipes.swift in Sources */,
@@ -585,6 +613,7 @@
 				8BD1983D29ECA40B00A8F8CE /* MainViewController.swift in Sources */,
 				EA53173D29D62BE1007B6953 /* RandomRecipes.swift in Sources */,
 				8B54CAA02A12DB5E009B76D2 /* SelectionRecipeSection.swift in Sources */,
+				8B01AFDF2A225F9C00A8C711 /* WineModuleLocalDataSource.swift in Sources */,
 				EAD6AFEE29D77D5D00BD7464 /* DietType.swift in Sources */,
 				8B1B960A29FFD3200030A21D /* WinesBuilder.swift in Sources */,
 				8BF901BB29E9E56B00488B17 /* FavouriteFlowCoordinator.swift in Sources */,
@@ -592,6 +621,7 @@
 				8BCB036A29FD0254008A1DC1 /* RecipeFlowCoordinator.swift in Sources */,
 				8B8A384C29FBDB09008416CE /* UITabBarController+Extensions.swift in Sources */,
 				8B1B961229FFF0070030A21D /* RecipeInfoViewController.swift in Sources */,
+				8B01AFE12A22602700A8C711 /* WineModuleLocalDataSourceAssembly.swift in Sources */,
 				8B1B961429FFF1FF0030A21D /* RecipeInfoModuleOutput.swift in Sources */,
 				8B96398D2A016DBF0031AD7B /* AllSelectionRecipesBuilder.swift in Sources */,
 				8B1B960829FFD2D90030A21D /* WinesViewController.swift in Sources */,
@@ -601,6 +631,8 @@
 				EA53172829D62677007B6953 /* SceneDelegate.swift in Sources */,
 				8BF901B529E9A85C00488B17 /* TabBarCoordinator.swift in Sources */,
 				8B54CA972A12C34D009B76D2 /* RecentRecipeCell .swift in Sources */,
+				8B7F591E2A237EF5002996C4 /* String+Extensions.swift in Sources */,
+				8B7F591C2A237EC5002996C4 /* Double+Extensions.swift in Sources */,
 				EAD6AFE929D77B6700BD7464 /* IntoleranceType.swift in Sources */,
 				8B9639892A016BC20031AD7B /* AllSelectionRecipesViewModel.swift in Sources */,
 				8B9639872A016B290031AD7B /* AllSelectionRecipesViewController.swift in Sources */,

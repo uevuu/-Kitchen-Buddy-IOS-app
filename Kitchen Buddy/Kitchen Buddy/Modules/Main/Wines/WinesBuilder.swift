@@ -21,6 +21,7 @@ final class WinesBuilder: ModuleBuilderProtocol {
     func build() -> UIViewController {
         let winesViewModel = WinesViewModel(
             networkService: resolver.resolve(),
+            wineLocalDataSource: resolver.resolve(),
             output: moduleOutput
         )
         return WinesViewController(viewModel: winesViewModel)
