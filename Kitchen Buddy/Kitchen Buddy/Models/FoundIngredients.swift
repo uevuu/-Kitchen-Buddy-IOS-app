@@ -9,4 +9,6 @@ struct Ingredient: Codable {
     let id: Int
     let name: String
     let image: String
+    let amout: Double?
+    let unit: String?
 }

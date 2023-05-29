@@ -12,6 +12,7 @@ class MainViewModel {
     private let networkService: NetworkService
     private let lastRecipesService: LastRecipesService
     private let wineLocalDataSource: WineModuleLocalDataSource
+    private let recipeModuleLocalDataSource: RecipeModuleLocalDataSource
     private var lastRecipes: [Recipe] = []
     private var wines: [[WineSort]] = [[]]
     private var allSelectionRecipes: [Recipe] = []
@@ -30,11 +31,13 @@ class MainViewModel {
         networkService: NetworkService,
         lastRecipesService: LastRecipesService,
         wineLocalDataSource: WineModuleLocalDataSource,
+        recipeModuleLocalDataSource: RecipeModuleLocalDataSource,
         output: MainModuleOutput?
     ) {
         self.networkService = networkService
         self.lastRecipesService = lastRecipesService
-            self.wineLocalDataSource = wineLocalDataSource
+        self.wineLocalDataSource = wineLocalDataSource
+        self.recipeModuleLocalDataSource = recipeModuleLocalDataSource
         self.output = output
     }
         
@@ -100,8 +103,11 @@ class MainViewModel {
     func handleDidSelectItemAt(indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
+            let recipe = lastRecipes[indexPath.item]
+            recipeModuleLocalDataSource.saveRecipe(recipe)
             output?.showRecipeInfo()
         case 1:
+            let recipe = selectionRecipes[indexPath.item]
             output?.showRecipeInfo()
         case 2, 3, 4:
             let wineSort = wines[indexPath.section - 2][indexPath.item]

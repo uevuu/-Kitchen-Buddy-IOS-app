@@ -5,8 +5,6 @@
 //  Created by Nikita Marin on 27.05.2023.
 //
 
-import Foundation
-
 class WineModuleLocalDataSource {
     private var wineSort: WineSort?
     private var wine: Wine?

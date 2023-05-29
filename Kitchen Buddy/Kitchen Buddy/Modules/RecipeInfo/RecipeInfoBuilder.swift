@@ -21,6 +21,8 @@ final class RecipeInfoBuilder: ModuleBuilderProtocol {
     func build() -> UIViewController {
         let recipeInfoViewModel = RecipeInfoViewModel(
             networkService: resolver.resolve(),
+            recipeModuleLocalDataSource: resolver.resolve(),
+            lastRecipesService: resolver.resolve(),
             output: moduleOutput
         )
         return RecipeInfoViewController(viewModel: recipeInfoViewModel)

@@ -45,6 +45,10 @@ final class WinesViewController: UIViewController {
         tableView.frame = view.bounds
     }
     
+    private func updateTableView() {
+        tableView.reloadData()
+    }
+    
     private func configureItems() {
         navigationController?.navigationBar.tintColor = .label
         navigationItem.leftBarButtonItem = UIBarButtonItem(
@@ -53,10 +57,6 @@ final class WinesViewController: UIViewController {
             target: self,
             action: #selector(backButtonTapped)
         )
-    }
-    
-    private func updateTableView() {
-        tableView.reloadData()
     }
     
     @objc private func backButtonTapped() {

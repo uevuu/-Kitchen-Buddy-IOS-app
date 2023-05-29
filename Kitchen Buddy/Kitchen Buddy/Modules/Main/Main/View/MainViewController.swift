@@ -100,7 +100,8 @@ final class MainViewController: UIViewController {
             make.top.equalTo(view.safeAreaInsets)
         }
     }
-        
+     
+    // MARK: - Private
     @objc private func allRecipesButtonTapped() {
         viewModel.showAllSelectionRecipes()
     }

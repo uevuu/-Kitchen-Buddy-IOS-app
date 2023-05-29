@@ -23,7 +23,7 @@ class WinesViewModel {
         self.wineLocalDataSource = wineLocalDataSource
         self.output = output
         guard let selectedWineSort = wineLocalDataSource.getWineSort() else {
-            fatalError("error with swithing to new model")
+            fatalError("error with swithing to wine module")
         }
         self.selectedWineSort = selectedWineSort
     }
@@ -63,7 +63,6 @@ class WinesViewModel {
     
     func handleDidSelectItemAt(indexPath: IndexPath) {
         let wine = wines.recommendedWines[indexPath.row]
-        print(wine.title)
         wineLocalDataSource.saveWine(wine)
         output?.showWineInfo()
     }
