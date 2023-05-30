@@ -50,6 +50,13 @@ class WineTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private lazy var ratingStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [ratingLabel, ratingCountLabel])
         stackView.axis = .horizontal
@@ -67,10 +74,18 @@ class WineTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    private lazy var mainStackView: UIStackView = {
+    private lazy var recipeTextStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, infoStackView])
         stackView.axis = .vertical
-        stackView.distribution = .equalCentering
+        stackView.distribution = .fillEqually
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    private lazy var mainStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [wineImageView, recipeTextStackView])
+        stackView.axis = .horizontal
+        stackView.spacing = 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -78,7 +93,6 @@ class WineTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
-        setConstraints()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -87,50 +101,49 @@ class WineTableViewCell: UITableViewCell {
     
     private func setupViews() {
         contentView.backgroundColor = UIColor(named: "AppBackgroundColor")
-        addSubview(wineImageView)
-        addSubview(mainStackView)
+        contentView.addSubview(mainStackView)
+        contentView.addSubview(descriptionLabel)
+        setConstraints()
     }
     
     private func setConstraints() {
+        mainStackView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(5)
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().inset(10)
+            make.height.equalTo(120)
+        }
+        
         wineImageView.snp.makeConstraints { make in
-            make.leading.top.equalToSuperview().offset(8)
-            make.bottom.equalToSuperview().inset(8)
             make.width.equalToSuperview().multipliedBy(0.25)
         }
         
-        mainStackView.snp.makeConstraints { make in
-            make.leading.equalTo(wineImageView.snp.trailing).offset(8)
-            make.top.equalToSuperview().offset(20)
-            make.bottom.equalToSuperview().inset(20)
-            make.trailing.equalToSuperview().inset(8)
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(mainStackView.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.bottom.lessThanOrEqualToSuperview().inset(15)
         }
     }
     
-    func configureCell(
-        title: String,
-        price: String,
-        imageUrlString: String?,
-        rating: Double,
-        ratingCount: Int
-    ) {
-        titleLabel.text = title
-        ratingLabel.text = rating.toMarkString()
-        ratingCountLabel.text = "\(ratingCount)"
-        priceLabel.text = price.toTwoDecimalPlacesString()
-        
-        if rating < 0.5 {
+    func isExpended(_ bool: Bool) {
+        descriptionLabel.numberOfLines = bool ? 0 : 1
+    }
+    
+    func configureCell(wine: Wine) {
+        titleLabel.text = wine.title
+        ratingLabel.text = wine.averageRating.toMarkString()
+        ratingCountLabel.text = "\(wine.ratingCount)"
+        priceLabel.text = wine.price.toTwoDecimalPlacesString()        
+        descriptionLabel.text = wine.description?.isEmpty == false ? wine.description : "There is no description"
+
+        if wine.averageRating < 0.5 {
             ratingLabel.textColor = UIColor(named: "BadRatingFontColor")
-        } else if rating >= 0.5 && rating <= 0.75 {
+        } else if wine.averageRating >= 0.5 && wine.averageRating <= 0.75 {
             ratingLabel.textColor = UIColor(named: "MediumRatingFontColor")
         } else {
             ratingLabel.textColor = UIColor(named: "GoodRatingFontColor")
         }
         
-        guard let imageUrlString = imageUrlString, let url = URL(string: imageUrlString) else {
-            wineImageView.image = UIImage(named: "NoImageAvailable")
-            return
-        }
-    
-        wineImageView.kf.setImage(with: url)
+        wineImageView.kf.setImage(with: URL(string: wine.imageUrl))
     }
 }

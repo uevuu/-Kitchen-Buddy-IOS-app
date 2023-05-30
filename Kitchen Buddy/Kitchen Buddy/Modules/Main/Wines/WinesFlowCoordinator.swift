@@ -49,13 +49,7 @@ final class WinesFlowCoordinator: FlowCoordinatorProtocol {
     }
 }
 
-extension WinesFlowCoordinator: WinesModuleOutput {
-    func showWineInfo() {
-        // Будет let viewController = someBuilder.build()
-        let viewController = ViewController()
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-    
+extension WinesFlowCoordinator: WinesModuleOutput {    
     func viewDidPop(animated: Bool, completion: (() -> Void)?) {
         finish(animated: false, completion: completion)
     }

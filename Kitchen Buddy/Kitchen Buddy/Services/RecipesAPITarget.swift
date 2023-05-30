@@ -23,7 +23,7 @@ extension RecipesAPITarget: TargetType {
     }
     
     var headers: [String: String]? {
-        ["x-api-key": "f8eec80b94144a5e8052d7e1dc6fdad0"]
+        ["x-api-key": "UR_KEY"]
     }
     
     var path: String {

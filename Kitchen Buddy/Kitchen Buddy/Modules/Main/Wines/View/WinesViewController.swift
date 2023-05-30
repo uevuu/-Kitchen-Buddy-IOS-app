@@ -38,8 +38,8 @@ final class WinesViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView.backgroundColor = UIColor(named: "AppBackgroundColor")
         view.addSubview(tableView)
+        tableView.backgroundColor = UIColor(named: "AppBackgroundColor")
         tableView.dataSource = self
         tableView.delegate = self
         tableView.frame = view.bounds
@@ -83,13 +83,8 @@ extension WinesViewController: UITableViewDataSource {
         ) as? WineTableViewCell else {
             fatalError("error")
         }
-        cell.configureCell(
-            title: wine.title,
-            price: wine.price,
-            imageUrlString: wine.imageUrl,
-            rating: wine.averageRating,
-            ratingCount: wine.ratingCount
-        )
+        
+        cell.configureCell(wine: wine)
         return cell
     }
 }
@@ -97,10 +92,15 @@ extension WinesViewController: UITableViewDataSource {
 // MARK: - WinesViewController UITableViewDelegate
 extension WinesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.handleDidSelectItemAt(indexPath: indexPath)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        guard let cell = tableView.cellForRow(at: indexPath) as? WineTableViewCell else {
+            fatalError("error with getting WineTableViewCell")
+        }
+        
+        let row = indexPath.row
+        viewModel.didExpended(at: row)
+        cell.isExpended(viewModel.isExpended(at: row))
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
 }

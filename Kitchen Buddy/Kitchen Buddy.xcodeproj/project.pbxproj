@@ -93,7 +93,7 @@
 		8B1B95F229FE68E80030A21D /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		8B1B95FE29FE830B0030A21D /* AllSelectionRecipesFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSelectionRecipesFlowCoordinator.swift; sourceTree = "<group>"; };
 		8B1B960029FFCC7E0030A21D /* MainModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleOutput.swift; sourceTree = "<group>"; };
-		8B1B960729FFD2D90030A21D /* WinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WinesViewController.swift; path = "Kitchen Buddy/Modules/WinesViewController.swift"; sourceTree = SOURCE_ROOT; };
+		8B1B960729FFD2D90030A21D /* WinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WinesViewController.swift; path = "Kitchen Buddy/Modules/Main/Wines/View/WinesViewController.swift"; sourceTree = SOURCE_ROOT; };
 		8B1B960929FFD31F0030A21D /* WinesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinesBuilder.swift; sourceTree = "<group>"; };
 		8B1B960B29FFD3750030A21D /* WinesModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinesModuleOutput.swift; sourceTree = "<group>"; };
 		8B1B960D29FFD6CD0030A21D /* WinesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinesViewModel.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		8B54CA9F2A12DB5E009B76D2 /* SelectionRecipeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRecipeSection.swift; sourceTree = "<group>"; };
 		8B54CAA12A12DB6F009B76D2 /* WineSortSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineSortSection.swift; sourceTree = "<group>"; };
 		8B54CAA32A12DEB3009B76D2 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
-		8B7F59192A234A26002996C4 /* WineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WineTableViewCell.swift; path = "Kitchen Buddy/DependencyAssemblers/WineTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		8B7F59192A234A26002996C4 /* WineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WineTableViewCell.swift; path = "Kitchen Buddy/Modules/Main/Wines/View/WineTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		8B7F591B2A237EC5002996C4 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		8B7F591D2A237EF5002996C4 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		8B802DA82A17F49B0062AC1B /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
@@ -195,22 +195,13 @@
 		8B1B960529FFD29E0030A21D /* Wines */ = {
 			isa = PBXGroup;
 			children = (
-				8B1B960629FFD2B30030A21D /* View */,
+				8BFC78522A2673230091B76B /* View */,
 				8B1B960D29FFD6CD0030A21D /* WinesViewModel.swift */,
 				8B1B960B29FFD3750030A21D /* WinesModuleOutput.swift */,
 				8BCB036B29FD069F008A1DC1 /* WinesFlowCoordinator.swift */,
 				8B1B960929FFD31F0030A21D /* WinesBuilder.swift */,
 			);
 			path = Wines;
-			sourceTree = "<group>";
-		};
-		8B1B960629FFD2B30030A21D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				8B1B960729FFD2D90030A21D /* WinesViewController.swift */,
-				8B7F59192A234A26002996C4 /* WineTableViewCell.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		8B1B960F29FFDCEE0030A21D /* RecipeInfo */ = {
@@ -402,6 +393,15 @@
 				8BFC784E2A25F0C60091B76B /* InformationLabel.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		8BFC78522A2673230091B76B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B1B960729FFD2D90030A21D /* WinesViewController.swift */,
+				8B7F59192A234A26002996C4 /* WineTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		97594CE8A6075D286FD53F7A /* Frameworks */ = {

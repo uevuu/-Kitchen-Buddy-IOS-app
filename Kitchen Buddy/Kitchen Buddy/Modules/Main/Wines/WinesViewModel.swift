@@ -13,6 +13,7 @@ class WinesViewModel {
     private let wineLocalDataSource: WineModuleLocalDataSource
     private var wines = Wines(recommendedWines: [], totalFound: 0)
     private let selectedWineSort: WineSort
+    private var isExpendedList = [Bool]()
     
     init(
         networkService: NetworkService,
@@ -38,6 +39,7 @@ class WinesViewModel {
             switch  result {
             case .success(let response):
                 self?.wines = response
+                self?.isExpendedList  = response.recommendedWines.map { _ in false }
             case .failure(let error):
                 print(String(describing: error))
             }
@@ -57,12 +59,12 @@ class WinesViewModel {
         return selectedWineSort.title
     }
     
-    func showWineInfo(_ wine: Wine) {
-        output?.showWineInfo()
+    func didExpended(at row: Int) {
+        isExpendedList[row] = !isExpendedList[row]
     }
     
-    func handleDidSelectItemAt(indexPath: IndexPath) {
-        output?.showWineInfo()
+    func isExpended(at row: Int) -> Bool {
+        return isExpendedList[row]
     }
     
     func tapOnBackButton() {
