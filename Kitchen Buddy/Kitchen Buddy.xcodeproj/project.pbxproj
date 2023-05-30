@@ -68,6 +68,8 @@
 		8BF901BB29E9E56B00488B17 /* FavouriteFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF901BA29E9E56B00488B17 /* FavouriteFlowCoordinator.swift */; };
 		8BFC784F2A25F0C60091B76B /* InformationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFC784E2A25F0C60091B76B /* InformationLabel.swift */; };
 		8BFC78512A25FB1B0091B76B /* SimilarRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFC78502A25FB1B0091B76B /* SimilarRecipes.swift */; };
+		8BFC78542A26AFA60091B76B /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFC78532A26AFA50091B76B /* RecipeCell.swift */; };
+		8BFC78562A26B3F70091B76B /* RecipeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFC78552A26B3F70091B76B /* RecipeSection.swift */; };
 		EA53172629D62677007B6953 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA53172529D62677007B6953 /* AppDelegate.swift */; };
 		EA53172829D62677007B6953 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA53172729D62677007B6953 /* SceneDelegate.swift */; };
 		EA53172A29D62677007B6953 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA53172929D62677007B6953 /* ViewController.swift */; };
@@ -148,6 +150,8 @@
 		8BF901BA29E9E56B00488B17 /* FavouriteFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteFlowCoordinator.swift; sourceTree = "<group>"; };
 		8BFC784E2A25F0C60091B76B /* InformationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationLabel.swift; sourceTree = "<group>"; };
 		8BFC78502A25FB1B0091B76B /* SimilarRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarRecipes.swift; sourceTree = "<group>"; };
+		8BFC78532A26AFA50091B76B /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
+		8BFC78552A26B3F70091B76B /* RecipeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSection.swift; sourceTree = "<group>"; };
 		A92939CAB51556954A209707 /* Pods_Kitchen_Buddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kitchen_Buddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D506B2F23D92F9F60C36AC2E /* Pods-Kitchen Buddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kitchen Buddy.release.xcconfig"; path = "Target Support Files/Pods-Kitchen Buddy/Pods-Kitchen Buddy.release.xcconfig"; sourceTree = "<group>"; };
 		EA53172229D62677007B6953 /* Kitchen Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kitchen Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -346,6 +350,8 @@
 			isa = PBXGroup;
 			children = (
 				8B9639862A016B290031AD7B /* AllSelectionRecipesViewController.swift */,
+				8BFC78532A26AFA50091B76B /* RecipeCell.swift */,
+				8BFC78552A26B3F70091B76B /* RecipeSection.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -658,6 +664,7 @@
 				8BF901BB29E9E56B00488B17 /* FavouriteFlowCoordinator.swift in Sources */,
 				8B1B960129FFCC7E0030A21D /* MainModuleOutput.swift in Sources */,
 				8BFC78512A25FB1B0091B76B /* SimilarRecipes.swift in Sources */,
+				8BFC78542A26AFA60091B76B /* RecipeCell.swift in Sources */,
 				8BCB036A29FD0254008A1DC1 /* RecipeFlowCoordinator.swift in Sources */,
 				8B8A384C29FBDB09008416CE /* UITabBarController+Extensions.swift in Sources */,
 				8B1B961229FFF0070030A21D /* RecipeInfoViewController.swift in Sources */,
@@ -674,6 +681,7 @@
 				8B54CA972A12C34D009B76D2 /* RecentRecipeCell .swift in Sources */,
 				8B2248D82A24C45B005A18BB /* RecipeModuleLocalDataSourceAssembly.swift in Sources */,
 				8B7F591E2A237EF5002996C4 /* String+Extensions.swift in Sources */,
+				8BFC78562A26B3F70091B76B /* RecipeSection.swift in Sources */,
 				8B7F591C2A237EC5002996C4 /* Double+Extensions.swift in Sources */,
 				EAD6AFE929D77B6700BD7464 /* IntoleranceType.swift in Sources */,
 				8B9639892A016BC20031AD7B /* AllSelectionRecipesViewModel.swift in Sources */,

@@ -87,7 +87,6 @@ class RecipeInfoViewController: UIViewController {
         }
     }
     
-    // MARK: - Private
     private func configureItems() {
         navigationController?.navigationBar.tintColor = .label
         navigationItem.leftBarButtonItem = UIBarButtonItem(
@@ -98,6 +97,7 @@ class RecipeInfoViewController: UIViewController {
         )
     }
     
+    // MARK: - Private
     @objc private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
         viewModel.tapOnBackButton()

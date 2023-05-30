@@ -59,6 +59,7 @@ class MainViewModel {
     }
     
     func showAllSelectionRecipes() {
+        recipeModuleLocalDataSource.saveRecipes(allSelectionRecipes)
         output?.showAllSelectionRecipes()
     }
     
