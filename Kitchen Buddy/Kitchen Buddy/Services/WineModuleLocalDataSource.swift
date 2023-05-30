@@ -15,7 +15,7 @@ class WineModuleLocalDataSource {
     }
     
     func getWineSort(sortValue: String) -> WineSort? {
-        return winesSort.flatMap({ $0 }).first(where: { $0.value == sortValue })
+        return winesSort.flatMap { $0 }.first { $0.value == sortValue }
     }
     
     func getWinesSort() -> [[WineSort]] {

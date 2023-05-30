@@ -15,4 +15,3 @@ final class RecipeModuleLocalDataSourceAssembly: Assembly {
         .inObjectScope(.container)
     }
 }
-

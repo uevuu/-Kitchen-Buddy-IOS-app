@@ -69,9 +69,10 @@ final class MainViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
         viewModel.viewDidLoadEvent { [weak self] in
             DispatchQueue.main.async {
-                self?.updateViews()
+                self?.collectionView.reloadSections(IndexSet(integer: 1))
             }
         }
     }
@@ -84,11 +85,6 @@ final class MainViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
-    private func updateViews() {
-        collectionView.reloadData()
-        setupViews()
     }
         
     // MARK: - Setups

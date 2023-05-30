@@ -8,8 +8,10 @@
 class RecipeModuleLocalDataSource {
     private var recipes: [Recipe]?
     
-    func saveRecipes(_ recipes: [Recipe]) {
-        self.recipes = recipes
+    func saveRecipes(_ recipes: [Recipe]?) {
+        if let recipes = recipes {
+            self.recipes = recipes            
+        }
     }
     
     func getRecipes() -> [Recipe]? {
@@ -17,6 +19,6 @@ class RecipeModuleLocalDataSource {
     }
     
     func getRecipe(id: Int) -> Recipe? {
-        return recipes?.first(where: { $0.id == id })
+        return recipes?.first { $0.id == id }
     }
 }
