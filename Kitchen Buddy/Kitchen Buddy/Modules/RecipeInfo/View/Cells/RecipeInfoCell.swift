@@ -33,10 +33,10 @@ final class RecipeInfoCell: UICollectionViewCell {
     
     private lazy var infoStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-                priceLabel,
-                readyTimeLabel,
-                servingInfoLabel,
-                servingPriceLabel
+            priceLabel,
+            readyTimeLabel,
+            servingInfoLabel,
+            servingPriceLabel
         ])
         stackView.axis = .vertical
         stackView.spacing = 2
@@ -83,7 +83,7 @@ final class RecipeInfoCell: UICollectionViewCell {
     func configureCell(recipe: Recipe) {
         titleLable.text = recipe.title
         servingInfoLabel.text = "Serving - \(recipe.servings)"
-        servingPriceLabel.text = "Price per serving - \(recipe.pricePerServing / 100) $"
+        servingPriceLabel.text = "Price per serving - \(String(format: "%.2f", recipe.pricePerServing / 100)) $"
         readyTimeLabel.text = "Ready time - \(recipe.readyInMinutes)"
         guard let imageUrlString = recipe.image else {
             recipeImageView.image = UIImage(named: "NoImageAvailable")
@@ -91,17 +91,5 @@ final class RecipeInfoCell: UICollectionViewCell {
         }
         let url = URL(string: imageUrlString)
         recipeImageView.kf.setImage(with: url)
-    }
-}
-
-final class InformationLabel: UILabel {
-    init() {
-        super.init(frame: .zero)
-        font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

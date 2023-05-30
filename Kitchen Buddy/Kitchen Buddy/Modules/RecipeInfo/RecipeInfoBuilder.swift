@@ -12,10 +12,12 @@ import Swinject
 final class RecipeInfoBuilder: ModuleBuilderProtocol {
     private var resolver: Resolver
     private var moduleOutput: RecipeInfoModuleOutput?
+    private let recipeId: Int
     
-    init(resolver: Resolver, moduleOutput: RecipeInfoModuleOutput?) {
+    init(resolver: Resolver, moduleOutput: RecipeInfoModuleOutput?, recipeId: Int) {
         self.resolver = resolver
         self.moduleOutput = moduleOutput
+        self.recipeId = recipeId
     }
     
     func build() -> UIViewController {
@@ -23,7 +25,8 @@ final class RecipeInfoBuilder: ModuleBuilderProtocol {
             networkService: resolver.resolve(),
             recipeModuleLocalDataSource: resolver.resolve(),
             lastRecipesService: resolver.resolve(),
-            output: moduleOutput
+            output: moduleOutput,
+            recipeId: recipeId
         )
         return RecipeInfoViewController(viewModel: recipeInfoViewModel)
     }

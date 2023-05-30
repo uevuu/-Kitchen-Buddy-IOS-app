@@ -5,23 +5,20 @@
 //  Created by Nikita Marin on 27.05.2023.
 //
 
+import Foundation
+
 class WineModuleLocalDataSource {
-    private var wineSort: WineSort?
-    private var wine: Wine?
+    private let winesSort: [[WineSort]]
     
-    func saveWineSort(_ wineSort: WineSort) {
-        self.wineSort = wineSort
+    init() {
+        self.winesSort = Bundle.main.decode(file: "WinesSort.json")
     }
     
-    func getWineSort() -> WineSort? {
-        return wineSort
+    func getWineSort(sortValue: String) -> WineSort? {
+        return winesSort.flatMap({ $0 }).first(where: { $0.value == sortValue })
     }
     
-    func saveWine(_ wine: Wine) {
-        self.wine = wine
-    }
-    
-    func getWine() -> Wine? {
-        return wine
+    func getWinesSort() -> [[WineSort]] {
+        return winesSort
     }
 }

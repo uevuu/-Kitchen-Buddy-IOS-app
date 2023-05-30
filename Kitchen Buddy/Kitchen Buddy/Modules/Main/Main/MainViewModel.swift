@@ -14,7 +14,7 @@ class MainViewModel {
     private let wineLocalDataSource: WineModuleLocalDataSource
     private let recipeModuleLocalDataSource: RecipeModuleLocalDataSource
     private var lastRecipes: [Recipe] = []
-    private var wines: [[WineSort]] = [[]]
+    private var winesSort: [[WineSort]] = [[]]
     private var allSelectionRecipes: [Recipe] = []
     private var selectionRecipes: [Recipe] = []
     
@@ -42,7 +42,7 @@ class MainViewModel {
     }
         
     func viewDidLoadEvent(completion: @escaping () -> Void) {
-        wines = Bundle.main.decode(file: "WinesSort.json")
+        winesSort = wineLocalDataSource.getWinesSort()
         lastRecipes = lastRecipesService.getRecipes()
         networkService.sendRequest(
             target: .getRandomRecipes
@@ -80,7 +80,7 @@ class MainViewModel {
         } else if sectionNumber == 1 {
             return selectionRecipes.count
         } else {
-            return wines[sectionNumber - 2].count
+            return winesSort[sectionNumber - 2].count
         }
     }
     
@@ -97,22 +97,22 @@ class MainViewModel {
     }
     
     func getWineSort(indexPath: IndexPath) -> WineSort {
-        return wines[indexPath.section - 2][indexPath.item]
+        return winesSort[indexPath.section - 2][indexPath.item]
     }
     
     func handleDidSelectItemAt(indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
             let recipe = lastRecipes[indexPath.item]
-            recipeModuleLocalDataSource.saveRecipe(recipe)
-            output?.showRecipeInfo()
+            recipeModuleLocalDataSource.saveRecipes(lastRecipes)
+            output?.showRecipeInfo(id: recipe.id)
         case 1:
             let recipe = selectionRecipes[indexPath.item]
-            output?.showRecipeInfo()
+            recipeModuleLocalDataSource.saveRecipes(allSelectionRecipes)
+            output?.showRecipeInfo(id: recipe.id)
         case 2, 3, 4:
-            let wineSort = wines[indexPath.section - 2][indexPath.item]
-            wineLocalDataSource.saveWineSort(wineSort)
-            output?.showAllWinesThisSort()
+            let wineSort = winesSort[indexPath.section - 2][indexPath.item]
+            output?.showAllWinesThisSort(sortValue: wineSort.value)
         default:
             break
         }

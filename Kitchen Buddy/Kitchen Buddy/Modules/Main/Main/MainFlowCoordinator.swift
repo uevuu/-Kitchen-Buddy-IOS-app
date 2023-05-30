@@ -51,8 +51,9 @@ final class MainFlowCoordinator: FlowCoordinatorProtocol {
 
 // MARK: - MainModuleOutput
 extension MainFlowCoordinator: MainModuleOutput {
-    func showAllWinesThisSort() {
+    func showAllWinesThisSort(sortValue: String) {
         let winesFlowCoordinator = WinesFlowCoordinator(
+            sortValue: sortValue,
             navigationController: navigationController,
             resolver: resolver
         ) { [weak self] in
@@ -62,8 +63,9 @@ extension MainFlowCoordinator: MainModuleOutput {
         childCoordinators.append(winesFlowCoordinator)
     }
     
-    func showRecipeInfo() {        
+    func showRecipeInfo(id: Int) {
         let recipeFlowCoordinator = RecipeFlowCoordinator(
+            recipeId: id,
             navigationController: navigationController,
             resolver: resolver
         ) { [weak self] in

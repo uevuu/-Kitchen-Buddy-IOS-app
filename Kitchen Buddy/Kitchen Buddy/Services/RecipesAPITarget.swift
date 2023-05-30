@@ -12,6 +12,8 @@ enum RecipesAPITarget {
     case getWines(sortName: String)
     case getIngredients(letters: String, offset: Int)
     case getRecipeInformation(recipeId: Int)
+    case getSimilarRecipes(recipeId: Int)
+    case getRecipeInformationBulk(ids: [Int])
     case getRecipes(recipesRequestModel: RecipesRequestModel)
 }
 
@@ -36,6 +38,10 @@ extension RecipesAPITarget: TargetType {
             return "recipes/\(recipeId)/information"
         case .getRecipes:
             return "recipes/complexSearch"
+        case .getSimilarRecipes(let recipeId):
+            return "recipes/\(recipeId)/similar"
+        case .getRecipeInformationBulk:
+            return "recipes/informationBulk"
         }
     }
     
@@ -68,7 +74,7 @@ extension RecipesAPITarget: TargetType {
                     "maxFat": recipesRequestModel.maxFat
                 ],
                 encoding: URLEncoding.queryString)
-        case .getRecipeInformation:
+        case .getRecipeInformation, .getSimilarRecipes:
             return .requestPlain
         case .getRandomRecipes:
             return .requestParameters(
@@ -83,6 +89,12 @@ extension RecipesAPITarget: TargetType {
         case .getIngredients(let letters, let offset):
             return .requestParameters(
                 parameters: ["query": letters, "offset": offset],
+                encoding: URLEncoding.queryString
+            )
+        case .getRecipeInformationBulk(let ids):
+            let idsString = ids.map { String($0) }.joined(separator: ", ")
+            return .requestParameters(
+                parameters: ["ids": idsString],
                 encoding: URLEncoding.queryString
             )
         }

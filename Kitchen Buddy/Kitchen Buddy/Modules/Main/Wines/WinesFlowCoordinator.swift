@@ -13,10 +13,17 @@ final class WinesFlowCoordinator: FlowCoordinatorProtocol {
     private weak var navigationController: UINavigationController?
     private var childCoordinators: [FlowCoordinatorProtocol] = []
     private var finishHandlers: [(() -> Void)] = []
+    private let sortValue: String
     
-    init(navigationController: UINavigationController?, resolver: Resolver, finishHandler: @escaping (() -> Void)) {
+    init(
+        sortValue: String,
+        navigationController: UINavigationController?,
+        resolver: Resolver,
+        finishHandler: @escaping (() -> Void)
+    ) {
         self.navigationController = navigationController
         self.resolver = resolver
+        self.sortValue = sortValue
         finishHandlers.append(finishHandler)
     }
     
@@ -27,7 +34,8 @@ final class WinesFlowCoordinator: FlowCoordinatorProtocol {
     func showWines() {
         let winesBuilder = WinesBuilder(
             resolver: resolver,
-            moduleOutput: self
+            moduleOutput: self,
+            sortValue: sortValue
         )
         let viewController = winesBuilder.build()
         navigationController?.pushViewController(viewController, animated: true)

@@ -6,16 +6,7 @@
 //
 
 class RecipeModuleLocalDataSource {
-    private var recipe: Recipe?
     private var recipes: [Recipe]?
-    
-    func saveRecipe(_ recipe: Recipe) {
-        self.recipe = recipe
-    }
-    
-    func getRecipe() -> Recipe? {
-        return recipe
-    }
     
     func saveRecipes(_ recipes: [Recipe]) {
         self.recipes = recipes
@@ -23,5 +14,9 @@ class RecipeModuleLocalDataSource {
     
     func getRecipes() -> [Recipe]? {
         return recipes
+    }
+    
+    func getRecipe(id: Int) -> Recipe? {
+        return recipes?.first(where: { $0.id == id })
     }
 }

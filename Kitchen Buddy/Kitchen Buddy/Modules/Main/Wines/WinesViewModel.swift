@@ -17,13 +17,14 @@ class WinesViewModel {
     init(
         networkService: NetworkService,
         wineLocalDataSource: WineModuleLocalDataSource,
-        output: WinesModuleOutput?
+        output: WinesModuleOutput?,
+        sortValue: String
     ) {
         self.networkService = networkService
         self.wineLocalDataSource = wineLocalDataSource
         self.output = output
-        guard let selectedWineSort = wineLocalDataSource.getWineSort() else {
-            fatalError("error with swithing to wine module")
+        guard let selectedWineSort = wineLocalDataSource.getWineSort(sortValue: sortValue) else {
+            fatalError("error with swithing to wines module")
         }
         self.selectedWineSort = selectedWineSort
     }
@@ -57,13 +58,10 @@ class WinesViewModel {
     }
     
     func showWineInfo(_ wine: Wine) {
-        wineLocalDataSource.saveWine(wine)
         output?.showWineInfo()
     }
     
     func handleDidSelectItemAt(indexPath: IndexPath) {
-        let wine = wines.recommendedWines[indexPath.row]
-        wineLocalDataSource.saveWine(wine)
         output?.showWineInfo()
     }
     

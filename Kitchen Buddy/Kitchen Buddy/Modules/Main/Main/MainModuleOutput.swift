@@ -6,8 +6,8 @@
 //
 
 protocol MainModuleOutput: AnyObject {
-    func showAllWinesThisSort()
-    func showRecipeInfo()
+    func showAllWinesThisSort(sortValue: String)
+    func showRecipeInfo(id: Int)
     func showAllSelectionRecipes()
     func showSettings()
 //    func viewDidPop(animated: Bool, completion: (() -> Void)?)

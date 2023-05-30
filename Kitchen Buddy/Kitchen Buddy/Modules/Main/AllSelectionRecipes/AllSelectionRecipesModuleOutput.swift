@@ -6,7 +6,7 @@
 //
 
 protocol AllSelectionRecipesModuleOutput: AnyObject {
-    func showRecipeInfo()
+    func showRecipeInfo(id: Int)
     func viewDidPop(animated: Bool, completion: (() -> Void)?)
     func moduleDidUnload()
 }

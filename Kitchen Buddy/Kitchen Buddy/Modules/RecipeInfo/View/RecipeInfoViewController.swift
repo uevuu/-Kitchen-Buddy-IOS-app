@@ -28,9 +28,16 @@ class RecipeInfoViewController: UIViewController {
             forCellWithReuseIdentifier: RecipeInstructionStepCell.reuseIdentifier
         )
         collectionView.register(
-            SimilarRecipeCell.self,
-            forCellWithReuseIdentifier: SimilarRecipeCell.reuseIdentifier
+            SelectionRecipeCell.self,
+            forCellWithReuseIdentifier: SelectionRecipeCell.reuseIdentifier
         )
+        
+        collectionView.register(
+            HeaderView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: HeaderView.reuseIdentifier
+        )
+        
         return collectionView
     }()
     
@@ -61,6 +68,7 @@ class RecipeInfoViewController: UIViewController {
         title = viewModel.getRecipeTitle()
         viewModel.viewDidLoadEvent { [weak self] in
             DispatchQueue.main.async {
+                self?.collectionView.reloadSections(IndexSet(integer: 2))
             }
         }
     }
@@ -123,6 +131,25 @@ extension RecipeInfoViewController: UICollectionViewDataSource {
 }
 
 extension RecipeInfoViewController: UICollectionViewDelegate {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        guard let header = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: HeaderView.reuseIdentifier,
+            for: indexPath
+        ) as? HeaderView else {
+            fatalError("error")
+        }
+        header.configureCell(headerName: "Similar recipes")
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.selectSimilarRecipe(recipeNumber: indexPath.item)
+    }
 }
 
 // MARK: - configureCell
@@ -163,10 +190,13 @@ extension RecipeInfoViewController {
         indexPath: IndexPath
     ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: SimilarRecipeCell.reuseIdentifier,
+            withReuseIdentifier: SelectionRecipeCell.reuseIdentifier,
             for: indexPath
-        ) as? SimilarRecipeCell else {
+        ) as? SelectionRecipeCell else {
             fatalError("error")
+        }
+        if let recipe = viewModel.getSimilarRecipe(recipeNumber: indexPath.item) {
+            cell.configureCell(title: recipe.title, imageUrlString: recipe.image)
         }
         return cell
     }

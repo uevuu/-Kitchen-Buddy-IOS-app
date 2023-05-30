@@ -43,8 +43,9 @@ final class AllSelectionRecipesFlowCoordinator: FlowCoordinatorProtocol {
 }
 
 extension AllSelectionRecipesFlowCoordinator: AllSelectionRecipesModuleOutput {
-    func showRecipeInfo() {
+    func showRecipeInfo(id: Int) {
         let recipeFlowCoordinator = RecipeFlowCoordinator(
+            recipeId: id,
             navigationController: navigationController,
             resolver: resolver
         ) { [weak self] in
