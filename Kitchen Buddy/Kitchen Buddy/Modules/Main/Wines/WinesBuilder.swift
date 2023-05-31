@@ -12,16 +12,20 @@ import Swinject
 final class WinesBuilder: ModuleBuilderProtocol {
     private var resolver: Resolver
     private var moduleOutput: WinesModuleOutput?
+    private let sortValue: String
     
-    init(resolver: Resolver, moduleOutput: WinesModuleOutput?) {
+    init(resolver: Resolver, moduleOutput: WinesModuleOutput?, sortValue: String) {
         self.resolver = resolver
         self.moduleOutput = moduleOutput
+        self.sortValue = sortValue
     }
     
     func build() -> UIViewController {
         let winesViewModel = WinesViewModel(
             networkService: resolver.resolve(),
-            output: moduleOutput
+            wineLocalDataSource: resolver.resolve(),
+            output: moduleOutput,
+            sortValue: sortValue
         )
         return WinesViewController(viewModel: winesViewModel)
     }

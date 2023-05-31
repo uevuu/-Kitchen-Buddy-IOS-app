@@ -12,5 +12,6 @@ final class NetworkAssembly: Assembly {
         container.register(NetworkService.self) { _ in
             NetworkService()
         }
+        .inObjectScope(.container)
     }
 }

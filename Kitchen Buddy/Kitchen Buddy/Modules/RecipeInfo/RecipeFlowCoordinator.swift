@@ -10,12 +10,19 @@ import Swinject
 
 // MARK: - RecipeFlowCoordinator
 final class RecipeFlowCoordinator: FlowCoordinatorProtocol {
+    private let recipeId: Int
     private var resolver: Resolver
     private var childCoordinators: [FlowCoordinatorProtocol] = []
     private weak var navigationController: UINavigationController?
     private var finishHandlers: [(() -> Void)] = []
     
-    init(navigationController: UINavigationController?, resolver: Resolver, finishHandler: @escaping (() -> Void)) {
+    init(
+        recipeId: Int,
+        navigationController: UINavigationController?,
+        resolver: Resolver,
+        finishHandler: @escaping (() -> Void)
+    ) {
+        self.recipeId = recipeId
         self.navigationController = navigationController
         self.resolver = resolver
         finishHandlers.append(finishHandler)
@@ -43,7 +50,18 @@ extension RecipeFlowCoordinator: RecipeInfoModuleOutput {
     func showRecipeInfo() {
         let recipeInfoBuilder = RecipeInfoBuilder(
             resolver: resolver,
-            moduleOutput: self
+            moduleOutput: self,
+            recipeId: recipeId
+        )
+        let viewController = recipeInfoBuilder.build()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func showSimilarRecipe(recipeId: Int) {
+        let recipeInfoBuilder = RecipeInfoBuilder(
+            resolver: resolver,
+            moduleOutput: self,
+            recipeId: recipeId
         )
         let viewController = recipeInfoBuilder.build()
         navigationController?.pushViewController(viewController, animated: true)
@@ -54,6 +72,7 @@ extension RecipeFlowCoordinator: RecipeInfoModuleOutput {
     }
     
     func viewDidPop(animated: Bool, completion: (() -> Void)?) {
+        navigationController?.popViewController(animated: true)
         if navigationController?.viewControllers.count == 2 {
             finish(animated: false, completion: completion)
         } 

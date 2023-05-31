@@ -56,52 +56,6 @@ final class MainViewController: UIViewController {
         return layout
     }()
     
-    func collectionView(
-        _ collectionView: UICollectionView,
-        viewForSupplementaryElementOfKind kind: String,
-        at indexPath: IndexPath
-    ) -> UICollectionReusableView {
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            if indexPath.section == 1 {
-                guard let header = collectionView.dequeueReusableSupplementaryView(
-                    ofKind: kind,
-                    withReuseIdentifier: SelectionHeaderView.reuseIdentifier,
-                    for: indexPath
-                ) as? SelectionHeaderView else {
-                    fatalError("error")
-                }
-                header.configureCell(headerName: "Try this")
-                header.setTargetForButton(
-                    target: self,
-                    action: #selector(allRecipesButtonTapped),
-                    event: .touchUpInside
-                )
-                return header
-            } else {
-                guard let header = collectionView.dequeueReusableSupplementaryView(
-                    ofKind: kind,
-                    withReuseIdentifier: HeaderView.reuseIdentifier,
-                    for: indexPath
-                ) as? HeaderView else {
-                    fatalError("error")
-                }
-                if indexPath.section == 0 {
-                    header.configureCell(headerName: "Hello")
-                } else if indexPath.section == 2 {
-                    header.configureCell(headerName: "White wines")
-                } else if indexPath.section == 3 {
-                    header.configureCell(headerName: "Red Wines")
-                } else if indexPath.section == 4 {
-                    header.configureCell(headerName: "Other Wines")
-                }
-                return header
-            }
-        default:
-            return UICollectionReusableView()
-        }
-    }
-    
     // MARK: - Init
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -115,26 +69,41 @@ final class MainViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
         viewModel.viewDidLoadEvent { [weak self] in
             DispatchQueue.main.async {
-                self?.updateViews()
+                self?.collectionView.reloadSections(IndexSet(integer: 1))
+                // сделать кнопку кликабельной
             }
         }
     }
     
-    private func updateViews() {
-        collectionView.reloadData()
-        setupViews()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.reloadLastRecipes { [weak self] in
+            DispatchQueue.main.async {
+                self?.collectionView.reloadSections(IndexSet(integer: 0))
+            }
+        }
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
         
     // MARK: - Setups
     private func setupViews() {
+        view.backgroundColor = UIColor(named: "AppBackgroundColor")
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
-            make.top.trailing.bottom.leading.equalToSuperview()
+            make.trailing.bottom.leading.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
         }
     }
-        
+     
+    // MARK: - Private
     @objc private func allRecipesButtonTapped() {
         viewModel.showAllSelectionRecipes()
     }
@@ -191,7 +160,7 @@ extension MainViewController {
         return cell
     }
     
-    func configureSelectionRecipeCell(
+    private func configureSelectionRecipeCell(
         collectionView: UICollectionView,
         indexPath: IndexPath,
         recipe: Recipe
@@ -225,18 +194,52 @@ extension MainViewController {
 // MARK: - UICollectionViewDelegate
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 0:
-            let recipe = viewModel.getOneOfLastRecipes(itemNumber: indexPath.item)
-            viewModel.showRecipeInfo(recipe: recipe)
-        case 1:
-            let recipe = viewModel.getOneOfSelectionRecipes(itemNumber: indexPath.item)
-            viewModel.showRecipeInfo(recipe: recipe)
-        case 2, 3, 4:
-            let wineSort = viewModel.getWineSort(indexPath: indexPath)
-            viewModel.showAllWinesThisSort()
+        viewModel.handleDidSelectItemAt(indexPath: indexPath)
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            if indexPath.section == 1 {
+                guard let header = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: SelectionHeaderView.reuseIdentifier,
+                    for: indexPath
+                ) as? SelectionHeaderView else {
+                    fatalError("error")
+                }
+                header.configureCell(headerName: "Try this")
+                header.setTargetForButton(
+                    target: self,
+                    action: #selector(allRecipesButtonTapped),
+                    event: .touchUpInside
+                )
+                return header
+            } else {
+                guard let header = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: HeaderView.reuseIdentifier,
+                    for: indexPath
+                ) as? HeaderView else {
+                    fatalError("error")
+                }
+                if indexPath.section == 0 {
+                    header.configureCell(headerName: "Hello")
+                } else if indexPath.section == 2 {
+                    header.configureCell(headerName: "White wines")
+                } else if indexPath.section == 3 {
+                    header.configureCell(headerName: "Red Wines")
+                } else if indexPath.section == 4 {
+                    header.configureCell(headerName: "Other Wines")
+                }
+                return header
+            }
         default:
-            break
+            return UICollectionReusableView()
         }
     }
 }

@@ -20,8 +20,8 @@ final class ServiceLocator: ServiceLocatorProtocol {
         self.assembler = Assembler(
             [
                 NetworkAssembly(),
-                UserDefaultsAssembly(),
-                LastRecipesAssembly()
+                RecipeAssembly(),
+                WineModuleLocalDataSourceAssembly()
             ],
             container: container
         )

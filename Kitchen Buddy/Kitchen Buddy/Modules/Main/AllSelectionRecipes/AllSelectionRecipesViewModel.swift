@@ -9,15 +9,41 @@ import Swinject
 
 class AllSelectionRecipesViewModel {
     private let output: AllSelectionRecipesModuleOutput?
-    private let networkService: NetworkService
+    private let recipes: [Recipe]
     
-    init(networkService: NetworkService, output: AllSelectionRecipesModuleOutput?) {
-        self.networkService = networkService
+    private var sections: [Section] = [
+        RecipeSection()
+    ]
+    
+    init(
+        recipeModuleLocalDataSource: RecipeModuleLocalDataSource,
+        output: AllSelectionRecipesModuleOutput?
+    ) {
         self.output = output
+        guard let recipes = recipeModuleLocalDataSource.getRecipes() else {
+            fatalError("Error with swithcing to all section recipes module")
+        }
+        self.recipes = recipes
     }
     
-    func showRecipeInfo() {
-        output?.showRecipeInfo()
+    func getSectionCount() -> Int {
+        return sections.count
+    }
+    
+    func getSections() -> [Section] {
+        return sections
+    }
+    
+    func getCountOfItemsInSection(sectionNumber: Int) -> Int {
+        return recipes.count
+    }
+    
+    func getRecipe(at row: Int) -> Recipe {
+        return recipes[row]
+    }
+    
+    func showRecipeInfo(id: Int) {
+        output?.showRecipeInfo(id: id)
     }
     
     func tapOnBackButton() {

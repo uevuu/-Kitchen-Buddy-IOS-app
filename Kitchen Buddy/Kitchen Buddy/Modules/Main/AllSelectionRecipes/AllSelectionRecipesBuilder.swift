@@ -20,7 +20,7 @@ final class AllSelectionRecipesBuilder: ModuleBuilderProtocol {
     
     func build() -> UIViewController {
         let allSelectionRecipesViewModel = AllSelectionRecipesViewModel(
-            networkService: resolver.resolve(),
+            recipeModuleLocalDataSource: resolver.resolve(),
             output: moduleOutput
         )
         return AllSelectionRecipesViewController(viewModel: allSelectionRecipesViewModel)

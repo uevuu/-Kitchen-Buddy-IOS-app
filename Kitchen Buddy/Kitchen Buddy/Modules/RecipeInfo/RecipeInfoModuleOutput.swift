@@ -7,6 +7,7 @@
 
 protocol RecipeInfoModuleOutput: AnyObject {
     func showRecipeInfo()
+    func showSimilarRecipe(recipeId: Int)
     func viewDidPop(animated: Bool, completion: (() -> Void)?)
     func moduleDidUnload()
 }
