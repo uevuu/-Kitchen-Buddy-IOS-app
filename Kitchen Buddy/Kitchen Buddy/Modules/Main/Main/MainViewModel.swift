@@ -58,6 +58,11 @@ class MainViewModel {
         }
     }
     
+    func reloadLastRecipes(completion: @escaping () -> Void) {
+        lastRecipes = LastRecipesService().getRecipes()
+        completion()
+    }
+    
     func showAllSelectionRecipes() {
         recipeModuleLocalDataSource.saveRecipes(allSelectionRecipes)
         output?.showAllSelectionRecipes()

@@ -80,6 +80,11 @@ final class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.reloadLastRecipes { [weak self] in
+            DispatchQueue.main.async {
+                self?.collectionView.reloadSections(IndexSet(integer: 0))
+            }
+        }
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
@@ -94,7 +99,7 @@ final class MainViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.trailing.bottom.leading.equalToSuperview()
-            make.top.equalTo(view.safeAreaInsets)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
         }
     }
      
