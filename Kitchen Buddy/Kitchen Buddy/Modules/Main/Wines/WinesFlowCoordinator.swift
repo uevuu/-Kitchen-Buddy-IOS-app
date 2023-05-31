@@ -51,6 +51,7 @@ final class WinesFlowCoordinator: FlowCoordinatorProtocol {
 
 extension WinesFlowCoordinator: WinesModuleOutput {    
     func viewDidPop(animated: Bool, completion: (() -> Void)?) {
+        navigationController?.popViewController(animated: true)
         finish(animated: false, completion: completion)
     }
     

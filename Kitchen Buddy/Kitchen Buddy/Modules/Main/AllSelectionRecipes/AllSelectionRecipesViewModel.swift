@@ -42,8 +42,8 @@ class AllSelectionRecipesViewModel {
         return recipes[row]
     }
     
-    func showRecipeInfo() {
-        output?.showRecipeInfo(id: 1)
+    func showRecipeInfo(id: Int) {
+        output?.showRecipeInfo(id: id)
     }
     
     func tapOnBackButton() {

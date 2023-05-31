@@ -56,6 +56,7 @@ extension AllSelectionRecipesFlowCoordinator: AllSelectionRecipesModuleOutput {
     }
     
     func viewDidPop(animated: Bool, completion: (() -> Void)?) {
+        navigationController?.popViewController(animated: true)
         finish(animated: animated, completion: completion)
     }
     

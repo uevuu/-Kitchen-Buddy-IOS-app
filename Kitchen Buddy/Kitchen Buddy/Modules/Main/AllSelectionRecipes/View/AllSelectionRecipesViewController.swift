@@ -80,7 +80,6 @@ final class AllSelectionRecipesViewController: UIViewController {
     
     // MARK: - Private
     @objc private func backButtonTapped() {
-        navigationController?.popViewController(animated: true)
         viewModel.tapOnBackButton()
     }
 }
@@ -112,6 +111,7 @@ extension AllSelectionRecipesViewController: UICollectionViewDataSource {
 
 extension AllSelectionRecipesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.showRecipeInfo()
+        let recipe = viewModel.getRecipe(at: indexPath.row)
+        viewModel.showRecipeInfo(id: recipe.id)
     }
 }

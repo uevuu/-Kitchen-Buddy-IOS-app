@@ -99,7 +99,6 @@ class RecipeInfoViewController: UIViewController {
     
     // MARK: - Private
     @objc private func backButtonTapped() {
-        navigationController?.popViewController(animated: true)
         viewModel.tapOnBackButton()
     }
 }

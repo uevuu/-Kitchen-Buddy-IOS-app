@@ -73,6 +73,7 @@ final class MainViewController: UIViewController {
         viewModel.viewDidLoadEvent { [weak self] in
             DispatchQueue.main.async {
                 self?.collectionView.reloadSections(IndexSet(integer: 1))
+                // сделать кнопку кликабельной
             }
         }
     }

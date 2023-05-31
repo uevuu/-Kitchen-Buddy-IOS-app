@@ -62,6 +62,7 @@ extension RecipeFlowCoordinator: RecipeInfoModuleOutput {
     }
     
     func viewDidPop(animated: Bool, completion: (() -> Void)?) {
+        navigationController?.popViewController(animated: true)
         if navigationController?.viewControllers.count == 2 {
             finish(animated: false, completion: completion)
         } 
