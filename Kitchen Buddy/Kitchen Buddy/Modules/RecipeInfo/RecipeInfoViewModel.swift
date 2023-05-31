@@ -108,7 +108,8 @@ class RecipeInfoViewModel {
     
     func selectSimilarRecipe(recipeNumber: Int) {
         if let id = similarRecipes?[recipeNumber].id {
-            print(id)
+            recipeModuleLocalDataSource.saveRecipes(similarRecipes)
+            output?.showSimilarRecipe(recipeId: id)
         }
     }
     

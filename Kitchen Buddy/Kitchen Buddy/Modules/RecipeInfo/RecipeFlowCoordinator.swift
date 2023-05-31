@@ -57,6 +57,16 @@ extension RecipeFlowCoordinator: RecipeInfoModuleOutput {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
+    func showSimilarRecipe(recipeId: Int) {
+        let recipeInfoBuilder = RecipeInfoBuilder(
+            resolver: resolver,
+            moduleOutput: self,
+            recipeId: recipeId
+        )
+        let viewController = recipeInfoBuilder.build()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func moduleDidUnload() {
         finishHandlers.forEach { $0() }
     }
