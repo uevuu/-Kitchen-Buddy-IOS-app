@@ -27,11 +27,19 @@ final class SearchFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func showSearch() {
-        let viewController = ViewController()
+        let searchBuilder = SearchBuilder(
+            resolver: resolver,
+            moduleOutput: self
+        )
+        let viewController = searchBuilder.build()
         let navigationController = UINavigationController(rootViewController: viewController)
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(named: "AppBackgroundColor")
+        navigationController.navigationBar.standardAppearance = appearance
         self.navigationController = navigationController
         parentTabBarController?.addViewController(
-            viewController: viewController,
+            viewController: navigationController,
             title: "Search",
             image: UIImage(systemName: "magnifyingglass")
         )
@@ -42,7 +50,16 @@ final class SearchFlowCoordinator: FlowCoordinatorProtocol {
         finishHandlers.append(finishHandler)
         childCoordinators.finishAll(animated: animated, completion: nil)
     }
-    
+}
+
+// MARK: - SearchModuleOutput
+extension SearchFlowCoordinator: SearchModuleOutput {
     func showFilter() {
+    }
+    
+    func showRecipeSearch() {
+    }
+    
+    func showIngridientSearch() {
     }
 }

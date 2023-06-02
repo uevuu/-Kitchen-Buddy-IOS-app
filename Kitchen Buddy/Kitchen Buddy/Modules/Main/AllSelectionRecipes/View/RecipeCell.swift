@@ -24,6 +24,8 @@ final class RecipeCell: UICollectionViewCell {
     private lazy var recipeImageView: UIImageView = {
         let imageView = UIImageView(frame: bounds)
         imageView.contentMode = .scaleToFill
+        imageView.layer.cornerRadius = 10
+        imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -68,6 +70,8 @@ final class RecipeCell: UICollectionViewCell {
     }
     
     private func setupViews() {
+        contentView.layer.cornerRadius = 10
+        contentView.layer.masksToBounds = true
         contentView.backgroundColor = UIColor(named: "AppSectionFontColor")
         contentView.addSubview(recipeImageView)
         contentView.addSubview(titleLabel)

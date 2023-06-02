@@ -147,7 +147,9 @@ extension RecipeInfoViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.selectSimilarRecipe(recipeNumber: indexPath.item)
+        if indexPath.section == 2 {
+            viewModel.selectSimilarRecipe(recipeNumber: indexPath.item)
+        }
     }
 }
 

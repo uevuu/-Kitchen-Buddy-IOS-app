@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+// MARK: - MainViewController
 final class MainViewController: UIViewController {
     // MARK: - Dependencies
     private var viewModel: MainViewModel
