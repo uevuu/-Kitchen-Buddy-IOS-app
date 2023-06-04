@@ -6,10 +6,10 @@
 //
 struct RecipesRequestModel {
     var query: String?
-    var includeIngredients: [String]
-    var sortBy: SortingParam
-    var cusines: [CuisineType]
-    var diet: DietType
+    var includeIngredients: [Ingredient]
+    var sortBy: String
+    var cusines: [SelectableSettingModel]
+    var diet: [SelectableSettingModel]
     var minCalories: Int
     var maxCalories: Int
     var minFat: Int
@@ -19,5 +19,6 @@ struct RecipesRequestModel {
     var minProtein: Int
     var maxProtein: Int
     var time: Int
-    var intolerances: [IntoleranceType]
+    var intolerances: [SelectableSettingModel]
+    var meals: [SelectableSettingModel]
 }

@@ -14,7 +14,7 @@ class SearchViewModel {
     private let filterService: FilterService
     private var foundRecipes: [SearchRecipe] = []
     private var foundIngredients: [Ingredient] = []
-    private var includeIngredients: [Ingredient] = []
+    private let recipeLocalDataSource: RecipeModuleLocalDataSource
     
     private var totalObjects = 0
     private var offset = 0
@@ -36,10 +36,12 @@ class SearchViewModel {
     init(
         networkService: NetworkService,
         filterService: FilterService,
+        recipeLocalDataSource: RecipeModuleLocalDataSource,
         output: SearchModuleOutput?
     ) {
         self.networkService = networkService
         self.filterService = filterService
+        self.recipeLocalDataSource = recipeLocalDataSource
         self.output = output
     }
         
@@ -53,10 +55,9 @@ class SearchViewModel {
             searchIngredients(query: query, completion: completion)
         case .recipe:
             searchRecipes(query: query, completion: completion)
-        default:
-            break
         }
     }
+    
     func searchIngredients(query: String, completion: @escaping () -> Void) {
         offset = 0
         currQuery = query
@@ -80,7 +81,6 @@ class SearchViewModel {
     }
     
     func searchRecipes(query: String, completion: @escaping () -> Void) {
-        print("search recipes")
         networkService.sendRequest(
             target: .getRecipes(
                 recipesRequestModel: filterService.getFilters(with: query)
@@ -116,6 +116,7 @@ class SearchViewModel {
     }
     
     func getCountOfItemsInSection(sectionNumber: Int) -> Int {
+        let includeIngredients = filterService.getIncludeIngredients()
         return includeIngredients.count
     }
     
@@ -137,29 +138,28 @@ class SearchViewModel {
     }
     
     func isIncludedIngredient(_ ingredient: Ingredient) -> Bool {
+        let includeIngredients = filterService.getIncludeIngredients()
         return includeIngredients.contains { $0.id == ingredient.id }
     }
     
     func addIngedient(at row: Int) {
-        if !(includeIngredients.contains { $0.id == foundIngredients[row].id }) {
-            includeIngredients.append(foundIngredients[row])
-        }
+        filterService.addIngredient(foundIngredients[row])
     }
     
     func removeIngedient(at row: Int) {
-        includeIngredients.remove(at: row)
+        filterService.removeIngedient(at: row)
     }
     
     func getCountOfIncludeIngredients() -> Int {
-        return includeIngredients.count
+        return filterService.getIncludeIngredientsCount()
     }
     
     func getIncludeIngredient(at row: Int) -> Ingredient {
-        return includeIngredients[row]
+        return filterService.getIncludeIngredient(at: row)
     }
     
     func deleteIncludeIngredient(at row: Int, completion: @escaping () -> Void) {
-        includeIngredients.remove(at: row)
+        filterService.removeIngedient(at: row)
         completion()
     }
     
@@ -170,5 +170,27 @@ class SearchViewModel {
         case .recipe:
             foundRecipes.removeAll()
         }
+    }
+    
+    func handleTapOnRecipe(at row: Int) {
+        networkService.sendRequest(
+            target: .getRecipeInformationBulk(
+                ids: [foundRecipes[row].id]
+            )
+        ) { [weak self] (result: Result<[Recipe], Error>) in
+            switch result {
+            case .success(let recipes):
+                self?.recipeLocalDataSource.saveRecipes(recipes)
+            case .failure(let error):
+                print(String(describing: error))
+            }
+            if let recipeId = self?.foundRecipes[row].id {
+                self?.output?.showRecipeInfo(id: recipeId)
+            }
+        }
+    }
+    
+    func goToFilterModule() {
+        output?.showFilter()
     }
 }

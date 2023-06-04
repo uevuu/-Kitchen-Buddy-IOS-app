@@ -21,6 +21,7 @@ final class SearchBuilder: ModuleBuilderProtocol {
         let searchViewModel = SearchViewModel(
             networkService: resolver.resolve(),
             filterService: resolver.resolve(),
+            recipeLocalDataSource: resolver.resolve(),
             output: moduleOutput
         )
         return SearchViewController(viewModel: searchViewModel)

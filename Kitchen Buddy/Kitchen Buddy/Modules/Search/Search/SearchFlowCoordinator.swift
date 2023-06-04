@@ -55,11 +55,25 @@ final class SearchFlowCoordinator: FlowCoordinatorProtocol {
 // MARK: - SearchModuleOutput
 extension SearchFlowCoordinator: SearchModuleOutput {
     func showFilter() {
+        let filterCoordinator = FilterFlowCoordinator(
+            navigationController: navigationController,
+            resolver: resolver
+        ) { [weak self] in
+            self?.childCoordinators.removeFlowCoordinator(ofType: FilterFlowCoordinator.self)
+        }
+        filterCoordinator.start(animated: true)
+        childCoordinators.append(filterCoordinator)
     }
     
-    func showRecipeSearch() {
-    }
-    
-    func showIngridientSearch() {
+    func showRecipeInfo(id: Int) {
+        let recipeFlowCoordinator = RecipeFlowCoordinator(
+            recipeId: id,
+            navigationController: navigationController,
+            resolver: resolver
+        ) { [weak self] in
+            self?.childCoordinators.removeFlowCoordinator(ofType: RecipeFlowCoordinator.self)
+        }
+        recipeFlowCoordinator.start(animated: true)
+        childCoordinators.append(recipeFlowCoordinator)
     }
 }

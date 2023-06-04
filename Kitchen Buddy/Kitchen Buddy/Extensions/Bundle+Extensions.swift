@@ -25,4 +25,9 @@ extension Bundle {
         
         return loadedData
     }
+    
+    func decodeToSelectableSettingModel(file: String) -> [SelectableSettingModel] {
+        let settingStringArray: [String] = decode(file: file)
+        return settingStringArray.map { SelectableSettingModel(name: $0) }
+    }
 }

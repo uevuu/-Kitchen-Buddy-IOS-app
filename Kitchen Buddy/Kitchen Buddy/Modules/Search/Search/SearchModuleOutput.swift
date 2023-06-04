@@ -10,6 +10,5 @@ import Foundation
 // MARK: - SearchModuleOutput
 protocol SearchModuleOutput: AnyObject {
     func showFilter()
-    func showRecipeSearch()
-    func showIngridientSearch()
+    func showRecipeInfo(id: Int)
 }

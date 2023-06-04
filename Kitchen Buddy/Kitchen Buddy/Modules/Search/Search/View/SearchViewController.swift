@@ -120,7 +120,8 @@ final class SearchViewController: UIViewController {
         view.addSubview(tableView ?? UITableView())
         tableView?.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp.bottom)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
     
@@ -144,9 +145,7 @@ final class SearchViewController: UIViewController {
     }
     
     @objc private func filterButtonTapped() {
-        let filterViewController = UIViewController()
-        filterViewController.view.backgroundColor = UIColor(named: "AppBackgroundColor")
-        navigationController?.pushViewController(filterViewController, animated: true)
+        viewModel.goToFilterModule()
     }
 
     @objc private func cancelButtonTapped() {
@@ -209,6 +208,10 @@ extension SearchViewController: UITableViewDataSource {
 }
 
 extension SearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.handleTapOnRecipe(at: indexPath.row)
+    }
+    
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return viewModel.isTapped()
     }

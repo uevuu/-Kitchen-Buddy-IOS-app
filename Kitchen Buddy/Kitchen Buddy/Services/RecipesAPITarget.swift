@@ -52,9 +52,11 @@ extension RecipesAPITarget: TargetType {
     var task: Task {
         switch self {
         case .getRecipes( let recipesRequestModel):
-            let cusinesString = recipesRequestModel.cusines.map { $0.rawValue } .joined(separator: ",")
-            let intolerancesString = recipesRequestModel.intolerances.map { $0.rawValue } .joined(separator: ",")
-            let includeIngredientsString = recipesRequestModel.includeIngredients.joined(separator: ",")
+            let cusinesString = recipesRequestModel.cusines.getSelected().joined(separator: ",")
+            let intolerancesString = recipesRequestModel.intolerances.getSelected().joined(separator: ",")
+            let includeIngredientsString = recipesRequestModel.includeIngredients.map {
+                $0.name} .joined(separator: ",")
+            let mealsString = recipesRequestModel.meals.getSelected().joined(separator: ",")
             return .requestParameters(
                 parameters: [
                     "query": recipesRequestModel.query ?? "",
@@ -71,7 +73,8 @@ extension RecipesAPITarget: TargetType {
                     "minCalories": recipesRequestModel.minCalories,
                     "maxCalories": recipesRequestModel.maxCalories,
                     "minFat": recipesRequestModel.minFat,
-                    "maxFat": recipesRequestModel.maxFat
+                    "maxFat": recipesRequestModel.maxFat,
+                    "type": mealsString
                 ],
                 encoding: URLEncoding.queryString)
         case .getRecipeInformation, .getSimilarRecipes:
