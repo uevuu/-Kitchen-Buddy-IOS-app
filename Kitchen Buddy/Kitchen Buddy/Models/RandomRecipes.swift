@@ -26,11 +26,4 @@ struct Step: Codable {
     let number: Int
     let step: String
     let ingredients: [Ingredient]
-    let equipment: [Equipment]
-}
-
-struct Equipment: Codable {
-    let id: Int
-    let name: String
-    let image: String
 }

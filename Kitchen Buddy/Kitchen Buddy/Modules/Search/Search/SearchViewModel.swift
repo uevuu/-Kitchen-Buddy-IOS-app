@@ -23,10 +23,6 @@ class SearchViewModel {
     
     var desiredObject: SearchTypes = .recipe
     
-    private var sections: [Section] = [
-        IngredientSection()
-    ]
-    
     enum SearchTypes {
         case ingredient
         case recipe
@@ -99,11 +95,7 @@ class SearchViewModel {
     }
     
     func getSectionCount() -> Int {
-        return sections.count
-    }
-    
-    func getSections() -> [Section] {
-        return sections
+        return 1
     }
     
     func isTapped() -> Bool {
@@ -170,6 +162,7 @@ class SearchViewModel {
         case .recipe:
             foundRecipes.removeAll()
         }
+        desiredObject = .recipe
     }
     
     func handleTapOnRecipe(at row: Int) {

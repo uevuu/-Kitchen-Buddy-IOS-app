@@ -102,6 +102,15 @@ class RecipeInfoViewModel {
         }
     }
     
+    func tapOnStarButton() {
+        print("tap on button")
+    }
+    
+    
+    func setImage() -> UIImage? {
+        return UIImage(systemName: "star.fill")
+    }
+    
     func tapOnBackButton() {
         output?.viewDidPop(animated: true, completion: nil)
     }

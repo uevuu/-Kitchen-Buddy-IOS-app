@@ -142,6 +142,7 @@ final class SearchViewController: UIViewController {
         searchBar.placeholder = "Search ingredients"
         viewModel.desiredObject = .ingredient
         searchBar.becomeFirstResponder()
+        viewModel.desiredObject = .ingredient
     }
     
     @objc private func filterButtonTapped() {
@@ -153,7 +154,6 @@ final class SearchViewController: UIViewController {
         searchBar.text = ""
         searchBar.resignFirstResponder()
         removeTableView()
-        viewModel.desiredObject = .recipe
         viewModel.cleanFoundObjects()
         navigationItem.rightBarButtonItem = filterlButton
     }

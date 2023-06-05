@@ -95,11 +95,22 @@ class RecipeInfoViewController: UIViewController {
             target: self,
             action: #selector(backButtonTapped)
         )
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "star"),
+            style: .plain,
+            target: self,
+            action: #selector(starButtonTapped)
+        )
     }
     
     // MARK: - Private
     @objc private func backButtonTapped() {
         viewModel.tapOnBackButton()
+    }
+    
+    @objc private func starButtonTapped() {
+        viewModel.tapOnStarButton()
+        navigationItem.rightBarButtonItem?.image = viewModel.setImage()
     }
 }
 
