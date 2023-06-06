@@ -64,7 +64,6 @@ class FilterViewController: UIViewController {
     }
     
     func setConstraints() {
-        
     }
     
     private func configureItems() {

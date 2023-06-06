@@ -25,6 +25,7 @@ final class RecipeInfoBuilder: ModuleBuilderProtocol {
             networkService: resolver.resolve(),
             recipeModuleLocalDataSource: resolver.resolve(),
             lastRecipesService: resolver.resolve(),
+            favouriteService: resolver.resolve(),
             output: moduleOutput,
             recipeId: recipeId
         )

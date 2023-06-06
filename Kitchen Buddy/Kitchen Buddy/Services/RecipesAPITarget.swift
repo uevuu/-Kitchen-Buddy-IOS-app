@@ -23,7 +23,7 @@ extension RecipesAPITarget: TargetType {
     }
     
     var headers: [String: String]? {
-        ["x-api-key": "UR_Key"]
+        ["x-api-key": "UR_KEY"]
     }
     
     var path: String {
@@ -54,8 +54,9 @@ extension RecipesAPITarget: TargetType {
         case .getRecipes( let recipesRequestModel):
             let cusinesString = recipesRequestModel.cusines.getSelected().joined(separator: ",")
             let intolerancesString = recipesRequestModel.intolerances.getSelected().joined(separator: ",")
-            let includeIngredientsString = recipesRequestModel.includeIngredients.map {
-                $0.name} .joined(separator: ",")
+            let includeIngredientsString = recipesRequestModel.includeIngredients
+                .map { $0.name }
+                .joined(separator: ",")
             let mealsString = recipesRequestModel.meals.getSelected().joined(separator: ",")
             return .requestParameters(
                 parameters: [

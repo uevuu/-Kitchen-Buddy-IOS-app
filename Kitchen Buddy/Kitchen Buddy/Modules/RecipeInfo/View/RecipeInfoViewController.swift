@@ -72,7 +72,12 @@ class RecipeInfoViewController: UIViewController {
             }
         }
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.rightBarButtonItem?.image = viewModel.setImage()
+    }
+    
     deinit {
         viewModel.controllerWasDeinit()
     }

@@ -59,4 +59,3 @@ extension SelectableSettingCoordinator: SelectableSettingOutput {
         finishHandlers.forEach { $0() }
     }
 }
-

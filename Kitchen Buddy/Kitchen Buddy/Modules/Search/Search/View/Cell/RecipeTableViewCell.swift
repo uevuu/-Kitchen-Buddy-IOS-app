@@ -87,16 +87,20 @@ final class RecipeTableViewCell: UITableViewCell {
         titleLabel.text = title
         
         if let fat = nutrition.nutrients.first(where: { $0.name == "Fat" }) {
-            fatInfoLabel.text = "Fat: \(String(format: "%.2f", fat.amount)) \(fat.unit)"
+            let amountString = String(format: "%.2f", fat.amount)
+            fatInfoLabel.text = "Fat: \(amountString) \(fat.unit)"
         }
         if let protein = nutrition.nutrients.first(where: { $0.name == "Protein" }) {
-            proteinInfoLabel.text = "Protein: \(String(format: "%.2f", protein.amount)) \(protein.unit)"
+            let amountString = String(format: "%.2f", protein.amount)
+            proteinInfoLabel.text = "Protein: \(amountString) \(protein.unit)"
         }
         if let carbohydrates = nutrition.nutrients.first(where: { $0.name == "Carbohydrates" }) {
-            carbohydratesInfoLabel.text = "Carbohydrates: \(String(format: "%.2f", carbohydrates.amount)) \(carbohydrates.unit)"
+            let amountString = String(format: "%.2f", carbohydrates.amount)
+            carbohydratesInfoLabel.text = "Carbohydrates: \(amountString) \(carbohydrates.unit)"
         }
         if let calories = nutrition.nutrients.first(where: { $0.name == "Calories" }) {
-            caloriesInfoLabel.text = "Calories: \(String(format: "%.2f", calories.amount)) \(calories.unit)"
+            let amountString = String(format: "%.2f", calories.amount)
+            caloriesInfoLabel.text = "Calories: \(amountString) \(calories.unit)"
         }
     
         guard let imageUrlString = image else {
