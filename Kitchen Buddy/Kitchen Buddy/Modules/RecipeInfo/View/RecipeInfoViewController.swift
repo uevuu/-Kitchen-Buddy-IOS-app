@@ -72,7 +72,12 @@ class RecipeInfoViewController: UIViewController {
             }
         }
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.rightBarButtonItem?.image = viewModel.setImage()
+    }
+    
     deinit {
         viewModel.controllerWasDeinit()
     }
@@ -95,11 +100,22 @@ class RecipeInfoViewController: UIViewController {
             target: self,
             action: #selector(backButtonTapped)
         )
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "star"),
+            style: .plain,
+            target: self,
+            action: #selector(starButtonTapped)
+        )
     }
     
     // MARK: - Private
     @objc private func backButtonTapped() {
         viewModel.tapOnBackButton()
+    }
+    
+    @objc private func starButtonTapped() {
+        viewModel.tapOnStarButton()
+        navigationItem.rightBarButtonItem?.image = viewModel.setImage()
     }
 }
 
@@ -147,7 +163,9 @@ extension RecipeInfoViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.selectSimilarRecipe(recipeNumber: indexPath.item)
+        if indexPath.section == 2 {
+            viewModel.selectSimilarRecipe(recipeNumber: indexPath.item)
+        }
     }
 }
 

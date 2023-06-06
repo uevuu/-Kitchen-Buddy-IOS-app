@@ -23,6 +23,8 @@ final class SelectionRecipeCell: UICollectionViewCell {
     private lazy var recipeImageView: UIImageView = {
         let imageView = UIImageView(frame: bounds)
         imageView.contentMode = .scaleToFill
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

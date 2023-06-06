@@ -7,6 +7,7 @@
 
 import Swinject
 
+// MARK: - MainViewModel
 class MainViewModel {
     private weak var output: MainModuleOutput?
     private let networkService: NetworkService

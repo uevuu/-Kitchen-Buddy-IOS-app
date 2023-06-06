@@ -8,7 +8,7 @@ struct SearchRecipes: Codable {
 struct SearchRecipe: Codable {
     let id: Int
     let title: String
-    let image: String
+    let image: String?
     let nutrition: Nutrients
 }
 

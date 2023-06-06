@@ -27,11 +27,19 @@ final class SearchFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func showSearch() {
-        let viewController = ViewController()
+        let searchBuilder = SearchBuilder(
+            resolver: resolver,
+            moduleOutput: self
+        )
+        let viewController = searchBuilder.build()
         let navigationController = UINavigationController(rootViewController: viewController)
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(named: "AppBackgroundColor")
+        navigationController.navigationBar.standardAppearance = appearance
         self.navigationController = navigationController
         parentTabBarController?.addViewController(
-            viewController: viewController,
+            viewController: navigationController,
             title: "Search",
             image: UIImage(systemName: "magnifyingglass")
         )
@@ -42,7 +50,30 @@ final class SearchFlowCoordinator: FlowCoordinatorProtocol {
         finishHandlers.append(finishHandler)
         childCoordinators.finishAll(animated: animated, completion: nil)
     }
-    
+}
+
+// MARK: - SearchModuleOutput
+extension SearchFlowCoordinator: SearchModuleOutput {
     func showFilter() {
+        let filterCoordinator = FilterFlowCoordinator(
+            navigationController: navigationController,
+            resolver: resolver
+        ) { [weak self] in
+            self?.childCoordinators.removeFlowCoordinator(ofType: FilterFlowCoordinator.self)
+        }
+        filterCoordinator.start(animated: true)
+        childCoordinators.append(filterCoordinator)
+    }
+    
+    func showRecipeInfo(id: Int) {
+        let recipeFlowCoordinator = RecipeFlowCoordinator(
+            recipeId: id,
+            navigationController: navigationController,
+            resolver: resolver
+        ) { [weak self] in
+            self?.childCoordinators.removeFlowCoordinator(ofType: RecipeFlowCoordinator.self)
+        }
+        recipeFlowCoordinator.start(animated: true)
+        childCoordinators.append(recipeFlowCoordinator)
     }
 }

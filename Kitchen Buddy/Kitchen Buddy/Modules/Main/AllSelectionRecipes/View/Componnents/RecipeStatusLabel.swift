@@ -13,6 +13,8 @@ final class RecipeStatusLabel: UILabel {
         font = UIFont.systemFont(ofSize: 15, weight: .light)
         text = " \(statusName) "
         textColor = UIColor(named: "RecipeInfoFontColor")
+        layer.cornerRadius = 5
+        layer.masksToBounds = true
         backgroundColor = UIColor(named: "AppBackgroundColor")
         translatesAutoresizingMaskIntoConstraints = false
     }

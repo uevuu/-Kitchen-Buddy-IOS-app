@@ -7,7 +7,7 @@
 
 import Swinject
 
-class AllSelectionRecipesViewModel {
+class AllSelectionRecipesViewModel: SelectionViewModelProtocol {
     private let output: AllSelectionRecipesModuleOutput?
     private let recipes: [Recipe]
     

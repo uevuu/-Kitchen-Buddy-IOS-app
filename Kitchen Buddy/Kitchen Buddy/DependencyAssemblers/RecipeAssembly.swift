@@ -16,6 +16,12 @@ final class RecipeAssembly: Assembly {
         
         container.register(RecipeModuleLocalDataSource.self) { _ in
             RecipeModuleLocalDataSource()
-        }.inObjectScope(.container)
+        }
+        .inObjectScope(.container)
+        
+        container.register(FavouriteService.self) { _ in
+            FavouriteService()
+        }
+        .inObjectScope(.container)
     }
 }

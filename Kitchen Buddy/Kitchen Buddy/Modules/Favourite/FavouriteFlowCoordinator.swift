@@ -27,11 +27,19 @@ final class FavouriteFlowCoordinator: FlowCoordinatorProtocol {
     }
     
     func showFavourite() {
-        let viewController = ViewController()
+        let favouriteBuilder = FavouriteBuilder(
+            resolver: resolver,
+            moduleOutput: self
+        )
+        let viewController = favouriteBuilder.build()
         let navigationController = UINavigationController(rootViewController: viewController)
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(named: "AppBackgroundColor")
+        navigationController.navigationBar.standardAppearance = appearance
         self.navigationController = navigationController
         parentTabBarController?.addViewController(
-            viewController: viewController,
+            viewController: navigationController,
             title: "Favourite",
             image: UIImage(systemName: "star")
         )
@@ -47,5 +55,19 @@ final class FavouriteFlowCoordinator: FlowCoordinatorProtocol {
         guard let finishHandler = completion else { return }
         finishHandlers.append(finishHandler)
         childCoordinators.finishAll(animated: animated, completion: nil)
+    }
+}
+
+extension FavouriteFlowCoordinator: FavouriteModuleOutput {
+    func showRecipeInfo(id: Int) {
+        let recipeFlowCoordinator = RecipeFlowCoordinator(
+            recipeId: id,
+            navigationController: navigationController,
+            resolver: resolver
+        ) { [weak self] in
+            self?.childCoordinators.removeFlowCoordinator(ofType: RecipeFlowCoordinator.self)
+        }
+        recipeFlowCoordinator.start(animated: true)
+        childCoordinators.append(recipeFlowCoordinator)
     }
 }

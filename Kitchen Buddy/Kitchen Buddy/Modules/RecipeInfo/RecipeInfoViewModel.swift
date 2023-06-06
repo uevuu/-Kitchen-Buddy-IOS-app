@@ -12,6 +12,7 @@ class RecipeInfoViewModel {
     private let networkService: NetworkService
     private let  recipeModuleLocalDataSource: RecipeModuleLocalDataSource
     private let lastRecipesService: LastRecipesService
+    private let favouriteService: FavouriteService
     private var selectedRecipe: Recipe
     private var similarRecipes: [Recipe]?
     
@@ -25,12 +26,14 @@ class RecipeInfoViewModel {
         networkService: NetworkService,
         recipeModuleLocalDataSource: RecipeModuleLocalDataSource,
         lastRecipesService: LastRecipesService,
+        favouriteService: FavouriteService,
         output: RecipeInfoModuleOutput?,
         recipeId: Int
     ) {
         self.networkService = networkService
         self.recipeModuleLocalDataSource = recipeModuleLocalDataSource
         self.lastRecipesService = lastRecipesService
+        self.favouriteService = favouriteService
         guard let selectedRecipe = recipeModuleLocalDataSource.getRecipe(id: recipeId) else {
             fatalError("error with swithing to recipe info module")
         }
@@ -100,6 +103,21 @@ class RecipeInfoViewModel {
         } else {
             return similarRecipes?.count ?? 0
         }
+    }
+    
+    func tapOnStarButton() {
+        if !favouriteService.recipeIsAdded(selectedRecipe) {
+            favouriteService.saveRecipe(selectedRecipe)
+        } else {
+            favouriteService.deleteRecipe(selectedRecipe)
+        }
+    }
+    
+    func setImage() -> UIImage? {
+        if favouriteService.recipeIsAdded(selectedRecipe) {
+            return UIImage(systemName: "star.fill")
+        }
+        return UIImage(systemName: "star")
     }
     
     func tapOnBackButton() {
