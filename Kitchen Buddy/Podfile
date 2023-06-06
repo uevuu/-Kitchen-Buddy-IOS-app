@@ -12,4 +12,5 @@ target 'Kitchen Buddy' do
 	pod 'Moya', '~> 15.0'
 	pod 'Swinject'
 	pod 'Kingfisher', '~> 7.0'
+	pod 'SwiftGen'
 end

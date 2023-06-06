@@ -34,26 +34,26 @@ class SelectableSettingViewModel {
     func getSettingCount() -> Int {
         switch settingType {
         case .diet:
-            return filterService.filters.diet.count
+            return filterService.getDietsCount()
         case .meal:
-            return filterService.filters.meals.count
+            return filterService.getMealssCount()
         case .cusine:
-            return filterService.filters.cusines.count
+            return filterService.getCusinedCount()
         case .intolerance:
-            return filterService.filters.intolerances.count
+            return filterService.getIntolerancesCount()
         }
     }
     
     func getCellData(at row: Int) -> SelectableSettingModel {
         switch settingType {
         case .diet:
-            return filterService.filters.diet[row]
+            return filterService.getDiet(at: row)
         case .meal:
-            return filterService.filters.meals[row]
+            return filterService.getMeal(at: row)
         case .cusine:
-            return filterService.filters.cusines[row]
+            return filterService.getCusine(at: row)
         case .intolerance:
-            return filterService.filters.intolerances[row]
+            return filterService.getIntolerance(at: row)
         }
     }
     
@@ -73,13 +73,13 @@ class SelectableSettingViewModel {
     func cellTapped(at row: Int) {
         switch settingType {
         case .diet:
-            filterService.filters.diet[row].isSelected.toggle()
+            filterService.swapDietStatus(at: row)
         case .meal:
-            filterService.filters.meals[row].isSelected.toggle()
+            filterService.swapMealStatus(at: row)
         case .cusine:
-            filterService.filters.cusines[row].isSelected.toggle()
+            filterService.swapCusineStatus(at: row)
         case .intolerance:
-            filterService.filters.intolerances[row].isSelected.toggle()
+            filterService.swapIntoleranceStatus(at: row)
         }
     }
 }

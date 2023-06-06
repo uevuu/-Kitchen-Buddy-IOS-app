@@ -53,22 +53,22 @@ class FilterViewModel {
         case 0:
             return SelectableSetting(
                 title: selectableSetting[row],
-                selectedData: filterService.filters.diet.getSelected()
+                selectedData: filterService.getSelectedDiets()
             )
         case 1:
             return SelectableSetting(
                 title: selectableSetting[row],
-                selectedData: filterService.filters.meals.getSelected()
+                selectedData: filterService.getSelectedMeals()
             )
         case 2:
             return SelectableSetting(
                 title: selectableSetting[row],
-                selectedData: filterService.filters.cusines.getSelected()
+                selectedData: filterService.getSelectedCusines()
             )
         case 3:
             return SelectableSetting(
                 title: selectableSetting[row],
-                selectedData: filterService.filters.intolerances.getSelected()
+                selectedData: filterService.getSelectedIntolerances()
             )
         default:
             return SelectableSetting(
@@ -78,11 +78,11 @@ class FilterViewModel {
         }
     }
     func getSortingParam() -> Int {
-        return sortingParams.firstIndex { $0 == filterService.filters.sortBy } ?? 0
+        return sortingParams.firstIndex { $0 == filterService.getSortParam() } ?? 0
     }
     
     func handleSortingParamChanged(index: Int) {
-        filterService.filters.sortBy = sortingParams[index]
+        filterService.setSortParam(sortingParams[index])
     }
     
     func showSelectableSetting(at row: Int) {

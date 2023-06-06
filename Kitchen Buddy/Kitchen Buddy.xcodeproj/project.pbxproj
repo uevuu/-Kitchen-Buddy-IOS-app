@@ -61,6 +61,7 @@
 		8B6ACBDE2A2F35E60010471C /* FavouriteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6ACBDD2A2F35E60010471C /* FavouriteBuilder.swift */; };
 		8B6ACBE02A2F3A6F0010471C /* SelectionRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6ACBDF2A2F3A6F0010471C /* SelectionRecipesViewController.swift */; };
 		8B6ACBE22A2F5E490010471C /* SelectionViewModelProtocol .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6ACBE12A2F5E490010471C /* SelectionViewModelProtocol .swift */; };
+		8B6ACBEC2A2F70840010471C /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8B6ACBEB2A2F70840010471C /* swiftgen.yml */; };
 		8B7B83E72A2CE2FB007F1A9E /* SelectableSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B83E62A2CE2FB007F1A9E /* SelectableSettingCell.swift */; };
 		8B7B83EA2A2CED91007F1A9E /* SelectableSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B83E92A2CED91007F1A9E /* SelectableSettingViewModel.swift */; };
 		8B7B83EC2A2CEDCB007F1A9E /* SelectableSettingOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B83EB2A2CEDCB007F1A9E /* SelectableSettingOutput.swift */; };
@@ -180,6 +181,7 @@
 		8B6ACBDD2A2F35E60010471C /* FavouriteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteBuilder.swift; sourceTree = "<group>"; };
 		8B6ACBDF2A2F3A6F0010471C /* SelectionRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRecipesViewController.swift; sourceTree = "<group>"; };
 		8B6ACBE12A2F5E490010471C /* SelectionViewModelProtocol .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SelectionViewModelProtocol .swift"; sourceTree = "<group>"; };
+		8B6ACBEB2A2F70840010471C /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		8B7B83E62A2CE2FB007F1A9E /* SelectableSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableSettingCell.swift; sourceTree = "<group>"; };
 		8B7B83E92A2CED91007F1A9E /* SelectableSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableSettingViewModel.swift; sourceTree = "<group>"; };
 		8B7B83EB2A2CEDCB007F1A9E /* SelectableSettingOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableSettingOutput.swift; sourceTree = "<group>"; };
@@ -646,6 +648,7 @@
 		EA53171929D62677007B6953 = {
 			isa = PBXGroup;
 			children = (
+				8B6ACBEB2A2F70840010471C /* swiftgen.yml */,
 				EA53172429D62677007B6953 /* Kitchen Buddy */,
 				EA53172329D62677007B6953 /* Products */,
 				BC56DAEB262E5DAC9A4C0586 /* Pods */,
@@ -778,6 +781,7 @@
 				EA53173529D6267A007B6953 /* LaunchScreen.storyboard in Resources */,
 				8B7B83F82A2CF6C0007F1A9E /* MealTypes.json in Resources */,
 				8B7D2EA92A2BFA9700F01145 /* DietTypes.json in Resources */,
+				8B6ACBEC2A2F70840010471C /* swiftgen.yml in Resources */,
 				EA53173229D6267A007B6953 /* Assets.xcassets in Resources */,
 				8B7B83FC2A2CF813007F1A9E /* CusineTypes.json in Resources */,
 				8B852BAA2A1D5B7E007461A4 /* WinesSort.json in Resources */,

@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - FilterService
 final class FilterService {
-    var filters = RecipesRequestModel(
+    private var filters = RecipesRequestModel(
         includeIngredients: [],
         sortBy: "None",
         cusines: Bundle.main.decodeToSelectableSettingModel(file: "CusineTypes.json"),
@@ -52,5 +52,77 @@ final class FilterService {
     
     func removeIngedient(at row: Int) {
         filters.includeIngredients.remove(at: row)
+    }
+    
+    func getSelectedDiets() -> [String] {
+        return filters.diet.getSelected()
+    }
+    
+    func getSelectedMeals() -> [String] {
+        return filters.meals.getSelected()
+    }
+    
+    func getSelectedCusines() -> [String] {
+        return filters.cusines.getSelected()
+    }
+    
+    func getSelectedIntolerances() -> [String] {
+        return filters.intolerances.getSelected()
+    }
+    
+    func getSortParam() -> String {
+        return filters.sortBy
+    }
+    
+    func setSortParam(_ param: String) {
+        filters.sortBy = param
+    }
+    
+    func getDietsCount() -> Int {
+        return filters.diet.count
+    }
+    
+    func getMealssCount() -> Int {
+        return filters.meals.count
+    }
+    
+    func getCusinedCount() -> Int {
+        return filters.cusines.count
+    }
+    
+    func getIntolerancesCount() -> Int {
+        return filters.intolerances.count
+    }
+    
+    func getDiet(at row: Int) -> SelectableSettingModel {
+        return filters.diet[row]
+    }
+    
+    func getMeal(at row: Int) -> SelectableSettingModel {
+        return filters.meals[row]
+    }
+    
+    func getCusine(at row: Int) -> SelectableSettingModel {
+        return filters.cusines[row]
+    }
+    
+    func getIntolerance(at row: Int) -> SelectableSettingModel {
+        return filters.intolerances[row]
+    }
+    
+    func swapDietStatus(at row: Int) {
+        filters.diet[row].isSelected.toggle()
+    }
+    
+    func swapMealStatus(at row: Int) {
+        filters.meals[row].isSelected.toggle()
+    }
+    
+    func swapCusineStatus(at row: Int) {
+        filters.cusines[row].isSelected.toggle()
+    }
+    
+    func swapIntoleranceStatus(at row: Int) {
+        filters.intolerances[row].isSelected.toggle()
     }
 }
