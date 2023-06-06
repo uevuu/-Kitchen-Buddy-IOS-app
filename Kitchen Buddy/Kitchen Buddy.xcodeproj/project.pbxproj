@@ -60,6 +60,7 @@
 		8B6ACBDC2A2F2EFF0010471C /* FavouriteModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6ACBDB2A2F2EFF0010471C /* FavouriteModuleOutput.swift */; };
 		8B6ACBDE2A2F35E60010471C /* FavouriteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6ACBDD2A2F35E60010471C /* FavouriteBuilder.swift */; };
 		8B6ACBE02A2F3A6F0010471C /* SelectionRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6ACBDF2A2F3A6F0010471C /* SelectionRecipesViewController.swift */; };
+		8B6ACBE22A2F5E490010471C /* SelectionViewModelProtocol .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6ACBE12A2F5E490010471C /* SelectionViewModelProtocol .swift */; };
 		8B7B83E72A2CE2FB007F1A9E /* SelectableSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B83E62A2CE2FB007F1A9E /* SelectableSettingCell.swift */; };
 		8B7B83EA2A2CED91007F1A9E /* SelectableSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B83E92A2CED91007F1A9E /* SelectableSettingViewModel.swift */; };
 		8B7B83EC2A2CEDCB007F1A9E /* SelectableSettingOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B83EB2A2CEDCB007F1A9E /* SelectableSettingOutput.swift */; };
@@ -178,6 +179,7 @@
 		8B6ACBDB2A2F2EFF0010471C /* FavouriteModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteModuleOutput.swift; sourceTree = "<group>"; };
 		8B6ACBDD2A2F35E60010471C /* FavouriteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteBuilder.swift; sourceTree = "<group>"; };
 		8B6ACBDF2A2F3A6F0010471C /* SelectionRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRecipesViewController.swift; sourceTree = "<group>"; };
+		8B6ACBE12A2F5E490010471C /* SelectionViewModelProtocol .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SelectionViewModelProtocol .swift"; sourceTree = "<group>"; };
 		8B7B83E62A2CE2FB007F1A9E /* SelectableSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableSettingCell.swift; sourceTree = "<group>"; };
 		8B7B83E92A2CED91007F1A9E /* SelectableSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableSettingViewModel.swift; sourceTree = "<group>"; };
 		8B7B83EB2A2CEDCB007F1A9E /* SelectableSettingOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableSettingOutput.swift; sourceTree = "<group>"; };
@@ -580,20 +582,21 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		8BD1983129EBF6C500A8F8CE /* Builders */ = {
+		8BD1983129EBF6C500A8F8CE /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				8B2E7CFC29EFFA350091E129 /* ModuleBuilderProtocol.swift */,
+				8B6ACBE12A2F5E490010471C /* SelectionViewModelProtocol .swift */,
 			);
-			path = Builders;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
-		8BD1983829ECA3AB00A8F8CE /* Views */ = {
+		8BD1983829ECA3AB00A8F8CE /* ViewForCodeReuse */ = {
 			isa = PBXGroup;
 			children = (
 				8B6ACBDF2A2F3A6F0010471C /* SelectionRecipesViewController.swift */,
 			);
-			path = Views;
+			path = ViewForCodeReuse;
 			sourceTree = "<group>";
 		};
 		8BF901AF29E97FB300488B17 /* Coordinators */ = {
@@ -665,8 +668,8 @@
 				8B8A384D29FBDF26008416CE /* Modules */,
 				8B8A384A29FBDABE008416CE /* Extensions */,
 				8B2E7CF529EE91300091E129 /* DependencyAssemblers */,
-				8BD1983829ECA3AB00A8F8CE /* Views */,
-				8BD1983129EBF6C500A8F8CE /* Builders */,
+				8BD1983829ECA3AB00A8F8CE /* ViewForCodeReuse */,
+				8BD1983129EBF6C500A8F8CE /* Protocols */,
 				8BF901AF29E97FB300488B17 /* Coordinators */,
 				EA53173F29D63174007B6953 /* Services */,
 				EA53173E29D62BE8007B6953 /* Models */,
@@ -925,6 +928,7 @@
 				8B6ACBDA2A2F2EA70010471C /* FavouriteViewModel.swift in Sources */,
 				8B96398B2A016D340031AD7B /* AllSelectionRecipesModuleOutput.swift in Sources */,
 				8B6ACBD12A2F2E040010471C /* SavedIngredient+CoreDataProperties copy.swift in Sources */,
+				8B6ACBE22A2F5E490010471C /* SelectionViewModelProtocol .swift in Sources */,
 				8B32FE7029E76415009E9B26 /* RecipesRequestModel.swift in Sources */,
 				8BF901B929E9E53600488B17 /* SearchFlowCoordinator.swift in Sources */,
 				8B9733E22A13728E008D39CE /* HeaderView.swift in Sources */,

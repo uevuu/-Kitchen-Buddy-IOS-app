@@ -7,7 +7,7 @@
 
 import Swinject
 
-class FavouriteViewModel: SelectionViewModel {
+final class FavouriteViewModel: SelectionViewModelProtocol {
     private let output: FavouriteModuleOutput?
     private let recipeModuleLocalDataSource: RecipeModuleLocalDataSource
     private let favouriteService: FavouriteService

@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class SelectionRecipesViewController: UIViewController {
-    var viewModel: SelectionViewModel
+    var viewModel: SelectionViewModelProtocol
     
     // MARK: - Properties
     private lazy var collectionView = {
@@ -36,7 +36,7 @@ class SelectionRecipesViewController: UIViewController {
     }()
     
     // MARK: - Init
-    init(viewModel: SelectionViewModel) {
+    init(viewModel: SelectionViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
