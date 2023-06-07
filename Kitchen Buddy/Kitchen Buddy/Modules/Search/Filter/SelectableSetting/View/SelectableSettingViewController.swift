@@ -14,7 +14,7 @@ class SelectableSettingViewController: UIViewController {
     // MARK: - Properties
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.backgroundColor = UIColor(named: "AppBackgroundColor")
+        tableView.backgroundColor = Asset.Colors.appBackgroundColor.color
         return tableView
     }()
     
@@ -38,7 +38,7 @@ class SelectableSettingViewController: UIViewController {
     
     // MARK: - Setups
     func setupViews() {
-        view.backgroundColor = UIColor(named: "AppBackgroundColor")
+        view.backgroundColor = Asset.Colors.appBackgroundColor.color
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
@@ -76,11 +76,11 @@ extension SelectableSettingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.backgroundColor = UIColor(named: "AppSecondBackgroundColor")
+        cell.backgroundColor = Asset.Colors.appSecondBackgroundColor.color
         let cellData = viewModel.getCellData(at: indexPath.row)
         cell.textLabel?.text = cellData.name
         cell.accessoryType = cellData.isSelected ? .checkmark : .none
-        cell.tintColor = UIColor(named: "AppLinkFontColor")
+        cell.tintColor = Asset.Colors.appLinkFontColor.color
         return cell
     }
 }

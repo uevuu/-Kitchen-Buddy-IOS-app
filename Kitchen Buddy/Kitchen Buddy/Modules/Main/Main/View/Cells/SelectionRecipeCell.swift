@@ -14,7 +14,7 @@ final class SelectionRecipeCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
-        label.textColor = UIColor(named: "RecipeTitleFontColor")
+        label.textColor = Asset.Colors.recipeTitleFontColor.color
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
         return label
@@ -59,7 +59,7 @@ final class SelectionRecipeCell: UICollectionViewCell {
     func configureCell(title: String, imageUrlString: String? ) {
         titleLabel.text = title
         guard let imageUrlString else {
-            recipeImageView.image = UIImage(named: "NoImageAvailable")
+            recipeImageView.image = Asset.Images.noImageAvailable.image
             return
         }
         let url = URL(string: imageUrlString)

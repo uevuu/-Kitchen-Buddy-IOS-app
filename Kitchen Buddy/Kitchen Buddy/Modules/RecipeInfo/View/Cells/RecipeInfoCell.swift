@@ -88,7 +88,7 @@ final class RecipeInfoCell: UICollectionViewCell {
         servingPriceLabel.text = "Price per serving - \(String(format: "%.2f", recipe.pricePerServing / 100)) $"
         readyTimeLabel.text = "Ready time - \(recipe.readyInMinutes)"
         guard let imageUrlString = recipe.image else {
-            recipeImageView.image = UIImage(named: "NoImageAvailable")
+            recipeImageView.image = Asset.Images.noImageAvailable.image
             return
         }
         let url = URL(string: imageUrlString)

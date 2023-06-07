@@ -29,7 +29,7 @@ class WineTableViewCell: UITableViewCell {
     
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(named: "SecondFontColor")
+        label.textColor = Asset.Colors.secondFontColor.color
         label.font = UIFont.systemFont(ofSize: 19, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -44,7 +44,7 @@ class WineTableViewCell: UITableViewCell {
     
     private let ratingCountLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(named: "SecondFontColor")
+        label.textColor = Asset.Colors.secondFontColor.color
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -100,7 +100,7 @@ class WineTableViewCell: UITableViewCell {
     }
     
     private func setupViews() {
-        contentView.backgroundColor = UIColor(named: "AppBackgroundColor")
+        contentView.backgroundColor = Asset.Colors.appBackgroundColor.color
         contentView.addSubview(mainStackView)
         contentView.addSubview(descriptionLabel)
         setConstraints()
@@ -134,14 +134,14 @@ class WineTableViewCell: UITableViewCell {
         ratingLabel.text = wine.averageRating.toMarkString()
         ratingCountLabel.text = "\(wine.ratingCount)"
         priceLabel.text = wine.price.toTwoDecimalPlacesString()        
-        descriptionLabel.text = wine.description?.isEmpty == false ? wine.description : "There is no description"
+        descriptionLabel.text = wine.description?.isEmpty == false ? wine.description : L10n.Wine.noDescription
 
         if wine.averageRating < 0.5 {
-            ratingLabel.textColor = UIColor(named: "BadRatingFontColor")
+            ratingLabel.textColor = Asset.Colors.RatingFontColors.badRatingFontColor.color
         } else if wine.averageRating >= 0.5 && wine.averageRating <= 0.75 {
-            ratingLabel.textColor = UIColor(named: "MediumRatingFontColor")
+            ratingLabel.textColor = Asset.Colors.RatingFontColors.mediumRatingFontColor.color
         } else {
-            ratingLabel.textColor = UIColor(named: "GoodRatingFontColor")
+            ratingLabel.textColor = Asset.Colors.RatingFontColors.goodRatingFontColor.color
         }
         
         wineImageView.kf.setImage(with: URL(string: wine.imageUrl))

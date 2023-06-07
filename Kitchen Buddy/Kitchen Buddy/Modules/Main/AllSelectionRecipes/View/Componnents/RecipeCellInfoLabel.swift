@@ -11,7 +11,7 @@ final class RecipeCellInfoLabel: UILabel {
     init() {
         super.init(frame: .zero)
         font = UIFont.systemFont(ofSize: 15, weight: .light)
-        textColor = UIColor(named: "RecipeInfoFontColor")
+        textColor = Asset.Colors.recipeInfoFontColor.color
         translatesAutoresizingMaskIntoConstraints = false
     }
     

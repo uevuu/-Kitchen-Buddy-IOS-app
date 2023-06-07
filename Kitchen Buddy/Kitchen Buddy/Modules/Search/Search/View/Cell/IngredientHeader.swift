@@ -14,15 +14,15 @@ final class IngredientHeader: UICollectionReusableView {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        label.textColor = UIColor(named: "SecondFontColor")
+        label.textColor = Asset.Colors.secondFontColor.color
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var addButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Add", for: .normal)
-        button.setTitleColor(UIColor(named: "AppLinkFontColor"), for: .normal)
+        button.setTitle(L10n.Button.add, for: .normal)
+        button.setTitleColor(Asset.Colors.appLinkFontColor.color, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

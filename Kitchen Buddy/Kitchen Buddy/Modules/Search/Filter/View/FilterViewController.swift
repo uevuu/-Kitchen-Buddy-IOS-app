@@ -14,7 +14,7 @@ class FilterViewController: UIViewController {
     // MARK: - Properties
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.backgroundColor = UIColor(named: "AppBackgroundColor")
+        tableView.backgroundColor = Asset.Colors.appBackgroundColor.color
         tableView.register(
             SelectableSettingCell.self,
             forCellReuseIdentifier: SelectableSettingCell.reuseIdentifier
@@ -24,7 +24,7 @@ class FilterViewController: UIViewController {
     
     private let segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["None", "Price", "Popularity", "Time"])
-        segmentedControl.backgroundColor = UIColor(named: "AppSecondBackgroundColor")
+        segmentedControl.backgroundColor = Asset.Colors.appSecondBackgroundColor.color
         return segmentedControl
     }()
     
@@ -54,7 +54,7 @@ class FilterViewController: UIViewController {
     // MARK: - Setups
     func setupViews() {
         segmentedControl.selectedSegmentIndex = viewModel.getSortingParam()
-        view.backgroundColor = UIColor(named: "AppBackgroundColor")
+        view.backgroundColor = Asset.Colors.appBackgroundColor.color
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         view.addSubview(tableView)
         tableView.delegate = self
@@ -67,7 +67,7 @@ class FilterViewController: UIViewController {
     }
     
     private func configureItems() {
-        title = "Filters"
+        title = L10n.Title.filter
         navigationController?.navigationBar.tintColor = .label
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "chevron.left"),

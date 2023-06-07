@@ -15,7 +15,7 @@ final class RecentRecipeCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-        label.textColor = UIColor(named: "AppMainFontColor")
+        label.textColor = Asset.Colors.appMainFontColor.color
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 3
         return label
@@ -30,7 +30,7 @@ final class RecentRecipeCell: UICollectionViewCell {
     
     private lazy var grayLayer: UIView = {
         let view = UIView(frame: bounds)
-        view.backgroundColor = UIColor(named: "SurfaceViewColor")
+        view.backgroundColor = Asset.Colors.surfaceViewColor.color
         return view
     }()
     
@@ -71,7 +71,7 @@ final class RecentRecipeCell: UICollectionViewCell {
     func configureCell(title: String, imageUrlString: String? ) {
         titleLabel.text = title
         guard let imageUrlString else {
-            recipeImageView.image = UIImage(named: "NoImageAvailable")
+            recipeImageView.image = Asset.Images.noImageAvailable.image
             return
         }
         let url = URL(string: imageUrlString)

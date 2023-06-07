@@ -39,7 +39,7 @@ final class WinesViewController: UIViewController {
     
     private func setupTableView() {
         view.addSubview(tableView)
-        tableView.backgroundColor = UIColor(named: "AppBackgroundColor")
+        tableView.backgroundColor = Asset.Colors.appBackgroundColor.color
         tableView.dataSource = self
         tableView.delegate = self
         tableView.frame = view.bounds

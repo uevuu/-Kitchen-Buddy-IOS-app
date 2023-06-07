@@ -18,7 +18,7 @@ final class SearchViewController: UIViewController {
     
     private lazy var collectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-        collectionView.backgroundColor = UIColor(named: "AppBackgroundColor")
+        collectionView.backgroundColor = Asset.Colors.appBackgroundColor.color
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
 
@@ -48,30 +48,30 @@ final class SearchViewController: UIViewController {
     
     private let searchBar: UISearchBar = {
         let search = UISearchBar()
-        search.placeholder = "Search recipes"
+        search.placeholder = L10n.PlaceHolder.recipes
         search.translatesAutoresizingMaskIntoConstraints = false
         return search
     }()
     
     private lazy var filterlButton: UIBarButtonItem = {
         let button = UIBarButtonItem(
-            title: "Filter",
+            title: L10n.Button.filter,
             style: .plain,
             target: self,
             action: #selector(filterButtonTapped)
         )
-        button.tintColor = UIColor(named: "SecondFontColor")
+        button.tintColor = Asset.Colors.secondFontColor.color
         return button
     }()
     
     private lazy var cancelButton: UIBarButtonItem = {
         let button = UIBarButtonItem(
-            title: "Cancel",
+            title: L10n.Button.cancel,
             style: .plain,
             target: self,
             action: #selector(cancelButtonTapped)
         )
-        button.tintColor = UIColor(named: "SecondFontColor")
+        button.tintColor = Asset.Colors.secondFontColor.color
         return button
     }()
 
@@ -93,7 +93,7 @@ final class SearchViewController: UIViewController {
     
     // MARK: - Setups
     private func setupViews() {
-        view.backgroundColor = UIColor(named: "AppBackgroundColor")
+        view.backgroundColor = Asset.Colors.appBackgroundColor.color
         navigationItem.rightBarButtonItem = filterlButton
         navigationItem.titleView = searchBar
         view.addSubview(collectionView)
@@ -105,7 +105,7 @@ final class SearchViewController: UIViewController {
     private func createTableView() {
         tableView = UITableView()
         tableView?.translatesAutoresizingMaskIntoConstraints = false
-        tableView?.backgroundColor = UIColor(named: "AppBackgroundColor")
+        tableView?.backgroundColor = Asset.Colors.appBackgroundColor.color
         tableView?.dataSource = self
         tableView?.delegate = self
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
@@ -139,7 +139,7 @@ final class SearchViewController: UIViewController {
     
     // MARK: - Actions
     @objc private func addIngredientsButtonTapped() {
-        searchBar.placeholder = "Search ingredients"
+        searchBar.placeholder = L10n.PlaceHolder.ingredients
         viewModel.desiredObject = .ingredient
         searchBar.becomeFirstResponder()
         viewModel.desiredObject = .ingredient
@@ -150,7 +150,7 @@ final class SearchViewController: UIViewController {
     }
 
     @objc private func cancelButtonTapped() {
-        searchBar.placeholder = "Search recipes"
+        searchBar.placeholder = L10n.PlaceHolder.recipes
         searchBar.text = ""
         searchBar.resignFirstResponder()
         removeTableView()
@@ -256,7 +256,7 @@ extension SearchViewController: UICollectionViewDataSource {
         ) as? IngredientHeader else {
             fatalError("error")
         }
-        header.configureCell(headerName: "▼ Included ingredients")
+        header.configureCell(headerName: L10n.Search.ingredients)
         header.setTargetForButton(
             target: self,
             action: #selector(addIngredientsButtonTapped),

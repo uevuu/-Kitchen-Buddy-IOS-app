@@ -12,7 +12,7 @@ final class WineSortCell: UICollectionViewCell {
     
     private let roundedView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "AppSectionFontColor")
+        view.backgroundColor = Asset.Colors.appSectionFontColor.color
         view.clipsToBounds = true
         view.layer.cornerRadius = 30
         view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
@@ -23,7 +23,7 @@ final class WineSortCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
-        label.textColor = UIColor(named: "AppMainFontColor")
+        label.textColor = Asset.Colors.appMainFontColor.color
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -32,7 +32,7 @@ final class WineSortCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 15, weight: .light)
-        label.textColor = UIColor(named: "AppMainFontColor")
+        label.textColor = Asset.Colors.appMainFontColor.color
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 3
         return label

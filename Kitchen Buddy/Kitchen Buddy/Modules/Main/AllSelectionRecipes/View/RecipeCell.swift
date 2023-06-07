@@ -15,7 +15,7 @@ final class RecipeCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-        label.textColor = UIColor(named: "AppMainFontColor")
+        label.textColor = Asset.Colors.appMainFontColor.color
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
         return label
@@ -72,7 +72,7 @@ final class RecipeCell: UICollectionViewCell {
     private func setupViews() {
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
-        contentView.backgroundColor = UIColor(named: "AppSectionFontColor")
+        contentView.backgroundColor = Asset.Colors.appSectionFontColor.color
         contentView.addSubview(recipeImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(infoStackView)
@@ -116,19 +116,19 @@ final class RecipeCell: UICollectionViewCell {
         servingLabel.text = "\(recipe.servings) servings for \(String(format: "%.2f", recipe.pricePerServing / 100)) $"
         timeLabel.text = "\(recipe.readyInMinutes) minutes"
         
-        popularStatusLabel.backgroundColor = recipe.veryPopular
-            ? UIColor(named: "OrangeStatusColor") : popularStatusLabel.backgroundColor
+        popularStatusLabel.backgroundColor = recipe.veryPopular 
+            ? Asset.Colors.StatusColor.orangeStatusColor.color : popularStatusLabel.backgroundColor
         healthyStatusLabel.backgroundColor = recipe.veryHealthy
-            ? UIColor(named: "GreenStatusColor") : healthyStatusLabel.backgroundColor
+            ? Asset.Colors.StatusColor.greenStatusColor.color : healthyStatusLabel.backgroundColor
         cheapStatusLabel.backgroundColor = recipe.cheap
-            ? UIColor(named: "OrangeStatusColor") : cheapStatusLabel.backgroundColor
+            ? Asset.Colors.StatusColor.orangeStatusColor.color : cheapStatusLabel.backgroundColor
         veganStatusLabel.backgroundColor = recipe.vegan
-            ? UIColor(named: "GreenStatusColor") : veganStatusLabel.backgroundColor
+            ? Asset.Colors.StatusColor.greenStatusColor.color : veganStatusLabel.backgroundColor
         vegetarianStatusLabel.backgroundColor = recipe.vegetarian
-            ? UIColor(named: "GreenStatusColor") : vegetarianStatusLabel.backgroundColor
+            ? Asset.Colors.StatusColor.greenStatusColor.color : vegetarianStatusLabel.backgroundColor
         
         guard let imageUrlString = recipe.image else {
-            recipeImageView.image = UIImage(named: "NoImageAvailable")
+            recipeImageView.image = Asset.Images.noImageAvailable.image
             return
         }
         let url = URL(string: imageUrlString)

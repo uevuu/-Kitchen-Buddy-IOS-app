@@ -14,15 +14,15 @@ final class SelectionHeaderView: UICollectionReusableView {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        label.textColor = UIColor(named: "AppMainFontColor")
+        label.textColor = Asset.Colors.appMainFontColor.color
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private lazy var allButton: UIButton = {
         let button = UIButton()
-        button.setTitle("All", for: .normal)
-        button.setTitleColor(UIColor(named: "AppLinkFontColor"), for: .normal)
+        button.setTitle(L10n.Button.all, for: .normal)
+        button.setTitleColor(Asset.Colors.appLinkFontColor.color, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

@@ -14,7 +14,7 @@ final class RecipeTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        label.textColor = UIColor(named: "AppMainFontColor")
+        label.textColor = Asset.Colors.appMainFontColor.color
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
         return label
@@ -56,7 +56,7 @@ final class RecipeTableViewCell: UITableViewCell {
     }
     
     private func setupViews() {
-        contentView.backgroundColor = UIColor(named: "SearchCellBackgroundColor")
+        contentView.backgroundColor = Asset.Colors.searchCellBackgroundColor.color
         contentView.addSubview(recipeImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(infoStackView)
@@ -104,7 +104,7 @@ final class RecipeTableViewCell: UITableViewCell {
         }
     
         guard let imageUrlString = image else {
-            recipeImageView.image = UIImage(named: "NoImageAvailable")
+            recipeImageView.image = Asset.Images.noImageAvailable.image
             return
         }
         let url = URL(string: imageUrlString)

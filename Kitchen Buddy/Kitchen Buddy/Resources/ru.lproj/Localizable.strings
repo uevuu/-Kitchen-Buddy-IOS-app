@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  Kitchen Buddy
+
+  Created by Nikita Marin on 07.06.2023.
+  
+*/
+"main.lastRecipeSection" = "Привет";
+"main.selectionRecipeSection" = "Попробуй это";
+"main.whiteWineSection" = "Белые Вина";
+"main.redWineSection" = "Красные Вина";
+"main.otherWineSection" = "Прочие Вина";
+
+"tabbar.main" = "Главная";
+"tabbar.search" = "Поиск";
+"tabbar.favourite" = "Избранное";
+
+"title.selection" = "Рецепты";
+"title.filter" = "Фильтры";
+"title.favourite" = "Избранное";
+
+"placeHolder.recipes" = "Поиск рецептов";
+"placeHolder.ingredients" = "Поиск ингредиентов";
+
+"button.filter" = "Фильтр";
+"button.add"  = "Добавить";
+"button.all"  = "Все";
+"button.cancel" = "Отменить";
+"search.ingredients" = "▼ Учитывать ингреденты";
+
+"wine.noDescription" = "Описание отсутствует";
