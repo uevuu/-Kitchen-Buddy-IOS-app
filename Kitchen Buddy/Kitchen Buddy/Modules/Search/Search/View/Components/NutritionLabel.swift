@@ -12,7 +12,7 @@ final class NutritionLabel: UILabel {
         super.init(frame: .zero)
         font = UIFont.systemFont(ofSize: 15, weight: .regular)
         text = nutritionName
-        textColor = UIColor(named: "SecondFontColor")
+        textColor = Asset.Colors.secondFontColor.color
         translatesAutoresizingMaskIntoConstraints = false
     }
     

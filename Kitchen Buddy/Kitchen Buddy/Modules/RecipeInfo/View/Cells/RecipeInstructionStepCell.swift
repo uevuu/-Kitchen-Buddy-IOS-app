@@ -39,7 +39,7 @@ final class RecipeInstructionStepCell: UICollectionViewCell {
         contentView.layer.masksToBounds = true
         contentView.addSubview(instructionLabel)
         contentView.addSubview(stepNumberLabel)
-        contentView.backgroundColor = UIColor(named: "AppSecondBackgroundColor")
+        contentView.backgroundColor = Asset.Colors.appSecondBackgroundColor.color
         setConstraints()
     }
     

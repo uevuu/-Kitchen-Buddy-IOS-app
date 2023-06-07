@@ -19,7 +19,7 @@ final class IngredientTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        label.textColor = UIColor(named: "AppMainFontColor")
+        label.textColor = Asset.Colors.appMainFontColor.color
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
         return label
@@ -28,7 +28,7 @@ final class IngredientTableViewCell: UITableViewCell {
     private let addButton: UIButton = {
         let button = UIButton()
         button.setTitle(L10n.Button.add, for: .normal)
-        button.setTitleColor(UIColor(named: "RecipeInfoFontColor"), for: .normal)
+        button.setTitleColor(Asset.Colors.recipeInfoFontColor.color, for: .normal) 
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -44,7 +44,7 @@ final class IngredientTableViewCell: UITableViewCell {
     
     private func setupViews() {
         addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
-        contentView.backgroundColor = UIColor(named: "SearchCellBackgroundColor")
+        contentView.backgroundColor = Asset.Colors.searchCellBackgroundColor.color
         contentView.addSubview(titleLabel)
         contentView.addSubview(addButton)
         setConstraints()

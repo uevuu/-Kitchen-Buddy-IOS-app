@@ -21,7 +21,7 @@ class SelectableSettingCell: UITableViewCell {
     private let selectedSettingsLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.textColor = UIColor(named: "SecondaryTranslucentFontColor")
+        label.textColor = Asset.Colors.secondaryTranslucentFontColor.color
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -36,7 +36,7 @@ class SelectableSettingCell: UITableViewCell {
     }
     
     private func setupViews() {
-        contentView.backgroundColor = UIColor(named: "AppSecondBackgroundColor")
+        contentView.backgroundColor = Asset.Colors.appSecondBackgroundColor.color
         contentView.addSubview(titleLabel)
         contentView.addSubview(selectedSettingsLabel)
         setConstraints()

@@ -60,7 +60,7 @@ final class SearchViewController: UIViewController {
             target: self,
             action: #selector(filterButtonTapped)
         )
-        button.tintColor = UIColor(named: "SecondFontColor")
+        button.tintColor = Asset.Colors.secondFontColor.color
         return button
     }()
     
@@ -71,7 +71,7 @@ final class SearchViewController: UIViewController {
             target: self,
             action: #selector(cancelButtonTapped)
         )
-        button.tintColor = UIColor(named: "SecondFontColor")
+        button.tintColor = Asset.Colors.secondFontColor.color
         return button
     }()
 

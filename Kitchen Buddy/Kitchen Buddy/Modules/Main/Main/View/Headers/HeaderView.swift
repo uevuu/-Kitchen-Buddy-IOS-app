@@ -16,7 +16,7 @@ final class HeaderView: UICollectionReusableView {
         label.text = "header"
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        label.textColor = UIColor(named: "AppMainFontColor")
+        label.textColor = Asset.Colors.appMainFontColor.color
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

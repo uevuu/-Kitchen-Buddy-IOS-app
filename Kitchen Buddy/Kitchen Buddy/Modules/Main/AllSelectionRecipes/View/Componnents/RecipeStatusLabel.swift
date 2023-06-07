@@ -12,7 +12,7 @@ final class RecipeStatusLabel: UILabel {
         super.init(frame: .zero)
         font = UIFont.systemFont(ofSize: 15, weight: .light)
         text = " \(statusName) "
-        textColor = UIColor(named: "RecipeInfoFontColor")
+        textColor = Asset.Colors.recipeInfoFontColor.color
         layer.cornerRadius = 5
         layer.masksToBounds = true
         backgroundColor = Asset.Colors.appBackgroundColor.color

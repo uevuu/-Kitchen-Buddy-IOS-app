@@ -34,7 +34,7 @@ final class IngredientCell: UICollectionViewCell {
     private let deleteButton: UIButton = {
         let button = UIButton()
         button.setTitle("\u{2718}", for: .normal)
-        button.setTitleColor(UIColor(named: "AppMainFontColor"), for: .normal)
+        button.setTitleColor(Asset.Colors.appMainFontColor.color, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -50,7 +50,7 @@ final class IngredientCell: UICollectionViewCell {
     
     private func setupViews() {
         deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
-        contentView.backgroundColor = UIColor(named: "AppSectionFontColor")
+        contentView.backgroundColor = Asset.Colors.appSectionFontColor.color
         contentView.layer.cornerRadius = 5
         contentView.layer.masksToBounds = true
         contentView.addSubview(titleLabel)

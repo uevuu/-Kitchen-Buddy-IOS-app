@@ -14,7 +14,7 @@ final class SelectionRecipeCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 13, weight: .bold)
-        label.textColor = UIColor(named: "RecipeTitleFontColor")
+        label.textColor = Asset.Colors.recipeTitleFontColor.color
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
         return label

@@ -80,7 +80,7 @@ extension SelectableSettingViewController: UITableViewDataSource {
         let cellData = viewModel.getCellData(at: indexPath.row)
         cell.textLabel?.text = cellData.name
         cell.accessoryType = cellData.isSelected ? .checkmark : .none
-        cell.tintColor = UIColor(named: "AppLinkFontColor")
+        cell.tintColor = Asset.Colors.appLinkFontColor.color
         return cell
     }
 }

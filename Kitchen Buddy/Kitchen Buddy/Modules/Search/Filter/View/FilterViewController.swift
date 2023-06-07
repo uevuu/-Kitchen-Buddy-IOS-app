@@ -24,7 +24,7 @@ class FilterViewController: UIViewController {
     
     private let segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["None", "Price", "Popularity", "Time"])
-        segmentedControl.backgroundColor = UIColor(named: "AppSecondBackgroundColor")
+        segmentedControl.backgroundColor = Asset.Colors.appSecondBackgroundColor.color
         return segmentedControl
     }()
     
