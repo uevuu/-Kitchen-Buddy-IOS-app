@@ -12,8 +12,8 @@ final class FilterService {
     private var filters = RecipesRequestModel(
         includeIngredients: [],
         sortBy: "None",
-        cusines: Bundle.main.decodeToSelectableSettingModel(file: "CusineTypes.json"),
-        diet: Bundle.main.decodeToSelectableSettingModel(file: "DietTypes.json"),
+        cusines: Bundle.main.decodeToSelectableSettingModel(file: L10n.StaticData.cusines),
+        diet: Bundle.main.decodeToSelectableSettingModel(file: L10n.StaticData.diets),
         minCalories: 0,
         maxCalories: 800,
         minFat: 0,
@@ -23,8 +23,8 @@ final class FilterService {
         minProtein: 0,
         maxProtein: 800,
         time: 1440,
-        intolerances: Bundle.main.decodeToSelectableSettingModel(file: "IntoleranceTypes.json"),
-        meals: Bundle.main.decodeToSelectableSettingModel(file: "MealTypes.json")
+        intolerances: Bundle.main.decodeToSelectableSettingModel(file: L10n.StaticData.intolerances),
+        meals: Bundle.main.decodeToSelectableSettingModel(file: L10n.StaticData.meals)
     )
     
     func getFilters(with query: String) -> RecipesRequestModel {
@@ -55,19 +55,19 @@ final class FilterService {
     }
     
     func getSelectedDiets() -> [String] {
-        return filters.diet.getSelected()
+        return filters.diet.getSelectedNames()
     }
     
     func getSelectedMeals() -> [String] {
-        return filters.meals.getSelected()
+        return filters.meals.getSelectedNames()
     }
     
     func getSelectedCusines() -> [String] {
-        return filters.cusines.getSelected()
+        return filters.cusines.getSelectedNames()
     }
     
     func getSelectedIntolerances() -> [String] {
-        return filters.intolerances.getSelected()
+        return filters.intolerances.getSelectedNames()
     }
     
     func getSortParam() -> String {

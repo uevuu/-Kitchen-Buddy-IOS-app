@@ -27,7 +27,11 @@ extension Bundle {
     }
     
     func decodeToSelectableSettingModel(file: String) -> [SelectableSettingModel] {
-        let settingStringArray: [String] = decode(file: file)
-        return settingStringArray.map { SelectableSettingModel(name: $0) }
+        struct SettingStaticData: Codable {
+            let name: String
+            let value: String
+        }
+        let settingStringArray: [SettingStaticData] = decode(file: file)
+        return settingStringArray.map { SelectableSettingModel(name: $0.name, value: $0.value) }
     }
 }

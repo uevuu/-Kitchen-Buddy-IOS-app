@@ -30,3 +30,20 @@
 "search.ingredients" = "▼ Included ingredients";
 
 "wine.noDescription" = "There is no description";
+
+"staticData.meals" = "MealTypesEnglish.json";
+"staticData.diets" = "DietTypesEnglish.json";
+"staticData.intolerances" = "IntoleranceTypesEnglish.json";
+"staticData.cusines" = "CusineTypesEnglish.json";
+
+"selectableSetting.meal" = "Meal";
+"selectableSetting.diet" = "Diet";
+"selectableSetting.intolerance" = "Intolerance";
+"selectableSetting.cusine" = "Cusine";
+
+"selectableSetting.meals" = "Meals";
+"selectableSetting.diets" = "Diets";
+"selectableSetting.intolerances" = "Intolerances";
+"selectableSetting.cusines" = "Cusines";
+
+"wine.winesList" = "WinesSortEnglish.json";

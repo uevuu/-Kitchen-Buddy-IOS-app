@@ -23,7 +23,12 @@ class FilterViewModel {
     private let networkService: NetworkService
     private let filterService: FilterService
     private let output: FilterModuleOutput?
-    private let selectableSetting = ["Diet", "Meal", "Cusine", "Intolerance"]
+    private let selectableSetting = [
+        L10n.SelectableSetting.diet,
+        L10n.SelectableSetting.meal,
+        L10n.SelectableSetting.cusine,
+        L10n.SelectableSetting.intolerance
+    ]
     private let sortingParams = ["None", "Price", "Popularity", "Time"]
 
     init(

@@ -30,3 +30,20 @@
 "search.ingredients" = "▼ Учитывать ингреденты";
 
 "wine.noDescription" = "Описание отсутствует";
+
+"staticData.meals" = "MealTypesEnglishRussian.json";
+"staticData.diets" = "DietTypesEnglish.json";
+"staticData.intolerances" = "IntoleranceTypesRussian.json";
+"staticData.cusines" = "CusineTypesRussian.json";
+
+"selectableSetting.meal" = "Вид";
+"selectableSetting.diet" = "Диета";
+"selectableSetting.intolerance" = "Непереносимость";
+"selectableSetting.cusine" = "Кухня";
+
+"selectableSetting.meals" = "Виды";
+"selectableSetting.diets" = "Диеты";
+"selectableSetting.intolerances" = "Непереносимости";
+"selectableSetting.cusines" = "Кухни";
+
+"wine.winesList" = "WinesSortRussian.json";

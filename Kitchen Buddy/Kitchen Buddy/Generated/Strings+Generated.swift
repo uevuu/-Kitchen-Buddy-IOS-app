@@ -47,6 +47,34 @@ internal enum L10n {
     /// ▼ Included ingredients
     internal static let ingredients = L10n.tr("Localizable", "search.ingredients", fallback: "▼ Included ingredients")
   }
+  internal enum SelectableSetting {
+    /// Cusine
+    internal static let cusine = L10n.tr("Localizable", "selectableSetting.cusine", fallback: "Cusine")
+    /// Cusines
+    internal static let cusines = L10n.tr("Localizable", "selectableSetting.cusines", fallback: "Cusines")
+    /// Diet
+    internal static let diet = L10n.tr("Localizable", "selectableSetting.diet", fallback: "Diet")
+    /// Diets
+    internal static let diets = L10n.tr("Localizable", "selectableSetting.diets", fallback: "Diets")
+    /// Intolerance
+    internal static let intolerance = L10n.tr("Localizable", "selectableSetting.intolerance", fallback: "Intolerance")
+    /// Intolerances
+    internal static let intolerances = L10n.tr("Localizable", "selectableSetting.intolerances", fallback: "Intolerances")
+    /// Meal
+    internal static let meal = L10n.tr("Localizable", "selectableSetting.meal", fallback: "Meal")
+    /// Meals
+    internal static let meals = L10n.tr("Localizable", "selectableSetting.meals", fallback: "Meals")
+  }
+  internal enum StaticData {
+    /// CusineTypesEnglish.json
+    internal static let cusines = L10n.tr("Localizable", "staticData.cusines", fallback: "CusineTypesEnglish.json")
+    /// DietTypesEnglish.json
+    internal static let diets = L10n.tr("Localizable", "staticData.diets", fallback: "DietTypesEnglish.json")
+    /// IntoleranceTypesEnglish.json
+    internal static let intolerances = L10n.tr("Localizable", "staticData.intolerances", fallback: "IntoleranceTypesEnglish.json")
+    /// MealTypesEnglish.json
+    internal static let meals = L10n.tr("Localizable", "staticData.meals", fallback: "MealTypesEnglish.json")
+  }
   internal enum Tabbar {
     /// Favourite
     internal static let favourite = L10n.tr("Localizable", "tabbar.favourite", fallback: "Favourite")
@@ -66,6 +94,8 @@ internal enum L10n {
   internal enum Wine {
     /// There is no description
     internal static let noDescription = L10n.tr("Localizable", "wine.noDescription", fallback: "There is no description")
+    /// WinesSortEnglish.json
+    internal static let winesList = L10n.tr("Localizable", "wine.winesList", fallback: "WinesSortEnglish.json")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

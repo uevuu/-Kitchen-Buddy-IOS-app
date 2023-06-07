@@ -7,11 +7,16 @@
 
 struct SelectableSettingModel: Codable {
     let name: String
+    let value: String
     var isSelected = false
 }
 
 extension Collection where Element == SelectableSettingModel {
-    func getSelected() -> [String] {
+    func getSelectedNames() -> [String] {
         return self.filter { $0.isSelected }.map { $0.name }
+    }
+    
+    func getSelectedValues() -> [String] {
+        return self.filter { $0.isSelected }.map { $0.value }
     }
 }

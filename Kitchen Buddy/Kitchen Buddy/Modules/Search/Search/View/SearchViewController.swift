@@ -209,7 +209,9 @@ extension SearchViewController: UITableViewDataSource {
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.handleTapOnRecipe(at: indexPath.row)
+        DispatchQueue.main.async { [weak self] in
+            self?.viewModel.handleTapOnRecipe(at: indexPath.row)
+        }
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {

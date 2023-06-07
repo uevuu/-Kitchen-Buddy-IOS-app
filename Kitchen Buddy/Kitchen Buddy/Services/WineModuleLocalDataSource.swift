@@ -11,7 +11,7 @@ class WineModuleLocalDataSource {
     private let winesSort: [[WineSort]]
     
     init() {
-        self.winesSort = Bundle.main.decode(file: "WinesSort.json")
+        self.winesSort = Bundle.main.decode(file: L10n.Wine.winesList)
     }
     
     func getWineSort(sortValue: String) -> WineSort? {

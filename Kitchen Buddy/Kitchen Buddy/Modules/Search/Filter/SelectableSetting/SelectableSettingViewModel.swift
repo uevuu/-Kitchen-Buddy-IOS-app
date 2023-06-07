@@ -60,13 +60,13 @@ class SelectableSettingViewModel {
     func getTitle() -> String {
         switch settingType {
         case .diet:
-            return "Diets"
+            return L10n.SelectableSetting.diets
         case .meal:
-            return "Meals"
+            return L10n.SelectableSetting.meals
         case .cusine:
-            return "Cusines"
+            return L10n.SelectableSetting.cusines
         case .intolerance:
-            return "Intolerances"
+            return L10n.SelectableSetting.intolerances
         }
     }
     
