@@ -13,6 +13,8 @@ internal enum L10n {
   internal enum Button {
     /// Add
     internal static let add = L10n.tr("Localizable", "button.add", fallback: "Add")
+    /// Added
+    internal static let added = L10n.tr("Localizable", "button.added", fallback: "Added")
     /// All
     internal static let all = L10n.tr("Localizable", "button.all", fallback: "All")
     /// Cancel

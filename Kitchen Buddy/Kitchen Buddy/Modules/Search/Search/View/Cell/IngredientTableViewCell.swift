@@ -67,13 +67,13 @@ final class IngredientTableViewCell: UITableViewCell {
     
     func configureCell(title: String, isAdded: Bool) {
         if isAdded {
-            addButton.setTitle("Added", for: .normal)
+            addButton.setTitle(L10n.Button.added, for: .normal)
         }
         titleLabel.text = title
     }
     
     @objc private func addButtonTapped() {
         delegate?.addButtonTapped(cell: self)
-        addButton.setTitle("Added", for: .normal)
+        addButton.setTitle(L10n.Button.added, for: .normal)
     }
 }

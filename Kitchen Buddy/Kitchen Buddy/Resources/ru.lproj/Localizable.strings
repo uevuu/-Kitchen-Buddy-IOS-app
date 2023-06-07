@@ -24,6 +24,7 @@
 
 "button.filter" = "Фильтр";
 "button.add"  = "Добавить";
+"button.added"  = "Добавлено";
 "button.all"  = "Все";
 "button.cancel" = "Отменить";
 "search.ingredients" = "▼ Учитывать ингреденты";

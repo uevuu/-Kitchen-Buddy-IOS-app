@@ -24,6 +24,7 @@
 
 "button.filter" = "Filte";
 "button.add"  = "Add";
+"button.added"  = "Added";
 "button.all"  = "All";
 "button.cancel" = "Cancel";
 "search.ingredients" = "▼ Included ingredients";
