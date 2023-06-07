@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  Kitchen Buddy
+
+  Created by Nikita Marin on 07.06.2023.
+  
+*/
+"main.lastRecipeSection" = "Hello";
+"main.selectionRecipeSection" = "Try this";
+"main.whiteWineSection" = "White Wines";
+"main.redWineSection" = "Red Wines";
+"main.otherWineSection" = "Other Wines";
+
+"tabbar.main" = "Main";
+"tabbar.search" = "Search";
+"tabbar.favourite" = "Favourite";
+
+"title.selection" = "Recipes";
+"title.filter" = "Filters";
+"title.favourite" = "Favourite";
+
+"placeHolder.recipes" = "Search recipes";
+"placeHolder.ingredients" = "Search ingredients";
+
+"button.filter" = "Filte";
+"button.add"  = "Add";
+"button.all"  = "All";
+"button.cancel" = "Cancel";
+"search.ingredients" = "▼ Included ingredients";
+
+"wine.noDescription" = "There is no description";

@@ -16,7 +16,7 @@ final class MainViewController: UIViewController {
     // MARK: - Properties
     private lazy var collectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-        collectionView.backgroundColor = UIColor(named: "AppBackgroundColor")
+        collectionView.backgroundColor = Asset.Colors.appBackgroundColor.color
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -96,7 +96,7 @@ final class MainViewController: UIViewController {
         
     // MARK: - Setups
     private func setupViews() {
-        view.backgroundColor = UIColor(named: "AppBackgroundColor")
+        view.backgroundColor = Asset.Colors.appBackgroundColor.color
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.trailing.bottom.leading.equalToSuperview()
@@ -213,7 +213,7 @@ extension MainViewController: UICollectionViewDelegate {
                 ) as? SelectionHeaderView else {
                     fatalError("error")
                 }
-                header.configureCell(headerName: "Try this")
+                header.configureCell(headerName: L10n.Main.selectionRecipeSection)
                 header.setTargetForButton(
                     target: self,
                     action: #selector(allRecipesButtonTapped),
@@ -229,13 +229,13 @@ extension MainViewController: UICollectionViewDelegate {
                     fatalError("error")
                 }
                 if indexPath.section == 0 {
-                    header.configureCell(headerName: "Hello")
+                    header.configureCell(headerName: L10n.Main.lastRecipeSection)
                 } else if indexPath.section == 2 {
-                    header.configureCell(headerName: "White wines")
+                    header.configureCell(headerName: L10n.Main.whiteWineSection)
                 } else if indexPath.section == 3 {
-                    header.configureCell(headerName: "Red Wines")
+                    header.configureCell(headerName: L10n.Main.redWineSection)
                 } else if indexPath.section == 4 {
-                    header.configureCell(headerName: "Other Wines")
+                    header.configureCell(headerName: L10n.Main.otherWineSection)
                 }
                 return header
             }

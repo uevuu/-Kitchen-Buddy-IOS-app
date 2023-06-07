@@ -15,7 +15,7 @@ final class RecipeStatusLabel: UILabel {
         textColor = UIColor(named: "RecipeInfoFontColor")
         layer.cornerRadius = 5
         layer.masksToBounds = true
-        backgroundColor = UIColor(named: "AppBackgroundColor")
+        backgroundColor = Asset.Colors.appBackgroundColor.color
         translatesAutoresizingMaskIntoConstraints = false
     }
     

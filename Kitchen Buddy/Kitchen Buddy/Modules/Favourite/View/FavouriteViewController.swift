@@ -36,6 +36,6 @@ final class FavouriteViewController: SelectionRecipesViewController {
     }
     
     private func setupViews() {
-        title = "Favourite"
+        title = L10n.Title.favourite
     }
 }

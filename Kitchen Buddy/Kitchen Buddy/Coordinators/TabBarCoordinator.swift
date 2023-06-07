@@ -14,7 +14,7 @@ final class TabBarCoordinator: FlowCoordinatorProtocol {
     private var resolver: Resolver
     private var tabBarController: UITabBarController = {
         var tabBar = UITabBarController()
-        tabBar.tabBar.barTintColor = UIColor(named: "AppBackgroundColor")
+        tabBar.tabBar.barTintColor = Asset.Colors.appBackgroundColor.color
         tabBar.tabBar.tintColor = UIColor(named: "AppLinkFontColor")
         return tabBar
     }()

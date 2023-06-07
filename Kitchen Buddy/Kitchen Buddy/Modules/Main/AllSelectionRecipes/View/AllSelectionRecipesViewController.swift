@@ -23,7 +23,7 @@ final class AllSelectionRecipesViewController: SelectionRecipesViewController {
     }
     
     private func configureItems() {
-        title = "Recipes"
+        title = L10n.Title.selection
         navigationController?.navigationBar.tintColor = .label
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "chevron.left"),

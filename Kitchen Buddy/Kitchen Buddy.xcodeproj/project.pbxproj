@@ -47,6 +47,8 @@
 		8B54CAA02A12DB5E009B76D2 /* SelectionRecipeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B54CA9F2A12DB5E009B76D2 /* SelectionRecipeSection.swift */; };
 		8B54CAA22A12DB6F009B76D2 /* WineSortSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B54CAA12A12DB6F009B76D2 /* WineSortSection.swift */; };
 		8B54CAA42A12DEB3009B76D2 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B54CAA32A12DEB3009B76D2 /* Section.swift */; };
+		8B5E6A272A30F4A000179149 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5E6A252A30F4A000179149 /* XCAssets+Generated.swift */; };
+		8B5E6A282A30F4A000179149 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5E6A262A30F4A000179149 /* Strings+Generated.swift */; };
 		8B6ACBCF2A2F2E040010471C /* SavedIngredient+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6ACBC72A2F2E030010471C /* SavedIngredient+CoreDataClass copy.swift */; };
 		8B6ACBD02A2F2E040010471C /* SavedStep+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6ACBC82A2F2E040010471C /* SavedStep+CoreDataProperties copy.swift */; };
 		8B6ACBD12A2F2E040010471C /* SavedIngredient+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6ACBC92A2F2E040010471C /* SavedIngredient+CoreDataProperties copy.swift */; };
@@ -61,7 +63,6 @@
 		8B6ACBDE2A2F35E60010471C /* FavouriteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6ACBDD2A2F35E60010471C /* FavouriteBuilder.swift */; };
 		8B6ACBE02A2F3A6F0010471C /* SelectionRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6ACBDF2A2F3A6F0010471C /* SelectionRecipesViewController.swift */; };
 		8B6ACBE22A2F5E490010471C /* SelectionViewModelProtocol .swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6ACBE12A2F5E490010471C /* SelectionViewModelProtocol .swift */; };
-		8B6ACBEC2A2F70840010471C /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8B6ACBEB2A2F70840010471C /* swiftgen.yml */; };
 		8B7B83E72A2CE2FB007F1A9E /* SelectableSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B83E62A2CE2FB007F1A9E /* SelectableSettingCell.swift */; };
 		8B7B83EA2A2CED91007F1A9E /* SelectableSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B83E92A2CED91007F1A9E /* SelectableSettingViewModel.swift */; };
 		8B7B83EC2A2CEDCB007F1A9E /* SelectableSettingOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B83EB2A2CEDCB007F1A9E /* SelectableSettingOutput.swift */; };
@@ -87,6 +88,10 @@
 		8B7F591C2A237EC5002996C4 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F591B2A237EC5002996C4 /* Double+Extensions.swift */; };
 		8B7F591E2A237EF5002996C4 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F591D2A237EF5002996C4 /* String+Extensions.swift */; };
 		8B852BAA2A1D5B7E007461A4 /* WinesSort.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B852BA92A1D5B7E007461A4 /* WinesSort.json */; };
+		8B89E7B22A30E92100CD6A2A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B89E7B42A30E92100CD6A2A /* Localizable.strings */; };
+		8B89E7B82A30EA1B00CD6A2A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B89E7B72A30EA1B00CD6A2A /* Images.xcassets */; };
+		8B89E7BA2A30EA4C00CD6A2A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B89E7B92A30EA4C00CD6A2A /* Colors.xcassets */; };
+		8B89E7BE2A30EE4E00CD6A2A /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8B89E7BD2A30EE4E00CD6A2A /* swiftgen.yml */; };
 		8B8A384C29FBDB09008416CE /* UITabBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8A384B29FBDB09008416CE /* UITabBarController+Extensions.swift */; };
 		8B8FD9D72A0305A400404B9D /* Resolver+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FD9D62A0305A400404B9D /* Resolver+Extensions.swift */; };
 		8B9639872A016B290031AD7B /* AllSelectionRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9639862A016B290031AD7B /* AllSelectionRecipesViewController.swift */; };
@@ -167,6 +172,9 @@
 		8B54CA9F2A12DB5E009B76D2 /* SelectionRecipeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRecipeSection.swift; sourceTree = "<group>"; };
 		8B54CAA12A12DB6F009B76D2 /* WineSortSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineSortSection.swift; sourceTree = "<group>"; };
 		8B54CAA32A12DEB3009B76D2 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		8B5E6A1C2A30F2C700179149 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8B5E6A252A30F4A000179149 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
+		8B5E6A262A30F4A000179149 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		8B6ACBC72A2F2E030010471C /* SavedIngredient+CoreDataClass copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SavedIngredient+CoreDataClass copy.swift"; sourceTree = "<group>"; };
 		8B6ACBC82A2F2E040010471C /* SavedStep+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SavedStep+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
 		8B6ACBC92A2F2E040010471C /* SavedIngredient+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SavedIngredient+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
@@ -181,7 +189,6 @@
 		8B6ACBDD2A2F35E60010471C /* FavouriteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteBuilder.swift; sourceTree = "<group>"; };
 		8B6ACBDF2A2F3A6F0010471C /* SelectionRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRecipesViewController.swift; sourceTree = "<group>"; };
 		8B6ACBE12A2F5E490010471C /* SelectionViewModelProtocol .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SelectionViewModelProtocol .swift"; sourceTree = "<group>"; };
-		8B6ACBEB2A2F70840010471C /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		8B7B83E62A2CE2FB007F1A9E /* SelectableSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableSettingCell.swift; sourceTree = "<group>"; };
 		8B7B83E92A2CED91007F1A9E /* SelectableSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableSettingViewModel.swift; sourceTree = "<group>"; };
 		8B7B83EB2A2CEDCB007F1A9E /* SelectableSettingOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableSettingOutput.swift; sourceTree = "<group>"; };
@@ -207,6 +214,10 @@
 		8B7F591B2A237EC5002996C4 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		8B7F591D2A237EF5002996C4 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		8B852BA92A1D5B7E007461A4 /* WinesSort.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WinesSort.json; sourceTree = "<group>"; };
+		8B89E7B32A30E92100CD6A2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8B89E7B72A30EA1B00CD6A2A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8B89E7B92A30EA4C00CD6A2A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		8B89E7BD2A30EE4E00CD6A2A /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		8B8A384B29FBDB09008416CE /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
 		8B8FD9D62A0305A400404B9D /* Resolver+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Extensions.swift"; sourceTree = "<group>"; };
 		8B9639862A016B290031AD7B /* AllSelectionRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSelectionRecipesViewController.swift; sourceTree = "<group>"; };
@@ -409,6 +420,15 @@
 			path = Sections;
 			sourceTree = "<group>";
 		};
+		8B5E6A202A30F3D300179149 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				8B5E6A262A30F4A000179149 /* Strings+Generated.swift */,
+				8B5E6A252A30F4A000179149 /* XCAssets+Generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		8B7B83E52A2CE031007F1A9E /* SelectableSetting */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +509,16 @@
 				8B852BA92A1D5B7E007461A4 /* WinesSort.json */,
 			);
 			path = StaticData;
+			sourceTree = "<group>";
+		};
+		8B89E7AB2A30E73A00CD6A2A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8B89E7B42A30E92100CD6A2A /* Localizable.strings */,
+				8B89E7B72A30EA1B00CD6A2A /* Images.xcassets */,
+				8B89E7B92A30EA4C00CD6A2A /* Colors.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		8B8A384A29FBDABE008416CE /* Extensions */ = {
@@ -648,7 +678,7 @@
 		EA53171929D62677007B6953 = {
 			isa = PBXGroup;
 			children = (
-				8B6ACBEB2A2F70840010471C /* swiftgen.yml */,
+				8B89E7BD2A30EE4E00CD6A2A /* swiftgen.yml */,
 				EA53172429D62677007B6953 /* Kitchen Buddy */,
 				EA53172329D62677007B6953 /* Products */,
 				BC56DAEB262E5DAC9A4C0586 /* Pods */,
@@ -667,6 +697,8 @@
 		EA53172429D62677007B6953 /* Kitchen Buddy */ = {
 			isa = PBXGroup;
 			children = (
+				8B5E6A202A30F3D300179149 /* Generated */,
+				8B89E7AB2A30E73A00CD6A2A /* Resources */,
 				8B852BAB2A1D5B97007461A4 /* StaticData */,
 				8B8A384D29FBDF26008416CE /* Modules */,
 				8B8A384A29FBDABE008416CE /* Extensions */,
@@ -726,6 +758,7 @@
 			buildPhases = (
 				D1C87718A86C6D1E13287BF3 /* [CP] Check Pods Manifest.lock */,
 				8B8A386529DCC41A00998907 /* SwiftLint */,
+				8B89E7AF2A30E87B00CD6A2A /* SwiftGen */,
 				EA53171E29D62677007B6953 /* Sources */,
 				EA53171F29D62677007B6953 /* Frameworks */,
 				EA53172029D62677007B6953 /* Resources */,
@@ -762,6 +795,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = EA53171929D62677007B6953;
 			productRefGroup = EA53172329D62677007B6953 /* Products */;
@@ -780,10 +814,13 @@
 			files = (
 				EA53173529D6267A007B6953 /* LaunchScreen.storyboard in Resources */,
 				8B7B83F82A2CF6C0007F1A9E /* MealTypes.json in Resources */,
+				8B89E7BA2A30EA4C00CD6A2A /* Colors.xcassets in Resources */,
 				8B7D2EA92A2BFA9700F01145 /* DietTypes.json in Resources */,
-				8B6ACBEC2A2F70840010471C /* swiftgen.yml in Resources */,
+				8B89E7B82A30EA1B00CD6A2A /* Images.xcassets in Resources */,
+				8B89E7B22A30E92100CD6A2A /* Localizable.strings in Resources */,
 				EA53173229D6267A007B6953 /* Assets.xcassets in Resources */,
 				8B7B83FC2A2CF813007F1A9E /* CusineTypes.json in Resources */,
+				8B89E7BE2A30EE4E00CD6A2A /* swiftgen.yml in Resources */,
 				8B852BAA2A1D5B7E007461A4 /* WinesSort.json in Resources */,
 				8B7B83FE2A2CF87A007F1A9E /* IntoleranceTypes.json in Resources */,
 			);
@@ -792,6 +829,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		8B89E7AF2A30E87B00CD6A2A /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"${PROJECT_DIR}/Kitchen Buddy/Generated\"\nif [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi\n";
+		};
 		8B8A386529DCC41A00998907 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -929,6 +985,7 @@
 				8B7D2E922A29D57300F01145 /* FilterAssembly.swift in Sources */,
 				8B9639872A016B290031AD7B /* AllSelectionRecipesViewController.swift in Sources */,
 				8B54CA9B2A12C380009B76D2 /* WineSortCell.swift in Sources */,
+				8B5E6A272A30F4A000179149 /* XCAssets+Generated.swift in Sources */,
 				8B6ACBDA2A2F2EA70010471C /* FavouriteViewModel.swift in Sources */,
 				8B96398B2A016D340031AD7B /* AllSelectionRecipesModuleOutput.swift in Sources */,
 				8B6ACBD12A2F2E040010471C /* SavedIngredient+CoreDataProperties copy.swift in Sources */,
@@ -955,6 +1012,7 @@
 				EA53174129D63187007B6953 /* NetworkService.swift in Sources */,
 				8B10183F2A2929D400560D21 /* IngredientHeader.swift in Sources */,
 				EAD6AFEC29D77BD900BD7464 /* FilterSetup.swift in Sources */,
+				8B5E6A282A30F4A000179149 /* Strings+Generated.swift in Sources */,
 				8B7D2EA12A29FCA900F01145 /* FilterViewController.swift in Sources */,
 				8B7B83F02A2CEDEE007F1A9E /* SelectableSettingBuilder.swift in Sources */,
 				8B1B961829FFF4D00030A21D /* RecipeInfoBuilder.swift in Sources */,
@@ -970,6 +1028,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		8B89E7B42A30E92100CD6A2A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B89E7B32A30E92100CD6A2A /* en */,
+				8B5E6A1C2A30F2C700179149 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		EA53173329D6267A007B6953 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

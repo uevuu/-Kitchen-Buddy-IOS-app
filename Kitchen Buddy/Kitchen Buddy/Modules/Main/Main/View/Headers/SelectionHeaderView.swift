@@ -21,7 +21,7 @@ final class SelectionHeaderView: UICollectionReusableView {
     
     private lazy var allButton: UIButton = {
         let button = UIButton()
-        button.setTitle("All", for: .normal)
+        button.setTitle(L10n.Button.all, for: .normal)
         button.setTitleColor(UIColor(named: "AppLinkFontColor"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

@@ -128,7 +128,7 @@ final class RecipeCell: UICollectionViewCell {
             ? UIColor(named: "GreenStatusColor") : vegetarianStatusLabel.backgroundColor
         
         guard let imageUrlString = recipe.image else {
-            recipeImageView.image = UIImage(named: "NoImageAvailable")
+            recipeImageView.image = Asset.Images.noImageAvailable.image
             return
         }
         let url = URL(string: imageUrlString)

@@ -35,12 +35,12 @@ final class FavouriteFlowCoordinator: FlowCoordinatorProtocol {
         let navigationController = UINavigationController(rootViewController: viewController)
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(named: "AppBackgroundColor")
+        appearance.backgroundColor = Asset.Colors.appBackgroundColor.color
         navigationController.navigationBar.standardAppearance = appearance
         self.navigationController = navigationController
         parentTabBarController?.addViewController(
             viewController: navigationController,
-            title: "Favourite",
+            title: L10n.Tabbar.favourite,
             image: UIImage(systemName: "star")
         )
     }

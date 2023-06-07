@@ -14,7 +14,7 @@ class SelectionRecipesViewController: UIViewController {
     // MARK: - Properties
     private lazy var collectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-        collectionView.backgroundColor = UIColor(named: "AppBackgroundColor")
+        collectionView.backgroundColor = Asset.Colors.appBackgroundColor.color
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -53,7 +53,7 @@ class SelectionRecipesViewController: UIViewController {
     
     // MARK: - Setups
     private func setuCollectionView() {
-        view.backgroundColor = UIColor(named: "AppBackgroundColor")
+        view.backgroundColor = Asset.Colors.appBackgroundColor.color
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.trailing.bottom.leading.equalToSuperview()

@@ -104,7 +104,7 @@ final class RecipeTableViewCell: UITableViewCell {
         }
     
         guard let imageUrlString = image else {
-            recipeImageView.image = UIImage(named: "NoImageAvailable")
+            recipeImageView.image = Asset.Images.noImageAvailable.image
             return
         }
         let url = URL(string: imageUrlString)

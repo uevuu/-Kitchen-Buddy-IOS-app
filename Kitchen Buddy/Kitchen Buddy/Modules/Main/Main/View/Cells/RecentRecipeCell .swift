@@ -71,7 +71,7 @@ final class RecentRecipeCell: UICollectionViewCell {
     func configureCell(title: String, imageUrlString: String? ) {
         titleLabel.text = title
         guard let imageUrlString else {
-            recipeImageView.image = UIImage(named: "NoImageAvailable")
+            recipeImageView.image = Asset.Images.noImageAvailable.image
             return
         }
         let url = URL(string: imageUrlString)

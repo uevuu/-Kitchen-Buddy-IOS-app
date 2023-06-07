@@ -14,7 +14,7 @@ class RecipeInfoViewController: UIViewController {
     // MARK: - Properties
     private lazy var collectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-        collectionView.backgroundColor = UIColor(named: "AppBackgroundColor")
+        collectionView.backgroundColor = Asset.Colors.appBackgroundColor.color
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -62,7 +62,7 @@ class RecipeInfoViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "AppBackgroundColor")
+        view.backgroundColor = Asset.Colors.appBackgroundColor.color
         configureItems()
         setupViews()
         title = viewModel.getRecipeTitle()
@@ -84,7 +84,7 @@ class RecipeInfoViewController: UIViewController {
     
     // MARK: - Setups
     private func setupViews() {
-        view.backgroundColor = UIColor(named: "AppBackgroundColor")
+        view.backgroundColor = Asset.Colors.appBackgroundColor.color
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.trailing.bottom.leading.equalToSuperview()

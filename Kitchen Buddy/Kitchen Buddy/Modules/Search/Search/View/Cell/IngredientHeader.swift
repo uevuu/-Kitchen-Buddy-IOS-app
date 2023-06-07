@@ -21,7 +21,7 @@ final class IngredientHeader: UICollectionReusableView {
     
     private lazy var addButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Add", for: .normal)
+        button.setTitle(L10n.Button.add, for: .normal)
         button.setTitleColor(UIColor(named: "AppLinkFontColor"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

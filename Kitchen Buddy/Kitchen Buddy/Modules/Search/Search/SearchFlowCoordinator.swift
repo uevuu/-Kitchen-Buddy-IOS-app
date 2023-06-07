@@ -35,12 +35,12 @@ final class SearchFlowCoordinator: FlowCoordinatorProtocol {
         let navigationController = UINavigationController(rootViewController: viewController)
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(named: "AppBackgroundColor")
+        appearance.backgroundColor = Asset.Colors.appBackgroundColor.color
         navigationController.navigationBar.standardAppearance = appearance
         self.navigationController = navigationController
         parentTabBarController?.addViewController(
             viewController: navigationController,
-            title: "Search",
+            title: L10n.Tabbar.search,
             image: UIImage(systemName: "magnifyingglass")
         )
     }

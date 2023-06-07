@@ -100,7 +100,7 @@ class WineTableViewCell: UITableViewCell {
     }
     
     private func setupViews() {
-        contentView.backgroundColor = UIColor(named: "AppBackgroundColor")
+        contentView.backgroundColor = Asset.Colors.appBackgroundColor.color
         contentView.addSubview(mainStackView)
         contentView.addSubview(descriptionLabel)
         setConstraints()
@@ -134,7 +134,7 @@ class WineTableViewCell: UITableViewCell {
         ratingLabel.text = wine.averageRating.toMarkString()
         ratingCountLabel.text = "\(wine.ratingCount)"
         priceLabel.text = wine.price.toTwoDecimalPlacesString()        
-        descriptionLabel.text = wine.description?.isEmpty == false ? wine.description : "There is no description"
+        descriptionLabel.text = wine.description?.isEmpty == false ? wine.description : L10n.Wine.noDescription
 
         if wine.averageRating < 0.5 {
             ratingLabel.textColor = UIColor(named: "BadRatingFontColor")

@@ -26,7 +26,7 @@ final class IngredientCell: UICollectionViewCell {
     
     private let separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "AppBackgroundColor")
+        view.backgroundColor = Asset.Colors.appBackgroundColor.color
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
