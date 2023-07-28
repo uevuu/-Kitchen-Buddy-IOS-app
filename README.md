@@ -1,5 +1,5 @@
 # -Kitchen-Buddy-IOS-app
 An application that helps in the kitchen
 
-<img src="https://github.com/uevuu/-Kitchen-Buddy-IOS-app/Images/Simulator Screenshot - iPhone 14 Pro Max - 2023-07-28 at 18.43.34.png" width="300">
-<img src="https://github.com/uevuu/-Kitchen-Buddy-IOS-app/Images/Images/Simulator Screenshot - iPhone 14 Pro Max - 2023-07-28 at 18.43.03.png" width="300">
+<img src="https://github.com/uevuu/-Kitchen-Buddy-IOS-app/blob/main/Images/Simulator%20Screenshot%20-%20iPhone%2014%20Pro%20Max%20-%202023-07-28%20at%2018.43.34.png" width="300">
+
